@@ -1,7 +1,6 @@
 .App {
   text-align: center;
   align-content: center;
-  background-color: #282c34;
 }
 
 .App-logo {
@@ -39,8 +38,185 @@
   }
 }
 
-
-.phone-container {
+.section1{
   display: flex;
-  
+  height: 800px;
+}
+.container{
+  width:90%;
+  align-self: center;
+  height: 100%;
+  margin: 0 auto;
+  display: inline-flex;
+}
+.leftSection1{
+  height: 100%;
+  width: 48%;
+  margin-top:5%;
+}
+.rightSection1{
+  height: 100%;
+  width: 48%;
+}
+.phoneframe{
+  margin-top: 0 auto;
+  height: 70%;
+  width:70%;
+  margin-right: 0 auto;
+  float:right
+}
+.rightSection1Box{
+  width:70%;
+  height: 100%;
+  text-align: left;
+  /* margin:0 auto; */
+  margin-top: 30%;
+}
+.rightSection1Box>h1{
+  font-size: 100px;
+  line-height: 0;
+}
+.rightSection1Box>h2{
+  font-size: 40px;
+  line-height: 15px;
+}
+.rightSection1Box>p{
+  font-size: 20px;
+}
+.rightSection1Box>button{
+  width: 50%;
+  margin:0 auto;
+  padding:10px;
+  border: none;
+  background-color: #397AC2;
+  color: white;
+  font-size: 18px;
+  border-radius: 5px;
+}
+.rightSection1Box>button:hover{
+  background-color: #255285;
+  cursor: pointer;
+}
+.section2{
+  display: flex;
+  height: 550px;
+  background-color: #397AC2;
+}
+.innerSection2{
+  width: 90%;
+  height: 100%;
+}
+.innerSectionBox{
+  height: 50%;
+  width:80%;
+  margin: 0 auto;
+  margin-top: 25%;
+}
+.innerSectionBox>h1{
+  color: white;
+}
+.innerSectionBox>img{
+  height: 20%;
+  margin: 0 auto
+}
+.innerSectionBox>p{
+  color: 'white';
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20px;
+  font-size:17px;
+  color: white
+}
+.section3{
+  display: flex;
+  height: 800px;
+  background-color: #3D3D3D;
+}
+.rightSection3Box{
+  width:80%;
+  height: 100%;
+  text-align: left;
+  margin:0 auto;
+  margin-top: 25%;
+}
+.rightSection3Box>h2{
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+.leftSection3{
+  height: 100%;
+  width: 48%;
+}
+.rightSection3{
+  height: 100%;
+  width: 48%;
+}
+.section4{
+  display: flex;
+  height: 700px;
+}
+.container2{
+  width:80%;
+  margin: 0 auto;
+  margin-top: 5%;
+}
+.container2>h1{
+  font-size: 50px;
+}
+.container2>form{
+  width:60%;
+  margin: 0 auto;
+  height: 50%;
+}
+.container2>form>textarea{
+  width:99%;
+  height: 50%;
+  margin-top: 10px;
+  font-size: 16px;
+}
+.formTop{
+  display: inline;
+}
+.formTop>input{
+  width: 48%;
+  height: 25px;
+  padding:5px;
+  font-size: 16px;
+}
+.input1{
+  float: left;
+}
+.input2{
+  float: right;
+}
+.container2>form>button{
+  width: 50%;
+  margin:0 auto;
+  padding:10px;
+  border: none;
+  background-color: #397AC2;
+  color: white;
+  font-size: 18px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+.container2>form>button:hover{
+  background-color: #255285;
+  cursor: pointer;
+}
+.phoneframe2{
+  height: 80%;
+}
+.phoneframe2>img{
+  height: 100%;
+}
+.stores{
+  display:inline-flex;
+}
+.stores>img{
+  height: 50px;
+  margin-left: 5px;
+  margin-right:5px;
+  margin-top: 10px;
 }
