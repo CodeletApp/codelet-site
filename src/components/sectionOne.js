@@ -1,6 +1,6 @@
 import React from 'react';
 import { IPhoneX, Pixel3XL } from "react-device-frames";
-const q = require("../questions.png");
+const questionListImg = require("../questions.png");
 const googlePlay = require('../google_play.png');
 const appStore = require('../app_store.png');
 export function SectionOne (){
@@ -10,12 +10,13 @@ export function SectionOne (){
     return(
         <div className="section1">
             <div className="leftSection1">
-                <div className="phoneframe">
-                    <IPhoneX screenshot={q} />
-                    <div className="stores">
-                        <img src={googlePlay}/>
-                        <img src={appStore}/>
-                    </div>
+                <div className="phone-frames">
+                    <Pixel3XL screenshot={questionListImg}/>
+                    <IPhoneX screenshot={questionListImg} />
+                </div>
+                <div className="stores">
+                    <img src={googlePlay}/>
+                    <img src={appStore}/>
                 </div>
             </div>
             <div className="rightSection1">
