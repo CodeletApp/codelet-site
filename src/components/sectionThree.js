@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-const screenShot1 = require("../ScreenShot1.png");
-const screenShot2 = require("../ScreenShot2.png");
-const screenShot3 = require("../ScreenShot3.png");
-const screenShot4 = require("../ScreenShot4.png");
+const approachAlgo = require("../ScreenShot1.png");
+const analyzeAlgo = require("../ScreenShot2.png");
+const designAlgo = require("../ScreenShot3.png");
 
 class SectionThree extends Component {
   constructor(props) {
@@ -16,50 +15,51 @@ class SectionThree extends Component {
   }
   render() {
     return (
-      <div className="section3-container">
-        <h2 className="headline-h2-section3"> Solving a Question</h2>
+
         <div className="section3">
           <div className="leftSection3">
             <div className="phoneframe2">
               <img
                 src={
                   this.state.screen === 1
-                    ? screenShot1
+                    ? approachAlgo
                     : this.state.screen === 2
-                    ? screenShot2
+                    ? designAlgo
                     : this.state.screen === 3
-                    ? screenShot3
-                    : screenShot4
+                    ? analyzeAlgo
+                    : approachAlgo
                 }
               />
             </div>
           </div>
           <div className="rightSection3">
+          <h1 className="headline-h2-section3"> Solving a Question</h1>
             <p
               className="step-header"
               style={{ color: this.state.screen === 1 ? "#ABD1FC" : "#f5f5f5" }}
               onClick={() => this.changeScreens(1)}
             >
-              1) Choose Your Approach
+             Choose Your Approach
             </p>
             <p
               className="step-header"
               style={{ color: this.state.screen === 2 ? "#ABD1FC" : "#f5f5f5" }}
               onClick={() => this.changeScreens(2)}
             >
-              2) Design Your Algorithm
+             Design Your Algorithm
             </p>
             <p
               className="step-header"
               style={{ color: this.state.screen === 3 ? "#ABD1FC" : "#f5f5f5" }}
               onClick={() => this.changeScreens(3)}
             >
-              3) Analyze Your Algorithm
+             Analyze Your Algorithm
             </p>
           </div>
+          <a className="fixed-btn" >Join the Beta</a>
+
         </div>
-        <a className="secondary-btn" href="https://forms.gle/ZH2SrbF1172Ht6i88">Apply for Early Access!</a>
-      </div>
+
     );
   }
 }
