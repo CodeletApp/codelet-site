@@ -98,29 +98,43 @@ h1{
 .section2{
   display: flex;
   height: 550px;
-  min-height: 50vh;
   background-color: #397AC2;
 }
 .innerSectionBox{
   height: 50%;
   width:30%;
   margin: 0 auto;
-  margin-top: 7%;
+  margin-top: 2%;
 }
 .innerSectionBox>h1{
   color: white;
 }
 .innerSectionBox>img{
-  height: 20%;
+  height: 40%;
   margin: 0 auto
 }
-.innerSectionBox>p{
-  color: 'white';
-  width: 80%;
+
+
+.section2-list{
+  font-family: 'Muli', sans-serif;
+  width: 33%;
   margin: 0 auto;
   margin-top: 20px;
-  font-size:17px;
-  color: white
+  font-size:25px;
+  text-align: left;
+  color: rgb(39, 39, 39);
+  list-style: none;
+}
+
+li{
+  padding-bottom: 2.5%;
+
+}
+
+.ul-title{
+  font-size: 55px;
+  font-family: 'Muli', sans-serif;
+  color: rgb(39, 39, 39);
 }
 .section3{
   display: flex;
