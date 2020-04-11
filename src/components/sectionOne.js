@@ -9,7 +9,11 @@ export function SectionOne (){
         window.scrollTo(0,document.querySelector(".App").scrollHeight);
     }
     function scrollToMiddle(){
-        window.scrollTo(0,document.querySelector(".section2").scrollHeight);
+        window.scrollTo({
+            'behavior': 'smooth',
+            'left': 0,
+            'top': document.querySelector(".section2").offsetTop 
+          })
     }
     return(
         <div className="section1">
