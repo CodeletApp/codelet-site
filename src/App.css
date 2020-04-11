@@ -15,11 +15,9 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
-.App-link {
-  color: #61dafb;
+h1{
+  font-family: 'Muli', sans-serif;
 }
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -31,11 +29,11 @@
 .section1{
   display: flex;
   min-height: 100vh;
+  align-items: center;
 }
 .leftSection1{
-  height: 100%;
   width: 40%;
-  margin: 5% 0% auto auto;
+  margin: 15% 0% auto auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -90,6 +88,12 @@
   border-radius: 5px;
   justify-self: center;
 }
+.step-header{
+  font-family: 'Muli', sans-serif;
+  font-size: 40px;
+  font-weight: 300;
+  cursor: pointer;
+}
 
 .section2{
   display: flex;
@@ -120,17 +124,16 @@
 }
 .section3{
   display: flex;
-  height: 800px;
-  min-height: 100vh;
-  max-height: 50vh;
+  min-height: 80vh;
+  max-height: 80vh;
   background-color: #3D3D3D;
 }
 .rightSection3{
   width:48%;
   height: 100%;
   text-align: left;
-  margin:0 auto;
-  margin-top: 10%;
+  margin:9% auto auto auto;
+  justify-content: space-between;
 }
 .rightSection3>h2{
   font-size: 40px;
@@ -138,7 +141,7 @@
   cursor: pointer;
 }
 .leftSection3{
-  height: 100%;
+  height: 50%;
   width: 45%;
   float: right;
 }
@@ -195,15 +198,18 @@
   width:70%;
   justify-items: center;
   display:flex;
-  justify-content: right;
+}
+.iphone{
+  margin-left: 2%;
 }
 .phoneframe2{
   height: 80%;
-  float:right
+  float:right;
+  margin-left: 10px;
 }
 .phoneframe2>img{
-  height: 100%;
-  margin-top:20%;
+  margin-top: 14%;
+  height: 600px;
 }
 
 
@@ -222,6 +228,23 @@
   color: #373F41;
   margin: 0;
 }
+
+.headline-h2-section3{
+  font-family: 'Muli', sans-serif;
+  color: #f5f5f5;
+  align-self: center;
+  background:  rgba(61,61,61,1);
+  margin: 0;
+  padding-top: 1%;
+  font-size: 60px;
+  
+}
+
+.section3-container{
+  background: rgb(57,122,194);
+  /* background: linear-gradient(90deg, rgba(57,122,194,1), rgba(61,61,61,1) ); */
+}
+
 .headline-p{
   font-family: 'Montserrat';
   font-size: 38px;
@@ -230,4 +253,4 @@
   color: #737B7D;
   width: 55%;
 }
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Muli:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Muli:wght@600&display=swap');
