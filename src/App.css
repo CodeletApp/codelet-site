@@ -37,21 +37,13 @@
     transform: rotate(360deg);
   }
 }
-
 .section1{
   display: flex;
   height: 800px;
 }
-.container{
-  width:90%;
-  align-self: center;
-  height: 100%;
-  margin: 0 auto;
-  display: inline-flex;
-}
 .leftSection1{
   height: 100%;
-  width: 48%;
+  width: 50%;
   margin-top:5%;
 }
 .rightSection1{
@@ -63,13 +55,12 @@
   height: 70%;
   width:70%;
   margin-right: 0 auto;
-  float:right
+  float:right 
 }
 .rightSection1Box{
-  width:70%;
+  width:60%;
   height: 100%;
   text-align: left;
-  /* margin:0 auto; */
   margin-top: 30%;
 }
 .rightSection1Box>h1{
@@ -101,15 +92,11 @@
   height: 550px;
   background-color: #397AC2;
 }
-.innerSection2{
-  width: 90%;
-  height: 100%;
-}
 .innerSectionBox{
   height: 50%;
-  width:80%;
+  width:30%;
   margin: 0 auto;
-  margin-top: 25%;
+  margin-top: 7%;
 }
 .innerSectionBox>h1{
   color: white;
@@ -131,44 +118,36 @@
   height: 800px;
   background-color: #3D3D3D;
 }
-.rightSection3Box{
-  width:80%;
+.rightSection3{
+  width:48%;
   height: 100%;
   text-align: left;
   margin:0 auto;
-  margin-top: 25%;
+  margin-top: 10%;
 }
-.rightSection3Box>h2{
+.rightSection3>h2{
   font-size: 40px;
   color: white;
   cursor: pointer;
 }
 .leftSection3{
   height: 100%;
-  width: 48%;
-}
-.rightSection3{
-  height: 100%;
-  width: 48%;
+  width: 45%;
+  float: right;
 }
 .section4{
-  display: flex;
-  height: 700px;
+  height: 600px;
 }
-.container2{
-  width:80%;
-  margin: 0 auto;
-  margin-top: 5%;
-}
-.container2>h1{
+.section4>h1{
   font-size: 50px;
+  margin-top:8%;
 }
-.container2>form{
+.section4>form{
   width:60%;
   margin: 0 auto;
   height: 50%;
 }
-.container2>form>textarea{
+.section4>form>textarea{
   width:99%;
   height: 50%;
   margin-top: 10px;
@@ -189,7 +168,7 @@
 .input2{
   float: right;
 }
-.container2>form>button{
+.section4>form>button{
   width: 50%;
   margin:0 auto;
   padding:10px;
@@ -200,15 +179,17 @@
   border-radius: 5px;
   margin-top: 20px;
 }
-.container2>form>button:hover{
+.section4>form>button:hover{
   background-color: #255285;
   cursor: pointer;
 }
 .phoneframe2{
   height: 80%;
+  float:right
 }
 .phoneframe2>img{
   height: 100%;
+  margin-top:20%;
 }
 .stores{
   display:inline-flex;
