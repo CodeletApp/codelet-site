@@ -58,6 +58,7 @@ class SectionThree extends Component {
             </p>
           </div>
         </div>
+        <a className="secondary-btn" href="https://forms.gle/ZH2SrbF1172Ht6i88">Apply for Early Access!</a>
       </div>
     );
   }
