@@ -3,6 +3,7 @@
   align-content: center;
   display: flex;
   flex-direction: column;
+  background-color: #f7f7f7;;
 }
 
 .App-logo {
@@ -39,7 +40,6 @@ h1{
   bottom: 0;
   height: 10%;
   width: 100%;
-  /* border: 10px solid black; */
   border-bottom: #373F41;
 }
 
@@ -299,6 +299,60 @@ li{
   cursor: pointer;
 }
 
+
+@media only screen and (max-width: 1000px) {
+  .section1{
+    flex-direction: column-reverse;
+    margin-left: 0;
+    align-items: stretch;
+    margin: 3% 3%;
+  }
+  .rightSection1Box{
+    width: 100%;
+  }
+  .leftSection1{
+    height: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: 3%;
+    width: 100%;
+  }
+  .headline-p{
+    width: 100%;
+    text-align: center;
+  }
+  .rightSection1Box{
+    width: 100%;
+    text-align: center;
+  }
+  .section-1-btns{
+    width: 100%;
+  }
+  .primary-btn-section1{
+    width: 70%;
+  }
+  .secondary-btn{
+    margin: 1%;
+    width: 44%;
+  }
+  .android-phone{
+    display: none;
+  }
+  .logo-large{
+    width: 300px;
+  }
+  .cross{
+    display: none;
+  }
+  .stores{
+    width: 80%;
+  }
+  .stores>img{
+    height: 40px;
+    margin: 3%;
+  }
+}
 
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Muli:wght@600&display=swap');
