@@ -17,6 +17,11 @@ export function SectionOne (){
     }
     return(
         <div className="section1">
+            <svg role="presentation" class="cross" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <polygon fill="#1D589A" points="0,77 0,85 100,8 100,1"></polygon>
+                <polygon fill="#397AC2" points="0,84 0,100 100,100 100,7"></polygon>
+            </svg>
+           
             <div className="leftSection1">
                 <div className="phone-frames">
                     <Pixel3XL className="android-phone" screenshot={questionListImg}/>
@@ -26,6 +31,7 @@ export function SectionOne (){
                     <img src={googlePlay} alt='google-play'/>
                     <img src={appStore} alt='apple-store'/>
                 </div>
+    
             </div>
             <div className="rightSection1Box">
                 <img width={450} src={codeletLogoLarge} alt="logo-large"/>
