@@ -35,7 +35,7 @@ export function SectionOne (){
             </div>
             <div className="rightSection1Box">
                 <img width={450} src={codeletLogoLarge} alt="logo-large"/>
-                <h2 className="headline-h2">Beat Coding Interviews</h2>
+                <h2 className="headline-h2">Beat Technical Interviews</h2>
                 <p className="headline-p">An interactive mobile platform designed to quickly prepare software engineers for technical interviews on the go.</p>
                 <button className="primary-btn-section1" onClick={()=> scrollToBottom()}>Join the Beta</button>
                 <button className="secondary-btn" onClick={()=> scrollToMiddle()}>See How</button>
