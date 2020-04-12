@@ -78,6 +78,7 @@ h1{
   font-family: 'Muli', sans-serif;
   letter-spacing: .1em;
   border-radius: 5px;
+  cursor: pointer;
   justify-self: center;
 }
 .rightSection1Box>button:hover{

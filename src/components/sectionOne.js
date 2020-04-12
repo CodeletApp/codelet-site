@@ -37,8 +37,10 @@ export function SectionOne (){
                 <img width={450} src={codeletLogoLarge} alt="logo-large"/>
                 <h2 className="headline-h2">Beat Technical Interviews</h2>
                 <p className="headline-p">An interactive mobile platform designed to quickly prepare software engineers for technical interviews on the go.</p>
-                <button className="primary-btn-section1" onClick={()=> scrollToBottom()}>Join the Beta</button>
-                <button className="secondary-btn" onClick={()=> scrollToMiddle()}>See How</button>
+                <a c href="https://docs.google.com/forms/d/e/1FAIpQLScdPx0TSDPYBsEKT2buMK0SkpjcPrze5Ms0IhTw5Yl4vTpxLg/viewform?usp=sf_link">
+                    <button className="primary-btn-section1" >Join the Beta</button>
+                </a>
+                <button className="secondary-btn" onClick={()=> scrollToMiddle()}>Demo (Soon)</button>
             </div>
         </div>
     )
