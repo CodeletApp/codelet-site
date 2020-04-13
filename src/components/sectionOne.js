@@ -49,7 +49,7 @@ export function SectionOne() {
             <button className="primary-btn-section1">Join the Beta</button>
           </a>
           <button className="secondary-btn" onClick={() => scrollToMiddle()}>
-            Demo (Soon)
+            Demo
           </button>
         </div>
       </div>
