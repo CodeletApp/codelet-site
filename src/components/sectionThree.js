@@ -28,6 +28,7 @@ class SectionThree extends Component {
                   ? analyzeAlgo
                   : approachAlgo
               }
+              alt="algo-screens"
             />
           </div>
         </div>

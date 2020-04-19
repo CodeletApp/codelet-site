@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "./App.css";
+import "./App.scss";
 import {SectionOne} from './components/sectionOne';
 import {SectionTwo} from './components/sectionTwo';
 import SectionThree from './components/sectionThree';
@@ -9,8 +9,8 @@ class App extends Component {
     return (
       <div className="App">
         <SectionOne/>
-        <SectionTwo/>
-        <SectionThree/>
+        {/* <SectionTwo/>
+        <SectionThree/> */}
       </div>
     );
   }
