@@ -1,41 +1,70 @@
-import React, { Component }  from 'react';
-const screenShot1 = require('../ScreenShot1.png');
-const screenShot2 = require('../ScreenShot2.png');
-const screenShot3 = require('../ScreenShot3.png');
-const screenShot4 = require('../ScreenShot4.png');
+import React, { Component } from "react";
+const approachAlgo = require("../ScreenShot1.png");
+const analyzeAlgo = require("../ScreenShot2.png");
+const designAlgo = require("../ScreenShot3.png");
 
-class SectionThree extends Component{
-    constructor(props){
-        super(props)
-        this.state={
-          screen:1
-        }
-    }
-    changeScreens(num){
-        this.setState({screen:num})
-    }
-    render(){
-        return(
-        <div className="section3">
-            <div className="leftSection3">
-              <div className="phoneframe2">
-                <img src={this.state.screen === 1? screenShot1: 
-                          this.state.screen === 2 ? screenShot2:
-                          this.state.screen === 3 ? screenShot3:
-                          screenShot4
-                        }/>
-              </div>
-            </div>
-            <div className="rightSection3">
-                <h2 style={{color:this.state.screen === 1 ? '#397AC2' : 'white'}} onClick={()=>this.changeScreens(1)}>Choose Your Approach</h2>
-                <h2 style={{color:this.state.screen === 2 ? '#397AC2' : 'white'}} onClick={()=>this.changeScreens(2)}>Find Your Algorithm</h2>
-                <h2 style={{color:this.state.screen === 3 ? '#397AC2' : 'white'}} onClick={()=>this.changeScreens(3)}>Analize Your Algorithm</h2>
-                <h2 style={{color:this.state.screen === 4 ? '#397AC2' : 'white'}} onClick={()=>this.changeScreens(4)}>Learn From Your Results</h2>
-            </div>
+class SectionThree extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      screen: 1,
+    };
+  }
+  changeScreens(num) {
+    this.setState({ screen: num });
+  }
+  render() {
+    return (
+      <div className="section3">
+        <div className="leftSection3">
+          <div className="phoneframe2">
+            <img
+              src={
+                this.state.screen === 1
+                  ? approachAlgo
+                  : this.state.screen === 2
+                  ? designAlgo
+                  : this.state.screen === 3
+                  ? analyzeAlgo
+                  : approachAlgo
+              }
+              alt="algo-screens"
+            />
+          </div>
         </div>
-        )
-    }
-
+        <div className="rightSection3">
+          <h1 className="headline-h2-section3"> Solving a Question</h1>
+          <p
+            className="step-header"
+            style={{ color: this.state.screen === 1 ? "#ABD1FC" : "#f5f5f5" }}
+            onClick={() => this.changeScreens(1)}
+          >
+            Choose Your Approach
+          </p>
+          <p
+            className="step-header"
+            style={{ color: this.state.screen === 2 ? "#ABD1FC" : "#f5f5f5" }}
+            onClick={() => this.changeScreens(2)}
+          >
+            Design Your Algorithm
+          </p>
+          <p
+            className="step-header"
+            style={{ color: this.state.screen === 3 ? "#ABD1FC" : "#f5f5f5" }}
+            onClick={() => this.changeScreens(3)}
+          >
+            Analyze Your Algorithm
+          </p>
+        </div>
+        <a
+          className="fixed-btn"
+          href="https://docs.google.com/forms/d/e/1FAIpQLScdPx0TSDPYBsEKT2buMK0SkpjcPrze5Ms0IhTw5Yl4vTpxLg/viewform?usp=sf_link"
+        >
+          Join the Beta
+        </a>
+      </div>
+    );
+  }
 }
 
-export default SectionThree
+export default SectionThree;

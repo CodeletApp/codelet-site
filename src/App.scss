@@ -1,0 +1,413 @@
+// Max screen sizes variables
+$screen-xs-max: 768px; // < 768 (xsmall phones)
+$screen-sm-max: 992px; // < 992px (small tablet)
+$screen-md-max: 1200px; // < 1200 px (large desktops
+
+// Mix screen sizes variables
+$screen-xs-min: 768px; // < 768 (xsmall phones)
+$screen-sm-min: 992px; // < 992px (small tablet)
+$screen-md-min: 1200px; // < 1200 px (large desktops
+
+h1 {
+  font-family: "Muli", sans-serif;
+}
+
+.App {
+  text-align: center;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f7f7;
+  width: 100%;
+}
+
+.section1 {
+  // Mobile first
+  display: flex;
+  flex-direction: column-reverse;
+  min-height: 100vh;
+  background-color: #f7f7f7;
+  // For the smallest non mobile device (non-mobile after)
+  @media (min-width: $screen-sm-min) {
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+}
+
+.leftSection1 {
+  //mobile
+  height: 50%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3%;
+  width: auto;
+  > .phone-frames > .android-phone {
+    display: none;
+  }
+  //Desktop
+  @media (min-width: $screen-sm-min) {
+    width: 40%;
+    display: flex;
+    > .phone-frames > .android-phone {
+      display: initial;
+    }
+  }
+}
+
+.rightSection1Box > button:hover {
+  background-color: #abd1fc;
+  cursor: pointer;
+  color: black;
+}
+.rightSection1Box {
+  text-align: center;
+  width: 100%;
+  margin-top: 3%;
+  @media (min-width: $screen-sm-min) {
+    width: 50%;
+    height: 100%;
+    text-align: left;
+    margin-top: 0%;
+    > {
+      h1 {
+        font-size: 100px;
+        line-height: 0;
+      }
+
+      h2 {
+        font-size: 40px;
+      }
+
+      p {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.section2 {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  background-color: #397ac2;
+  @media (min-width: $screen-sm-min) {
+    flex-direction: row;
+    height: 600px;
+  }
+}
+
+.innerSectionBox {
+  height: 50%;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 2%;
+  @media (min-width: $screen-sm-min) {
+    width: 30%;
+      > img {
+        height: 40%;
+        margin: 0 auto;
+      }
+    }
+  > img {
+    width: 100px;
+    margin: 0 auto;
+  }
+}
+
+.section2-list {
+  font-family: "Muli", sans-serif;
+  color: #f7f7f7;
+  list-style: none;
+  margin: 2%;
+  padding: 0;
+  @media (min-width: $screen-sm-min) {
+  width: 60%;
+  font-size: 20px;
+  text-align: left;
+  }
+}
+
+.section3 {
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: rgb(41, 41, 41);
+  @media (min-width: $screen-sm-min) {
+    height: 700px;
+    max-height: 80vh;
+    padding-top: 1.3%;
+    padding-bottom: 1%;
+  }
+}
+
+.rightSection3 {
+  width: 100%;
+  margin: 1% auto auto auto;
+  justify-content: space-between;
+  @media (min-width: $screen-sm-min) {
+    width: 48%;
+    height: 60%;
+    text-align: left;
+  }
+
+  > h2 {
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+  }
+  
+}
+
+.leftSection3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (min-width: $screen-sm-min) {
+    float: right;
+    height: 50%;
+    width: 45%;
+  }
+}
+
+.section4 {
+  max-height: 10vh;
+
+  > {
+    h1 {
+      font-size: 50px;
+      margin-top: 8%;
+    }
+
+    form {
+      width: 60%;
+      margin: 0 auto;
+      height: 50%;
+
+      > textarea {
+        width: 99%;
+        height: 50%;
+        margin-top: 10px;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.section4 > form > button {
+  width: 50%;
+  margin: 0 auto;
+  padding: 10px;
+  border: none;
+  background-color: #397ac2;
+  color: white;
+  font-size: 18px;
+  border-radius: 5px;
+  margin-top: 20px;
+
+  &:hover {
+    background-color: #255285;
+    cursor: pointer;
+  }
+}
+
+.step-header {
+  font-family: "Muli", sans-serif;
+  font-size: 20px;
+
+  cursor: pointer;
+
+  @media (min-width: $screen-sm-min) {
+    font-weight: 300;
+  }
+}
+
+// Not main section scss
+li {
+  padding-bottom: 2.5%;
+}
+
+.phone-frames {
+  height: 70%;
+  width: 70%;
+  justify-items: center;
+  align-self: center;
+  display: flex;
+}
+
+.iphone {
+  margin-left: 2%;
+}
+
+.phoneframe2 {
+  height: 80%;
+  float: right;
+  margin-left: 10px;
+
+  > img {
+    margin-top: 14%;
+    height: 600px;
+  }
+}
+
+.ul-title {
+  font-size: 35px;
+  font-family: "Muli", sans-serif;
+  color: #f7f7f7;
+  text-decoration: underline;
+  @media (min-width: $screen-sm-min) {
+    font-size: 55px;
+  }
+
+}
+
+.formTop {
+  display: inline;
+
+  > input {
+    width: 48%;
+    height: 25px;
+    padding: 5px;
+    font-size: 16px;
+  }
+}
+
+.input1 {
+  float: left;
+}
+
+.input2 {
+  float: right;
+}
+
+.stores {
+  width: 80%;
+  > img {
+    height: 40px;
+    margin: 3%;
+  }
+  @media (min-width: $screen-sm-min) {
+    display: inline-flex;
+    width: 70%;
+    justify-content: space-around;
+
+    > img {
+      height: 50px;
+      margin-top: 1%;
+    }
+  }
+}
+
+.headline-h2 {
+  font-family: "Muli", sans-serif;
+  color: #373f41;
+  margin: 0;
+}
+
+.headline-h2-section3 {
+  font-family: "Muli", sans-serif;
+  color: #f5f5f5;
+  align-self: center;
+  margin: 0;
+  padding-top: 10%;
+  font-size: 30px;
+  @media (min-width: $screen-sm-min) {
+    font-size: 65px;
+  }
+}
+
+.headline-p {
+  width: 100%;
+  text-align: center;
+
+  @media (min-width: $screen-sm-min) {
+    font-family: "Montserrat";
+    font-size: 38px;
+    font-weight: 500;
+    text-align: left;
+    color: #737b7d;
+    width: 55%;
+  }
+}
+
+.fixed-btn {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 8%;
+  margin: 1%;
+  margin-right: 0;
+  padding: 0.7%;
+  border-width: 1px;
+  border-color: black;
+  background-color: rgb(184, 217, 255);
+  color: black;
+  font-size: 18px;
+  font-family: "Muli", sans-serif;
+  letter-spacing: 0.1em;
+  border-radius: 15px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  justify-self: center;
+  box-shadow: 2px 2px 3px black;
+  cursor: pointer;
+}
+
+.logo-large {
+  width: 300px;
+  @media (min-width: $screen-sm-min) {
+  }
+}
+
+.primary-btn-section1 {
+  width: 55%;
+  margin: 0 auto;
+  padding: 10px;
+  border: none;
+  background-color: #397ac2;
+  color: #f5f5f5;
+  font-size: 18px;
+  font-family: "Muli", sans-serif;
+  letter-spacing: 0.1em;
+  border-radius: 5px;
+  cursor: pointer;
+  justify-self: center;
+
+  @media (min-width: $screen-sm-min) {
+    width: 25%;
+  }
+}
+
+.secondary-btn {
+  margin: 1%;
+  width: 55%;
+  padding: 10px;
+  border-width: 1px;
+  border-color: #255285;
+  background-color: #f5f5f5;
+  color: black;
+  font-size: 18px;
+  font-family: "Muli", sans-serif;
+  letter-spacing: 0.1em;
+  border-radius: 5px;
+  justify-self: center;
+  @media (min-width: $screen-sm-min) {
+    width: 25%;
+    margin: 0 auto auto 2%;
+  }
+}
+
+.splash-screen-poly {
+  display: none;
+  @media (min-width: $screen-sm-min) {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 10%;
+    width: 100%;
+    border-bottom: #373f41;
+  }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Muli:wght@600&display=swap");

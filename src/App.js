@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import "./App.css";
+import "./App.scss";
 import {SectionOne} from './components/sectionOne';
 import {SectionTwo} from './components/sectionTwo';
 import SectionThree from './components/sectionThree';
-import {SectionFour} from './components/sectionFour';
 
 class App extends Component {
   render(){
@@ -12,7 +11,6 @@ class App extends Component {
         <SectionOne/>
         <SectionTwo/>
         <SectionThree/>
-        <SectionFour/>
       </div>
     );
   }
