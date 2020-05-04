@@ -60,7 +60,7 @@ class SectionThree extends Component {
           className="fixed-btn"
           href="https://docs.google.com/forms/d/e/1FAIpQLScdPx0TSDPYBsEKT2buMK0SkpjcPrze5Ms0IhTw5Yl4vTpxLg/viewform?usp=sf_link"
         >
-          Join the Beta
+          Join Beta
         </a>
       </div>
     );
