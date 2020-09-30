@@ -1,7 +1,7 @@
 import React from "react";
-const mobile = require("../mobile.png");
-const bird = require("../bird.png");
-const analytics = require("../analytics.png");
+const mobile = require("../assets/mobile.png");
+const bird = require("../assets/bird.png");
+const analytics = require("../assets/analytics.png");
 export function SectionTwo() {
   return (
     <div className="section2">

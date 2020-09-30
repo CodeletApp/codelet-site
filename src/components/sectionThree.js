@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-const approachAlgo = require("../ScreenShot1.png");
-const analyzeAlgo = require("../ScreenShot2.png");
-const designAlgo = require("../ScreenShot3.png");
+const approachAlgo = require("../assets/ScreenShot1.png");
+const analyzeAlgo = require("../assets/ScreenShot2.png");
+const designAlgo = require("../assets/ScreenShot3.png");
 
 class SectionThree extends Component {
   constructor(props) {

@@ -1,9 +1,9 @@
 import React from "react";
 import { IPhoneX, Pixel3XL } from "react-device-frames";
-const questionListImg = require("../questions.png");
-const googlePlay = require("../google_play.png");
-const appStore = require("../app_store.png");
-const codeletLogoLarge = require("../logo-large-blue.png");
+const questionListImg = require("../assets/questions.png");
+const googlePlay = require("../assets/google_play.png");
+const appStore = require("../assets/app_store.png");
+const codeletLogoLarge = require("../assets/logo-large-blue.png");
 export function SectionOne() {
   function scrollToMiddle() {
     window.scrollTo({
