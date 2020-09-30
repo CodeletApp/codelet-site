@@ -16,6 +16,8 @@ export function SectionThree() {
         return "/screenshots/step2.png";
       case 3:
         return "/screenshots/step3.png";
+      case 4:
+        return "/screenshots/results.png";
       default:
         return "#";
     }
@@ -53,6 +55,13 @@ export function SectionThree() {
           onClick={() => changeScreens(3)}
         >
           Analyze Your Algorithm
+        </p>
+        <p
+          className="step-header"
+          style={{ color: screen === 4 ? "#ABD1FC" : "#f5f5f5" }}
+          onClick={() => changeScreens(4)}
+        >
+          Check Your Results
         </p>
       </div>
       <a
