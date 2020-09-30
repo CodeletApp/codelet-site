@@ -2,13 +2,23 @@ import React from "react";
 import spinner from "../spinner.gif";
 
 export default () => (
-  <img
-    src={spinner}
+  <div
     style={{
-      width: "100px",
-      margin: "auto",
-      display: "block",
+      width: "100%",
+      height: window.innerHeight,
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
     }}
-    alt="Loading..."
-  />
+  >
+    <img
+      src={spinner}
+      style={{
+        width: "100px",
+        margin: "auto",
+        display: "block",
+      }}
+      alt="Loading..."
+    />
+  </div>
 );
