@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Device from "react-device-frame";
+
 
 export function SectionThree() {
   const [screen, setScreen] = useState(1);
@@ -25,11 +25,10 @@ export function SectionThree() {
     <div className="section3">
       <div className="leftSection3">
         <div className="phoneframe2">
-          <Device name="iphone-x" color="silver" url={getScreenUrl()} />
-          {/* <img
+          <img
             src={getScreenUrl()}
             alt="algo-screens"
-          /> */}
+          />
         </div>
       </div>
       <div className="rightSection3">
