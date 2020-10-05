@@ -1,9 +1,6 @@
 import React from "react";
 import { IPhoneX, Pixel3XL } from "react-device-frames";
-const questionListImg = require("../questions.png");
-const googlePlay = require("../google_play.png");
-const appStore = require("../app_store.png");
-const codeletLogoLarge = require("../logo-large-blue.png");
+
 export function SectionOne() {
   function scrollToMiddle() {
     window.scrollTo({
@@ -26,19 +23,19 @@ export function SectionOne() {
 
       <div className="leftSection1">
         <div className="phone-frames">
-          <Pixel3XL className="android-phone" screenshot={questionListImg} />
-          <IPhoneX className="iphone" screenshot={questionListImg} />
+          <Pixel3XL className="android-phone" screenshot="/screenshots/questions.png" />
+          <IPhoneX className="iphone" screenshot="/screenshots/questions.png" />
         </div>
         <div className="stores">
-          <img src={googlePlay} alt="google-play" />
-          <img src={appStore} alt="apple-store" />
+          <img src="/logos/google_play.png" alt="google-play" />
+          <img src="/logos/app_store.png" alt="apple-store" />
         </div>
       </div>
       <div className="rightSection1Box">
         <img
           className="logo-large"
           width={450}
-          src={codeletLogoLarge}
+          src="/logos/logo-large-blue.png"
           alt="logo-large"
         />
         <h2 className="headline-h2">Beat Technical Interviews</h2>
@@ -46,14 +43,12 @@ export function SectionOne() {
           An interactive mobile platform designed to quickly prepare software
           engineers for technical interviews on the go.
         </p>
-        <div className="section-1-btns">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLScdPx0TSDPYBsEKT2buMK0SkpjcPrze5Ms0IhTw5Yl4vTpxLg/viewform?usp=sf_link">
-            <button className="primary-btn-section1">Join the Beta</button>
-          </a>
-          <button className="secondary-btn" onClick={() => scrollToMiddle()}>
-            Demo
-          </button>
-        </div>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScdPx0TSDPYBsEKT2buMK0SkpjcPrze5Ms0IhTw5Yl4vTpxLg/viewform?usp=sf_link">
+          <button className="primary-btn-section1">Join the Beta</button>
+        </a>
+        <button className="secondary-btn" onClick={() => scrollToMiddle()}>
+          Learn More
+        </button>
       </div>
     </div>
   );
