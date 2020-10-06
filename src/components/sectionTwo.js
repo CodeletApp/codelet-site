@@ -1,13 +1,11 @@
 import React from "react";
-const mobile = require("../assets/mobile.png");
-const bird = require("../assets/bird.png");
-const analytics = require("../assets/analytics.png");
+
 export function SectionTwo() {
   return (
     <div className="section2">
       <div className="innerSectionBox">
         <p className="ul-title">Mobile</p>
-        <img src={mobile} />
+        <img src="/icons/mobile.png" alt="mobile" />
         <ul className="section2-list">
           <li> Codelet is cross platform from the start</li>
           <li> Mobile means more practice on the go</li>
@@ -20,7 +18,7 @@ export function SectionTwo() {
       </div>
       <div className="innerSectionBox">
         <p className="ul-title">Faster</p>
-        <img src={bird} />
+        <img src="/icons/bird.png" alt="bird" />
         <ul className="section2-list">
           <li> Our questions are simple & let you get straight to the core.</li>
           <li> More questions in less time means larger breadth of topics. </li>
@@ -29,7 +27,7 @@ export function SectionTwo() {
       </div>
       <div className="innerSectionBox">
         <p className="ul-title">Analytics</p>
-        <img src={analytics} />
+        <img src="/icons/analytics.png" alt="analytics" />
         <ul className="section2-list">
           <li>
             Question's are scored by sections, giving you insight on what you're
