@@ -10,7 +10,6 @@ export function SectionTwo() {
           <li> Codelet is cross platform from the start</li>
           <li> Mobile means more practice on the go</li>
           <li>
-            {" "}
             With Codelet, you can practice anywhere and reinforce your interview
             skills
           </li>
