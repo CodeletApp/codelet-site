@@ -1,6 +1,5 @@
 import React from "react";
 import { IPhoneX, Pixel3XL } from "react-device-frames";
-
 export function SectionOne() {
   function scrollToMiddle() {
     window.scrollTo({
@@ -23,7 +22,10 @@ export function SectionOne() {
 
       <div className="leftSection1">
         <div className="phone-frames">
-          <Pixel3XL className="android-phone" screenshot="/screenshots/questions.png" />
+          <Pixel3XL
+            className="android-phone"
+            screenshot="/screenshots/questions.png"
+          />
           <IPhoneX className="iphone" screenshot="/screenshots/questions.png" />
         </div>
         <div className="stores">

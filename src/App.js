@@ -1,19 +1,16 @@
-import React, { Component } from 'react';
+import React, { Fragment } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import "./App.scss";
-import {SectionOne} from './components/sectionOne';
-import {SectionTwo} from './components/sectionTwo';
-import SectionThree from './components/sectionThree';
+import { Routes } from "./components/Routes";
 
-class App extends Component {
-  render(){
-    return (
-      <div className="App">
-        <SectionOne/>
-        <SectionTwo/>
-        <SectionThree/>
-      </div>
-    );
-  }
-}
+const App = () => {
+  return (
+    <Router>
+      <Fragment>
+        <Routes />
+      </Fragment>
+    </Router>
+  );
+};
 
 export default App;

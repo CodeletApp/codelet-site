@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 
-
 export function SectionThree() {
   const [screen, setScreen] = useState(1);
 
   const changeScreens = (num) => {
     setScreen(num);
-  }
+  };
 
   const getScreenUrl = () => {
-    switch(screen) {
+    switch (screen) {
       case 1:
         return "/screenshots/step1.png";
       case 2:
@@ -21,16 +20,13 @@ export function SectionThree() {
       default:
         return "#";
     }
-  }
+  };
 
   return (
     <div className="section3">
       <div className="leftSection3">
         <div className="phoneframe2">
-          <img
-            src={getScreenUrl()}
-            alt="algo-screens"
-          />
+          <img src={getScreenUrl()} alt="algo-screens" />
         </div>
       </div>
       <div className="rightSection3">
