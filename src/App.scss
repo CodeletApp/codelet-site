@@ -360,35 +360,6 @@ li {
   }
 }
 
-.fixed-btn {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  width: 13%;
-  margin: 4%;
-  margin-right: 0;
-  padding: 1.7%;
-  border-width: 1px;
-  border-color: black;
-  background-color: rgb(184, 217, 255);
-  color: black;
-  font-size: 16px;
-  font-family: "Muli", sans-serif;
-  letter-spacing: 0.1em;
-  border-radius: 15px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  justify-self: center;
-  box-shadow: 2px 2px 3px black;
-  cursor: pointer;
-
-  @media (min-width: $screen-sm-min) {
-    font-size: 16px;
-    width: 8%;
-    padding: 0.7%;
-  }
-}
-
 .fixed-footer {
   position: fixed;
   bottom: 0;
@@ -415,7 +386,7 @@ li {
 
 .footer-link {
   color: black;
-  margin-right: "5%";
+  margin-right: 3%;
 }
 
 .logo-large {

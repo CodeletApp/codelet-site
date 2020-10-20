@@ -60,12 +60,6 @@ export function SectionThree() {
           Check Your Results
         </p>
       </div>
-      <a
-        className="fixed-btn"
-        href="https://docs.google.com/forms/d/e/1FAIpQLScdPx0TSDPYBsEKT2buMK0SkpjcPrze5Ms0IhTw5Yl4vTpxLg/viewform?usp=sf_link"
-      >
-        Join Beta
-      </a>
     </div>
   );
 }

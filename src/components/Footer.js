@@ -1,12 +1,6 @@
 import React from "react";
+
 export function Footer() {
-  function scrollToMiddle() {
-    window.scrollTo({
-      behavior: "smooth",
-      left: 0,
-      top: document.querySelector(".section2").offsetTop,
-    });
-  }
   return (
     <div className="fixed-footer">
       <a
@@ -20,6 +14,12 @@ export function Footer() {
         href="codelet.app/privacy"
       >
         Privacy Policy
+      </a>
+      <a
+        className="footer-link"
+        href="https://docs.google.com/forms/d/e/1FAIpQLScdPx0TSDPYBsEKT2buMK0SkpjcPrze5Ms0IhTw5Yl4vTpxLg/viewform?usp=sf_link"
+      >
+        Join the Beta
       </a>
     </div>
   );
