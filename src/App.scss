@@ -117,13 +117,12 @@ h1 {
   }
   @media (min-width: $screen-sm-min) {
     width: 30%;
-      > img {
-        height: 30%;
-        width: auto;
-        margin: 0 auto;
-      }
+    > img {
+      height: 30%;
+      width: auto;
+      margin: 0 auto;
+    }
   }
-
 }
 
 .section2-list {
@@ -136,13 +135,13 @@ h1 {
   margin-top: 20px;
   width: 65%;
   @media (min-width: $screen-sm-min) {
-  font-size: 20px;
-  width: 80%;
-  text-align: left;
+    font-size: 20px;
+    width: 80%;
+    text-align: left;
   }
 }
 
-.section2-list > li{
+.section2-list > li {
   text-align: center;
   margin-top: 2%;
   margin-bottom: 2%;
@@ -179,7 +178,6 @@ h1 {
     color: white;
     cursor: pointer;
   }
-  
 }
 
 .leftSection3 {
@@ -287,7 +285,6 @@ li {
   @media (min-width: $screen-sm-min) {
     font-size: 55px;
   }
-
 }
 
 .formTop {
@@ -388,8 +385,7 @@ li {
   @media (min-width: $screen-sm-min) {
     font-size: 16px;
     width: 8%;
-    padding: .7%;
-
+    padding: 0.7%;
   }
 }
 
@@ -448,6 +444,10 @@ li {
     width: 100%;
     border-bottom: #373f41;
   }
+}
+
+.termsAndPrivacyBody {
+  margin: 1%;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Muli:wght@600&display=swap");
