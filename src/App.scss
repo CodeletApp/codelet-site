@@ -363,25 +363,12 @@ li {
 .fixed-footer {
   position: fixed;
   bottom: 0;
-  left: 0;
   text-align: right;
-  border-width: 1px;
-  border-color: black;
   background-color: rgb(184, 217, 255);
-  color: black;
-  font-size: 16px;
   font-family: "Muli", sans-serif;
   letter-spacing: 0.1em;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  box-shadow: 2px 2px 3px black;
-  cursor: pointer;
-
-  @media (min-width: $screen-sm-min) {
-    font-size: 16px;
-    width: 100%;
-    padding: 0.7%;
-  }
+  width: 100%;
+  padding: 0.7%;
 }
 
 .footer-link {
