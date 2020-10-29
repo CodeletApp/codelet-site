@@ -1,8 +1,9 @@
 import React from "react";
+import CustomTextContainer from "./CustomTextContainer";
 
 export function Terms() {
   return (
-    <body className="termsAndPrivacyBody">
+    <CustomTextContainer>
       <strong>Terms &amp; Conditions</strong>
       <p>
         By downloading or using the app, these terms will automatically apply to
@@ -133,6 +134,6 @@ export function Terms() {
           App Privacy Policy Generator
         </a>
       </p>
-    </body>
+    </CustomTextContainer>
   );
 }

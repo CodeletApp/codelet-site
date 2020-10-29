@@ -1,8 +1,9 @@
 import React from "react";
+import CustomTextContainer from "./CustomTextContainer";
 
 export function PrivacyPolicy() {
   return (
-    <body className="termsAndPrivacyBody">
+    <CustomTextContainer>
       <strong>Privacy Policy</strong>
       <p>
         Codelet LLC built the Codelet app as a Freemium app. This SERVICE is
@@ -169,6 +170,6 @@ export function PrivacyPolicy() {
           App Privacy Policy Generator
         </a>
       </p>
-    </body>
+    </CustomTextContainer>
   );
 }
