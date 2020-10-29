@@ -1,3 +1,7 @@
+# Codelet Site
+[![Netlify Status](https://api.netlify.com/api/v1/badges/53849279-cfb1-4320-b19f-30a48961c914/deploy-status)](https://app.netlify.com/sites/distracted-golick-a5ffad/deploys)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
