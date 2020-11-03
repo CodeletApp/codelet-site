@@ -438,11 +438,11 @@ li {
 }
 
 .custom-text-container {
-  margin: 2%;
+  padding: 2%;
 }
 
 .background {
-  background-color: #255285;
+  background: #255285;
 }
 
 .title {
@@ -455,6 +455,19 @@ li {
   text-align: center;
   font-size: 24px;
   font-weight: bold;
+}
+
+.form-group {
+  text-align: center;
+}
+
+.submit-button {
+  width: 10%;
+  padding: 1%;
+  font-size: 24px;
+  border-radius: 8px;
+  background-color: #abd1fc;
+  border: none;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Muli:wght@600&display=swap");

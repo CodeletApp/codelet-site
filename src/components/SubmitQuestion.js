@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useState } from "react";
 import { apiRequest } from "../services";
 import CustomTextContainer from "./CustomTextContainer";
 
@@ -153,7 +153,7 @@ export const SubmitQuestion = () => {
               onChange={(e) => onChange(e)}
             />
           </div>
-          <div className="form-grouo">
+          <div className="form-group">
             <label className="input-label">Algorithms:</label>
             <br />
             <textarea
@@ -207,10 +207,11 @@ export const SubmitQuestion = () => {
             />
           </div>
           <div className="form-group">
-            <input type="submit" />
+            <input type="submit" className="submit-button" />
           </div>
         </form>
       </CustomTextContainer>
+      <br />
     </div>
   );
 };

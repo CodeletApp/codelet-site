@@ -12,9 +12,8 @@ export const Routes = () => {
       <Route exact path="/" component={Landing} />
       <Route exact path="/feedback" component={Feedback} />
       <Route exact path="/submit-question" component={SubmitQuestion} />
-      <Route exact path="/privacy" component={PrivacyPolicy}/>
-      <Route exact path="/terms" component={Terms}/>
-
+      <Route exact path="/privacy" component={PrivacyPolicy} />
+      <Route exact path="/terms" component={Terms} />
     </Switch>
   );
 };
