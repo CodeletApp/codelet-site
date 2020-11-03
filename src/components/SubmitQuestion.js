@@ -39,7 +39,8 @@ export const SubmitQuestion = () => {
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = async () => {
+  const onSubmit = async (e) => {
+    e.preventDefault();
     const approaches = [approach1, approach2, approach3];
     const codeBank = [algorithm1, algorithm2, algorithm3];
     const complexityBank = [complexity1, complexity2, complexity3];
@@ -64,7 +65,7 @@ export const SubmitQuestion = () => {
   return (
     <Fragment>
       <CustomTextContainer>
-        <form className="form" onSubmit={() => onSubmit()}>
+        <form className="form" onSubmit={(e) => onSubmit(e)}>
           <span>Author: </span>
           <br />
           <input
@@ -194,6 +195,7 @@ export const SubmitQuestion = () => {
             value={complexity3}
             onChange={(e) => onChange(e)}
           />
+          <input type="submit" />
         </form>
       </CustomTextContainer>
     </Fragment>
