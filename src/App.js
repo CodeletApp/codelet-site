@@ -2,12 +2,14 @@ import React, { Fragment } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./App.scss";
 import { Routes } from "./components/Routes";
+import { Footer } from "./components/Footer";
 
 const App = () => {
   return (
     <Router>
       <Fragment>
         <Routes />
+        <Footer />
       </Fragment>
     </Router>
   );
