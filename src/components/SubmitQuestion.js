@@ -89,7 +89,7 @@ export const SubmitQuestion = () => {
             <input
               className="form-input"
               type="text"
-              placeholder="Enter the question title here"
+              placeholder="Enter the question's title here"
               name="title"
               value={title}
               onChange={(e) => onChange(e)}
@@ -98,22 +98,26 @@ export const SubmitQuestion = () => {
           <div className="form-group">
             <label className="input-label">Difficulty:</label>
             <br />
-            <input
+            <select
               className="form-input"
-              type="text"
-              placeholder={difficulty}
               name="difficulty"
-              value={difficulty}
               onChange={(e) => onChange(e)}
-            />
+            >
+              <option defaultValue value="Easy">
+                Easy
+              </option>
+              <option value="Medium">Medium</option>
+              <option value="Hard">Hard</option>
+            </select>
           </div>
           <div className="form-group">
             <label className="input-label">Description:</label>
             <br />
             <textarea
+              className="form-textarea"
               rows="5"
               type="text"
-              placeholder={description}
+              placeholder="Enter the question's description here"
               name="description"
               value={description}
               onChange={(e) => onChange(e)}
@@ -123,9 +127,10 @@ export const SubmitQuestion = () => {
             <label class="input-label">Example:</label>
             <br />
             <textarea
+              className="form-textarea"
               rows="5"
               type="text"
-              placeholder={example}
+              placeholder="Enter the question's example here"
               name="example"
               value={example}
               onChange={(e) => onChange(e)}
@@ -135,25 +140,28 @@ export const SubmitQuestion = () => {
             <label className="input-label">Approaches:</label>
             <br />
             <textarea
+              className="form-textarea"
               rows="5"
               type="text"
-              placeholder={approach1}
+              placeholder="Enter the question's first approach here"
               name="approach1"
               value={approach1}
               onChange={(e) => onChange(e)}
             />
             <textarea
+              className="form-textarea"
               rows="5"
               type="text"
-              placeholder={approach2}
+              placeholder="Enter the question's second approach here"
               name="approach2"
               value={approach2}
               onChange={(e) => onChange(e)}
             />
             <textarea
+              className="form-textarea"
               rows="5"
               type="text"
-              placeholder={approach3}
+              placeholder="Enter the question's third approach here"
               name="approach3"
               value={approach3}
               onChange={(e) => onChange(e)}
@@ -163,25 +171,28 @@ export const SubmitQuestion = () => {
             <label className="input-label">Algorithms:</label>
             <br />
             <textarea
+              className="form-textarea"
               rows="5"
               type="text"
-              placeholder={algorithm1}
+              placeholder="Enter the question's first algorithm here"
               name="algorithm1"
               value={algorithm1}
               onChange={(e) => onChange(e)}
             />
             <textarea
+              className="form-textarea"
               rows="5"
               type="text"
-              placeholder={algorithm2}
+              placeholder="Enter the question's second algorithm here"
               name="algorithm2"
               value={algorithm2}
               onChange={(e) => onChange(e)}
             />
             <textarea
+              className="form-textarea"
               rows="5"
               type="text"
-              placeholder={algorithm3}
+              placeholder="Enter the question's third algorithm here"
               name="algorithm3"
               value={algorithm3}
               onChange={(e) => onChange(e)}
@@ -191,25 +202,25 @@ export const SubmitQuestion = () => {
             <label className="input-label">Complexity Bank:</label>
             <br />
             <input
-              className="form-input"
+              className="form-input-small"
               type="text"
-              placeholder={complexity1}
+              placeholder="Enter the question's first complexity option here"
               name="complexity1"
               value={complexity1}
               onChange={(e) => onChange(e)}
             />
             <input
-              className="form-input"
+              className="form-input-small"
               type="text"
-              placeholder={complexity2}
+              placeholder="Enter the question's second complexity option here"
               name="complexity2"
               value={complexity2}
               onChange={(e) => onChange(e)}
             />
             <input
-              className="form-input"
+              className="form-input-small"
               type="text"
-              placeholder={complexity3}
+              placeholder="Enter the question's third complexity option here"
               name="complexity3"
               value={complexity3}
               onChange={(e) => onChange(e)}
@@ -217,11 +228,7 @@ export const SubmitQuestion = () => {
           </div>
           <br />
           <div className="form-group">
-            <input
-              className="form-input"
-              type="submit"
-              className="submit-button"
-            />
+            <input type="submit" className="submit-button" />
           </div>
         </form>
       </CustomTextContainer>

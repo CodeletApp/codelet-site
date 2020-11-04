@@ -475,8 +475,22 @@ li {
   font-weight: bold;
 }
 
-.form-input {
+.form-input,
+.form-input-small,
+.form-textarea {
   width: 20%;
+  border: none;
+  border-radius: 8px;
+  margin: 0.25%;
+  padding: 0.5% 0%;
+}
+
+.form-input-small {
+  font-size: x-small;
+}
+
+.form-input,
+.form-input-small {
   text-align: center;
 }
 
