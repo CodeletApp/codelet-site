@@ -47,7 +47,9 @@ export const SubmitQuestion = () => {
     await apiRequest({
       url: `https://codelet-api-dev.herokuapp.com/questions/post-question`,
       method: "POST",
-      params: null,
+      headers: {
+        "Content-Type": "application/json",
+      },
       data: {
         author,
         title,
@@ -124,7 +126,7 @@ export const SubmitQuestion = () => {
             />
           </div>
           <div className="form-group">
-            <label class="input-label">Example:</label>
+            <label className="input-label">Example:</label>
             <br />
             <textarea
               className="form-textarea"
