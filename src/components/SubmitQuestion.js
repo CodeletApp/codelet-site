@@ -11,12 +11,15 @@ import {
   InputLabel,
   Grid,
   Button,
+  Radio,
+  RadioGroup,
 } from "@material-ui/core";
 
 export const SubmitQuestion = () => {
   const { register, control, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
+    console.log(data);
     const {
       title,
       approach1,
@@ -32,10 +35,18 @@ export const SubmitQuestion = () => {
       difficulty,
       description,
       example,
+      approachSolutionIndex,
+      algorithmSolutionIndex,
+      complexitySolutionIndex,
     } = data;
     const approaches = [approach1, approach2, approach3];
     const codeBank = [algorithm1, algorithm2, algorithm3];
     const complexityBank = [complexity1, complexity2, complexity3];
+    const solution = {
+      approachIndex: parseInt(approachSolutionIndex),
+      codeBlock: parseInt(algorithmSolutionIndex),
+      complexity: complexityBank[parseInt(complexitySolutionIndex)],
+    };
     await apiRequest({
       url: `https://codelet-api-dev.herokuapp.com/questions/post-question`,
       method: "POST",
@@ -51,6 +62,7 @@ export const SubmitQuestion = () => {
         approaches,
         codeBank,
         complexityBank,
+        solution,
         published: false,
       },
     });
@@ -133,55 +145,76 @@ export const SubmitQuestion = () => {
           placeholder="Please enter the example for the question"
           inputRef={register}
         />
-        <Typography>Approaches:</Typography>
-        <Grid container spacing={6}>
-          <Grid item xs={12} sm={4}>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              id="approach1"
-              name="approach1"
-              label="Approach 1"
-              multiline
-              rows={7}
-              fullWidth
-              placeholder="Please enter the first approach for the question"
-              inputRef={register}
-            />
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              id="approach2"
-              name="approach2"
-              label="Approach 2"
-              multiline
-              rows={7}
-              fullWidth
-              placeholder="Please enter the second approach for the question"
-              inputRef={register}
-            />
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              id="approach3"
-              name="approach3"
-              label="Approach 3"
-              multiline
-              rows={7}
-              fullWidth
-              placeholder="Please enter the third approach for the question"
-              inputRef={register}
-            />
-          </Grid>
-        </Grid>
-        <Typography>Algorithms:</Typography>
+        <Typography>
+          Approaches (please select the one that is correct):
+        </Typography>
+        <Controller
+          name="approachSolutionIndex"
+          control={control}
+          as={
+            <RadioGroup
+              row
+              name="approachSolutionIndex"
+              id="approachSolutionIndex"
+            >
+              <Grid container spacing={6}>
+                <Grid item xs={12} sm={4}>
+                  <Radio value="0" />
+                  <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    id="approach1"
+                    name="approach1"
+                    label="Approach 1"
+                    multiline
+                    rows={7}
+                    fullWidth
+                    placeholder="Please enter the first approach for the question"
+                    inputRef={register}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={4}>
+                  <Radio value="1" />
+                  <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    id="approach2"
+                    name="approach2"
+                    label="Approach 2"
+                    multiline
+                    rows={7}
+                    fullWidth
+                    placeholder="Please enter the second approach for the question"
+                    inputRef={register}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={4}>
+                  <Radio value="2" />
+                  <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    id="approach3"
+                    name="approach3"
+                    label="Approach 3"
+                    multiline
+                    rows={7}
+                    fullWidth
+                    placeholder="Please enter the third approach for the question"
+                    inputRef={register}
+                  />
+                </Grid>
+              </Grid>
+            </RadioGroup>
+          }
+          defaultValue="0"
+          rules={{ required: true }}
+        />
+        <Typography>
+          Algorithms (please select the one that is correct):
+        </Typography>
         <Grid container spacing={6}>
           <Grid item xs={12} sm={4}>
             <TextField
@@ -229,7 +262,9 @@ export const SubmitQuestion = () => {
             />
           </Grid>
         </Grid>
-        <Typography>Complexity:</Typography>
+        <Typography>
+          Complexity (please select the one that is correct):
+        </Typography>
         <Grid container spacing={6}>
           <Grid item xs={12} sm={4}>
             <TextField
