@@ -142,7 +142,7 @@ export const SubmitQuestion = () => {
           label="Example"
           multiline
           rows={7}
-          placeholder="Please enter the example for the question"
+          placeholder="Please enter the example"
           inputRef={register}
         />
         <Typography>
@@ -170,7 +170,7 @@ export const SubmitQuestion = () => {
                     multiline
                     rows={7}
                     fullWidth
-                    placeholder="Please enter the first approach for the question"
+                    placeholder="Please enter the first approach"
                     inputRef={register}
                   />
                 </Grid>
@@ -186,7 +186,7 @@ export const SubmitQuestion = () => {
                     multiline
                     rows={7}
                     fullWidth
-                    placeholder="Please enter the second approach for the question"
+                    placeholder="Please enter the second approach"
                     inputRef={register}
                   />
                 </Grid>
@@ -202,107 +202,144 @@ export const SubmitQuestion = () => {
                     multiline
                     rows={7}
                     fullWidth
-                    placeholder="Please enter the third approach for the question"
+                    placeholder="Please enter the third approach"
                     inputRef={register}
                   />
                 </Grid>
               </Grid>
             </RadioGroup>
           }
-          defaultValue="0"
+          defaultValue=""
           rules={{ required: true }}
         />
         <Typography>
           Algorithms (please select the one that is correct):
         </Typography>
-        <Grid container spacing={6}>
-          <Grid item xs={12} sm={4}>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              id="algorithm1"
-              name="algorithm1"
-              label="Algorithm 1"
-              multiline
-              rows={7}
-              fullWidth
-              placeholder="Please enter the first algorithm for the question"
-              inputRef={register}
-            />
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              id="algorithm2"
-              name="algorithm2"
-              label="Algorithm 2"
-              multiline
-              rows={7}
-              fullWidth
-              placeholder="Please enter the second algorithm for the question"
-              inputRef={register}
-            />
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              id="algorithm3"
-              name="algorithm3"
-              label="Algorithm 3"
-              multiline
-              rows={7}
-              fullWidth
-              placeholder="Please enter the third algorithm for the question"
-              inputRef={register}
-            />
-          </Grid>
-        </Grid>
+        <Controller
+          name="algorithmSolutionIndex"
+          control={control}
+          as={
+            <RadioGroup
+              row
+              name="algorithmSolutionIndex"
+              id="algorithmSolutionIndex"
+            >
+              <Grid container spacing={6}>
+                <Grid item xs={12} sm={4}>
+                  <Radio value="0" />
+                  <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    id="algorithm1"
+                    name="algorithm1"
+                    label="Algorithm 1"
+                    multiline
+                    rows={7}
+                    fullWidth
+                    placeholder="Please enter the first algorithm"
+                    inputRef={register}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={4}>
+                  <Radio value="1" />
+                  <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    id="algorithm2"
+                    name="algorithm2"
+                    label="Algorithm 2"
+                    multiline
+                    rows={7}
+                    fullWidth
+                    placeholder="Please enter the second algorithm"
+                    inputRef={register}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={4}>
+                  <Radio value="2" />
+                  <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    id="algorithm3"
+                    name="algorithm3"
+                    label="Algorithm 3"
+                    multiline
+                    rows={7}
+                    fullWidth
+                    placeholder="Please enter the third algorithm"
+                    inputRef={register}
+                  />
+                </Grid>
+              </Grid>
+            </RadioGroup>
+          }
+          defaultValue=""
+          rules={{ required: true }}
+        />
         <Typography>
           Complexity (please select the one that is correct):
         </Typography>
-        <Grid container spacing={6}>
-          <Grid item xs={12} sm={4}>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              id="complexity1"
-              name="complexity1"
-              label="Complexity 1"
-              placeholder="Please enter the first complexity for the question"
-              inputRef={register}
-            />
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              id="complexity2"
-              name="complexity2"
-              label="Complexity 2"
-              placeholder="Please enter the second complexity for the question"
-              inputRef={register}
-            />
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              id="complexity3"
-              name="complexity3"
-              label="Complexity 3"
-              placeholder="Please enter the third complexity for the question"
-              inputRef={register}
-            />
-          </Grid>
-        </Grid>
+        <Controller
+          name="complexitySolutionIndex"
+          control={control}
+          as={
+            <RadioGroup
+              row
+              name="complexitySolutionIndex"
+              id="complexitySolutionIndex"
+            >
+              <Grid container spacing={6}>
+                <Grid item xs={12} sm={4}>
+                  <Radio value="0" />
+                  <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    id="complexity1"
+                    name="complexity1"
+                    label="Complexity 1"
+                    placeholder="Please enter the first complexity"
+                    inputRef={register}
+                    fullWidth
+                  />
+                </Grid>
+                <Grid item xs={12} sm={4}>
+                  <Radio value="1" />
+                  <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    id="complexity2"
+                    name="complexity2"
+                    label="Complexity 2"
+                    placeholder="Please enter the second complexity"
+                    inputRef={register}
+                    fullWidth
+                  />
+                </Grid>
+                <Grid item xs={12} sm={4}>
+                  <Radio value="2" />
+                  <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    id="complexity3"
+                    name="complexity3"
+                    label="Complexity 3"
+                    placeholder="Please enter the third complexity"
+                    inputRef={register}
+                    fullWidth
+                  />
+                </Grid>
+              </Grid>
+            </RadioGroup>
+          }
+          defaultValue=""
+          rules={{ required: true }}
+        />
         <Button variant="contained" color="primary" type="submit">
           Submit
         </Button>
