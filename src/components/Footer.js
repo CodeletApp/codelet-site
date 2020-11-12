@@ -7,12 +7,6 @@ export function Footer() {
       <Link className="footer-link" to="/">
         Home
       </Link>
-      <Link className="footer-link" to="/submit-question">
-        Submit A Question
-      </Link>
-      <Link className="footer-link" to="/feedback">
-        Leave Feedback
-      </Link>
       <Link className="footer-link" to="/terms">
         Terms & Conditions
       </Link>

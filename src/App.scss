@@ -369,6 +369,7 @@ li {
   letter-spacing: 0.1em;
   width: 100%;
   padding: 0.7%;
+  z-index: 1;
 
   @media (max-width: $screen-sm-min) {
     font-size: 10px;
