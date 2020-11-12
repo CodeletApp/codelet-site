@@ -280,7 +280,7 @@ export const SubmitQuestion = () => {
           rules={{ required: true }}
         />
         <Typography>
-          Complexity (please select the one that is correct):
+          Complexities (please select the one that is correct):
         </Typography>
         <Controller
           name="complexitySolutionIndex"
