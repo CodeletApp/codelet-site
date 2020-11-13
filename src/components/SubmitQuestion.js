@@ -14,8 +14,17 @@ import {
   Radio,
   RadioGroup,
 } from "@material-ui/core";
+import { makeStyles } from "@material-ui/styles";
+
+const useStyles = makeStyles({
+  formContainer: {
+    textAlign: "center",
+  },
+});
 
 export const SubmitQuestion = () => {
+  const styles = useStyles();
+
   const { register, control, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
@@ -85,7 +94,7 @@ export const SubmitQuestion = () => {
   };
 
   return (
-    <Container>
+    <Container className={styles.formContainer}>
       <CssBaseline />
       <Typography variant="h3">Submit A Question</Typography>
       <Typography variant="h5">
