@@ -28,24 +28,39 @@ export const SubmitQuestion = () => {
       algorithm1,
       algorithm2,
       algorithm3,
-      complexity1,
-      complexity2,
-      complexity3,
+      spaceComplexity1,
+      spaceComplexity2,
+      spaceComplexity3,
+      timeComplexity1,
+      timeComplexity2,
+      timeComplexity3,
       author,
       difficulty,
       description,
       example,
       approachSolutionIndex,
       algorithmSolutionIndex,
-      complexitySolutionIndex,
+      spaceComplexitySolutionIndex,
+      timeComplexitySolutionIndex,
     } = data;
     const approaches = [approach1, approach2, approach3];
     const codeBank = [algorithm1, algorithm2, algorithm3];
-    const complexityBank = [complexity1, complexity2, complexity3];
+    const spaceComplexityBank = [
+      spaceComplexity1,
+      spaceComplexity2,
+      spaceComplexity3,
+    ];
+    const timeComplexityBank = [
+      timeComplexity1,
+      timeComplexity2,
+      timeComplexity3,
+    ];
     const solution = {
       approachIndex: parseInt(approachSolutionIndex),
       codeBlock: parseInt(algorithmSolutionIndex),
-      complexity: complexityBank[parseInt(complexitySolutionIndex)],
+      spaceComplexity:
+        spaceComplexityBank[parseInt(spaceComplexitySolutionIndex)],
+      timeComplexity: timeComplexityBank[parseInt(timeComplexitySolutionIndex)],
     };
     await apiRequest({
       url: `https://codelet-api-dev.herokuapp.com/questions/post-question`,
@@ -54,14 +69,15 @@ export const SubmitQuestion = () => {
         "Content-Type": "application/json",
       },
       data: {
-        author,
+        author: author ? author : "anonymous",
         title,
         difficulty,
         description,
         example,
         approaches,
         codeBank,
-        complexityBank,
+        spaceComplexityBank,
+        timeComplexityBank,
         solution,
         published: false,
       },
@@ -209,7 +225,7 @@ export const SubmitQuestion = () => {
               </Grid>
             </RadioGroup>
           }
-          defaultValue=""
+          defaultValue="0"
           rules={{ required: true }}
         />
         <Typography>
@@ -276,20 +292,20 @@ export const SubmitQuestion = () => {
               </Grid>
             </RadioGroup>
           }
-          defaultValue=""
+          defaultValue="0"
           rules={{ required: true }}
         />
         <Typography>
-          Complexities (please select the one that is correct):
+          Space Complexities (please select the one that is correct):
         </Typography>
         <Controller
-          name="complexitySolutionIndex"
+          name="spaceComplexitySolutionIndex"
           control={control}
           as={
             <RadioGroup
               row
-              name="complexitySolutionIndex"
-              id="complexitySolutionIndex"
+              name="spaceComplexitySolutionIndex"
+              id="spaceComplexitySolutionIndex"
             >
               <Grid container spacing={6}>
                 <Grid item xs={12} sm={4}>
@@ -298,10 +314,10 @@ export const SubmitQuestion = () => {
                     variant="outlined"
                     margin="normal"
                     required
-                    id="complexity1"
-                    name="complexity1"
-                    label="Complexity 1"
-                    placeholder="Please enter the first complexity"
+                    id="spaceComplexity1"
+                    name="spaceComplexity1"
+                    label="Space Complexity 1"
+                    placeholder="Please enter the first space complexity"
                     inputRef={register}
                     fullWidth
                   />
@@ -312,10 +328,10 @@ export const SubmitQuestion = () => {
                     variant="outlined"
                     margin="normal"
                     required
-                    id="complexity2"
-                    name="complexity2"
-                    label="Complexity 2"
-                    placeholder="Please enter the second complexity"
+                    id="spaceComplexity2"
+                    name="spaceComplexity2"
+                    label="Space Complexity 2"
+                    placeholder="Please enter the second space complexity"
                     inputRef={register}
                     fullWidth
                   />
@@ -326,10 +342,10 @@ export const SubmitQuestion = () => {
                     variant="outlined"
                     margin="normal"
                     required
-                    id="complexity3"
-                    name="complexity3"
-                    label="Complexity 3"
-                    placeholder="Please enter the third complexity"
+                    id="spaceComplexity3"
+                    name="spaceComplexity3"
+                    label="Space Complexity 3"
+                    placeholder="Please enter the third space complexity"
                     inputRef={register}
                     fullWidth
                   />
@@ -337,7 +353,68 @@ export const SubmitQuestion = () => {
               </Grid>
             </RadioGroup>
           }
-          defaultValue=""
+          defaultValue="0"
+          rules={{ required: true }}
+        />
+        <Typography>
+          Time Complexities (please select the one that is correct):
+        </Typography>
+        <Controller
+          name="timeComplexitySolutionIndex"
+          control={control}
+          as={
+            <RadioGroup
+              row
+              name="timeComplexitySolutionIndex"
+              id="timeComplexitySolutionIndex"
+            >
+              <Grid container spacing={6}>
+                <Grid item xs={12} sm={4}>
+                  <Radio value="0" />
+                  <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    id="timeComplexity1"
+                    name="timeComplexity1"
+                    label="Time Complexity 1"
+                    placeholder="Please enter the first time complexity"
+                    inputRef={register}
+                    fullWidth
+                  />
+                </Grid>
+                <Grid item xs={12} sm={4}>
+                  <Radio value="1" />
+                  <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    id="timeComplexity2"
+                    name="timeComplexity2"
+                    label="Time Complexity 2"
+                    placeholder="Please enter the second time complexity"
+                    inputRef={register}
+                    fullWidth
+                  />
+                </Grid>
+                <Grid item xs={12} sm={4}>
+                  <Radio value="2" />
+                  <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    id="timeComplexity3"
+                    name="timeComplexity3"
+                    label="Time Complexity 3"
+                    placeholder="Please enter the third time complexity"
+                    inputRef={register}
+                    fullWidth
+                  />
+                </Grid>
+              </Grid>
+            </RadioGroup>
+          }
+          defaultValue="0"
           rules={{ required: true }}
         />
         <Button variant="contained" color="primary" type="submit">
