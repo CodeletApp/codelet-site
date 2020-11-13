@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm, Controller } from "react-hook-form";
-import { apiRequest } from "../services";
+import { apiRequest, getEnvUrl } from "../services";
 import {
   Container,
   Typography,
@@ -28,7 +28,6 @@ export const SubmitQuestion = () => {
   const { register, control, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
     const {
       title,
       approach1,
@@ -72,7 +71,7 @@ export const SubmitQuestion = () => {
       timeComplexity: timeComplexityBank[parseInt(timeComplexitySolutionIndex)],
     };
     await apiRequest({
-      url: `https://codelet-api-dev.herokuapp.com/questions/post-question`,
+      url: `${getEnvUrl()}/questions/post-question`,
       method: "POST",
       headers: {
         "Content-Type": "application/json",
