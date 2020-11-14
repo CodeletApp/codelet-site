@@ -15,6 +15,7 @@ import {
   RadioGroup,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
+import { ErrorMessage } from "./ErrorMessage";
 
 const useStyles = makeStyles({
   formContainer: {
@@ -23,9 +24,9 @@ const useStyles = makeStyles({
 });
 
 export const SubmitQuestion = () => {
-  const styles = useStyles();
+  const classes = useStyles();
 
-  const { register, control, handleSubmit } = useForm();
+  const { register, control, handleSubmit, errors } = useForm();
 
   const onSubmit = async (data) => {
     const {
@@ -42,7 +43,6 @@ export const SubmitQuestion = () => {
       timeComplexity1,
       timeComplexity2,
       timeComplexity3,
-      author,
       difficulty,
       description,
       example,
@@ -77,7 +77,6 @@ export const SubmitQuestion = () => {
         "Content-Type": "application/json",
       },
       data: {
-        author: author ? author : "anonymous",
         title,
         difficulty,
         description,
@@ -87,13 +86,12 @@ export const SubmitQuestion = () => {
         spaceComplexityBank,
         timeComplexityBank,
         solution,
-        published: false,
       },
     });
   };
 
   return (
-    <Container className={styles.formContainer}>
+    <Container className={classes.formContainer}>
       <CssBaseline />
       <Typography variant="h3">Submit A Question</Typography>
       <Typography variant="h5">
@@ -101,16 +99,6 @@ export const SubmitQuestion = () => {
         to submit it!
       </Typography>
       <form style={{ marginBottom: "5%" }} onSubmit={handleSubmit(onSubmit)}>
-        <TextField
-          variant="outlined"
-          margin="normal"
-          fullWidth
-          id="author"
-          name="author"
-          label="Author"
-          placeholder="Please enter the name you would like to receive credit for this question"
-          inputRef={register}
-        />
         <TextField
           variant="outlined"
           margin="normal"
@@ -172,6 +160,10 @@ export const SubmitQuestion = () => {
         <Typography>
           Approaches (please select the one that is correct):
         </Typography>
+        <ErrorMessage
+          isError={errors.approachSolutionIndex}
+          message="Please select which approach is correct"
+        />
         <Controller
           name="approachSolutionIndex"
           control={control}
@@ -233,12 +225,16 @@ export const SubmitQuestion = () => {
               </Grid>
             </RadioGroup>
           }
-          defaultValue="0"
+          defaultValue=""
           rules={{ required: true }}
         />
         <Typography>
           Algorithms (please select the one that is correct):
         </Typography>
+        <ErrorMessage
+          isError={errors.approachSolutionIndex}
+          message="Please select which algorithm is correct"
+        />
         <Controller
           name="algorithmSolutionIndex"
           control={control}
@@ -300,12 +296,16 @@ export const SubmitQuestion = () => {
               </Grid>
             </RadioGroup>
           }
-          defaultValue="0"
+          defaultValue=""
           rules={{ required: true }}
         />
         <Typography>
           Space Complexities (please select the one that is correct):
         </Typography>
+        <ErrorMessage
+          isError={errors.approachSolutionIndex}
+          message="Please select which space complexity is correct"
+        />
         <Controller
           name="spaceComplexitySolutionIndex"
           control={control}
@@ -361,12 +361,16 @@ export const SubmitQuestion = () => {
               </Grid>
             </RadioGroup>
           }
-          defaultValue="0"
+          defaultValue=""
           rules={{ required: true }}
         />
         <Typography>
           Time Complexities (please select the one that is correct):
         </Typography>
+        <ErrorMessage
+          isError={errors.approachSolutionIndex}
+          message="Please select which time complexity is correct"
+        />
         <Controller
           name="timeComplexitySolutionIndex"
           control={control}
@@ -422,7 +426,7 @@ export const SubmitQuestion = () => {
               </Grid>
             </RadioGroup>
           }
-          defaultValue="0"
+          defaultValue=""
           rules={{ required: true }}
         />
         <Button variant="contained" color="primary" type="submit">
