@@ -13,7 +13,9 @@ export function ErrorMessage({ isError, message }) {
   return (
     <Container>
       {isError ? (
-        <Typography className={classes.errorMessage}>{message}</Typography>
+        <Typography variant="h6" className={classes.errorMessage}>
+          {message}
+        </Typography>
       ) : (
         ""
       )}
