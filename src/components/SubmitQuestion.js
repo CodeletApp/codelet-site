@@ -123,12 +123,12 @@ export const SubmitQuestion = () => {
               id="difficulty"
               labelId="difficulty-label"
             >
-              <MenuItem value="easy">Easy</MenuItem>
-              <MenuItem value="medium">Medium</MenuItem>
-              <MenuItem value="hard">Hard</MenuItem>
+              <MenuItem value="Easy">Easy</MenuItem>
+              <MenuItem value="Medium">Medium</MenuItem>
+              <MenuItem value="Hard">Hard</MenuItem>
             </Select>
           }
-          defaultValue={"easy"}
+          defaultValue={"Easy"}
           rules={{ required: true }}
         />
         <TextField
