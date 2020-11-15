@@ -5,6 +5,7 @@ import { SubmitQuestion } from "./SubmitQuestion";
 import { Feedback } from "./Feedback";
 import { PrivacyPolicy } from "./PrivacyPolicy";
 import { Terms } from "./Terms";
+import { QuestionSubmissionThankYou } from "./QuestionSubmissionThankYou";
 
 export const Routes = () => {
   return (
@@ -12,6 +13,11 @@ export const Routes = () => {
       <Route exact path="/" component={Landing} />
       <Route exact path="/feedback" component={Feedback} />
       <Route exact path="/submit-question" component={SubmitQuestion} />
+      <Route
+        exact
+        path="/submit-question/thanks"
+        component={QuestionSubmissionThankYou}
+      />
       <Route exact path="/privacy" component={PrivacyPolicy} />
       <Route exact path="/terms" component={Terms} />
     </Switch>
