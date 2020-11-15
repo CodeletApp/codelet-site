@@ -405,7 +405,7 @@ export const SubmitQuestion = () => {
                     />
                   </Grid>
                   <Grid item xs={12} sm={4} className={classes.button}>
-                    <Radio color="#000" value="2" />
+                    <Radio value="2" />
                     <TextField
                       variant="outlined"
                       margin="normal"
