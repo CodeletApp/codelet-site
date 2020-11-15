@@ -8,7 +8,6 @@ import {
   TextField,
   Select,
   MenuItem,
-  InputLabel,
   Grid,
   Button,
   Radio,
@@ -45,6 +44,9 @@ const useStyles = makeStyles({
     marginTop: "2.5%",
     marginBottom: "2.5%",
     background: "black",
+  },
+  requiredAsterisk: {
+    color: "red",
   },
 });
 
@@ -120,11 +122,13 @@ export const SubmitQuestion = () => {
       <Container className={classes.formContainer}>
         <CssBaseline />
         <Typography variant="h2">Submit a Question</Typography>
-        <Typography variant="h6">
+        <Typography variant="h5">
           Submit a question you'd like to see in codelet.
         </Typography>
         <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
-          <Typography>Question Title</Typography>
+          <Typography variant="h6">
+            Question Title <span className={classes.requiredAsterisk}>*</span>
+          </Typography>
           <sub>
             We'll use Palindrome Checker as example throughout this form.
             Example response: "Palindrome Checker"
@@ -136,14 +140,14 @@ export const SubmitQuestion = () => {
             fullWidth
             id="title"
             name="title"
-            label="Title"
             placeholder="Please enter the title of the question"
             inputRef={register}
-          />{" "}
+          />
           <Divider className={classes.divider} />
-          <InputLabel id="difficulty-label" required>
-            Question Difficulty
-          </InputLabel>
+          <Typography variant="h6">
+            Question Difficulty{" "}
+            <span className={classes.requiredAsterisk}>*</span>
+          </Typography>
           <Controller
             name="difficulty"
             control={control}
@@ -163,8 +167,9 @@ export const SubmitQuestion = () => {
             rules={{ required: true }}
           />
           <Divider className={classes.divider} />
-          <Typography>
+          <Typography variant="h6">
             Question Description: A short description that poses the question.{" "}
+            <span className={classes.requiredAsterisk}>*</span>
           </Typography>
           <sub>
             Example response: "Given a string s, return true if the string is
@@ -177,14 +182,16 @@ export const SubmitQuestion = () => {
             fullWidth
             id="description"
             name="description"
-            label="Description"
             multiline
             rows={7}
             placeholder="Please enter the description of the question"
             inputRef={register}
           />
           <Divider className={classes.divider} />
-          <Typography>Question Example: Simple input and output</Typography>
+          <Typography variant="h6">
+            Question Example: Simple input and output{" "}
+            <span className={classes.requiredAsterisk}>*</span>
+          </Typography>
           <sub>
             Example response: "1) s = 'Apple', Returns: false. 2) s = 'level',
             Returns: true"
@@ -196,14 +203,15 @@ export const SubmitQuestion = () => {
             fullWidth
             id="example"
             name="example"
-            label="Example"
             multiline
             rows={7}
             placeholder="Please enter the example"
             inputRef={register}
           />
           <Divider className={classes.divider} />
-          <Typography variant="h6">Approaches</Typography>
+          <Typography variant="h6">
+            Approaches <span className={classes.requiredAsterisk}>*</span>
+          </Typography>
           <Typography>
             Approaches are short descriptions of how to solve a problem. Please
             fill out three approaches and select the single correct option.
@@ -233,7 +241,7 @@ export const SubmitQuestion = () => {
                       multiline
                       rows={7}
                       fullWidth
-                      placeholder="Example for isPalindrome: Use two pointers, one at the first index
+                      placeholder="Please enter the first approach. Example for isPalindrome: Use two pointers, one at the first index
                       of a char array of the string, and one at the end. In a for loop,
                       check the equality of the pointers. If they are ever not equal,
                       return false, otherwise return true"
@@ -248,7 +256,6 @@ export const SubmitQuestion = () => {
                       required
                       id="approach2"
                       name="approach2"
-                      label="Approach 2"
                       multiline
                       rows={7}
                       fullWidth
@@ -264,7 +271,6 @@ export const SubmitQuestion = () => {
                       required
                       id="approach3"
                       name="approach3"
-                      label="Approach 3"
                       multiline
                       rows={7}
                       fullWidth
@@ -279,10 +285,13 @@ export const SubmitQuestion = () => {
             rules={{ required: true }}
           />
           <Divider className={classes.divider} />
+          <Typography variant="h6">
+            Algorithms <span className={classes.requiredAsterisk}>*</span>
+          </Typography>
           <Typography>
-            Question Algorithms: Short, <strong>formatted</strong> code snippets
-            that solve the problem. Python, JS, or pseudo code is preferred.
-            Select the single correct option.
+            Short, <strong>formatted</strong> code snippets that solve the
+            problem. Python, JS, or pseudo code is preferred. Select the single
+            correct option.
           </Typography>
           <sub>
             It's okay to assume simple helper functions, such as reverse(), are
@@ -313,7 +322,7 @@ export const SubmitQuestion = () => {
                       multiline
                       rows={7}
                       fullWidth
-                      placeholder={`Ex:\nisPal(s):\ntempStr = reverse(s) \nfor(i=0;i<s.length; i++):\n\tif(s[i]!==tempStr[i])\n\treturn false\n return true`}
+                      placeholder={`Please enter the first algorithm\nEx:\nisPal(s):\ntempStr = reverse(s) \nfor(i=0;i<s.length; i++):\n\tif(s[i]!==tempStr[i])\n\treturn false\n return true`}
                       inputRef={register}
                     />
                   </Grid>
@@ -325,7 +334,6 @@ export const SubmitQuestion = () => {
                       required
                       id="algorithm2"
                       name="algorithm2"
-                      label="Algorithm 2"
                       multiline
                       rows={7}
                       fullWidth
@@ -341,7 +349,6 @@ export const SubmitQuestion = () => {
                       required
                       id="algorithm3"
                       name="algorithm3"
-                      label="Algorithm 3"
                       multiline
                       rows={7}
                       fullWidth
@@ -358,7 +365,7 @@ export const SubmitQuestion = () => {
           <Divider className={classes.divider} />
           <Typography variant="h6">
             Algorithm space complexities. Select the correct solution's space
-            complexity.
+            complexity. <span className={classes.requiredAsterisk}>*</span>
           </Typography>
           <sub>
             Use common notation in string form. Example responses: "nlogn, n,
@@ -426,7 +433,7 @@ export const SubmitQuestion = () => {
           <Divider className={classes.divider} />
           <Typography variant="h6">
             Algorithm time complexities. Select the correct solution's time
-            complexity.
+            complexity. <span className={classes.requiredAsterisk}>*</span>
           </Typography>
           <sub>
             Use common notation in string form. Example responses: "nlogn, n,
