@@ -38,6 +38,9 @@ const useStyles = makeStyles({
     paddingLeft: "5%",
     paddingRight: "5%",
   },
+  button: {
+    textAlign: "center",
+  },
   divider: {
     marginTop: "2.5%",
     marginBottom: "2.5%",
@@ -219,7 +222,7 @@ export const SubmitQuestion = () => {
                 id="approachSolutionIndex"
               >
                 <Grid container spacing={6}>
-                  <Grid item xs={12} sm={4}>
+                  <Grid item xs={12} sm={4} className={classes.button}>
                     <Radio value="0" />
                     <TextField
                       variant="outlined"
@@ -237,7 +240,7 @@ export const SubmitQuestion = () => {
                       inputRef={register}
                     />
                   </Grid>
-                  <Grid item xs={12} sm={4}>
+                  <Grid item xs={12} sm={4} className={classes.button}>
                     <Radio value="1" />
                     <TextField
                       variant="outlined"
@@ -253,7 +256,7 @@ export const SubmitQuestion = () => {
                       inputRef={register}
                     />
                   </Grid>
-                  <Grid item xs={12} sm={4}>
+                  <Grid item xs={12} sm={4} className={classes.button}>
                     <Radio value="2" />
                     <TextField
                       variant="outlined"
@@ -299,7 +302,7 @@ export const SubmitQuestion = () => {
                 id="algorithmSolutionIndex"
               >
                 <Grid container spacing={6}>
-                  <Grid item xs={12} sm={4}>
+                  <Grid item xs={12} sm={4} className={classes.button}>
                     <Radio value="0" />
                     <TextField
                       variant="outlined"
@@ -314,7 +317,7 @@ export const SubmitQuestion = () => {
                       inputRef={register}
                     />
                   </Grid>
-                  <Grid item xs={12} sm={4}>
+                  <Grid item xs={12} sm={4} className={classes.button}>
                     <Radio value="1" />
                     <TextField
                       variant="outlined"
@@ -330,7 +333,7 @@ export const SubmitQuestion = () => {
                       inputRef={register}
                     />
                   </Grid>
-                  <Grid item xs={12} sm={4}>
+                  <Grid item xs={12} sm={4} className={classes.button}>
                     <Radio value="2" />
                     <TextField
                       variant="outlined"
@@ -359,7 +362,7 @@ export const SubmitQuestion = () => {
           </Typography>
           <sub>
             Use common notation in string form. Example responses: "nlogn, n,
-            n^2s"
+            n^2"
           </sub>
           <ErrorMessage
             isError={errors.spaceComplexitySolutionIndex}
@@ -375,7 +378,7 @@ export const SubmitQuestion = () => {
                 id="spaceComplexitySolutionIndex"
               >
                 <Grid container spacing={6}>
-                  <Grid item xs={12} sm={4}>
+                  <Grid item xs={12} sm={4} className={classes.button}>
                     <Radio value="0" />
                     <TextField
                       variant="outlined"
@@ -388,7 +391,7 @@ export const SubmitQuestion = () => {
                       fullWidth
                     />
                   </Grid>
-                  <Grid item xs={12} sm={4}>
+                  <Grid item xs={12} sm={4} className={classes.button}>
                     <Radio value="1" />
                     <TextField
                       variant="outlined"
@@ -401,7 +404,7 @@ export const SubmitQuestion = () => {
                       fullWidth
                     />
                   </Grid>
-                  <Grid item xs={12} sm={4}>
+                  <Grid item xs={12} sm={4} className={classes.button}>
                     <Radio color="#000" value="2" />
                     <TextField
                       variant="outlined"
@@ -427,7 +430,7 @@ export const SubmitQuestion = () => {
           </Typography>
           <sub>
             Use common notation in string form. Example responses: "nlogn, n,
-            n^2s"
+            n^2"
           </sub>
           <ErrorMessage
             isError={errors.timeComplexitySolutionIndex}
@@ -443,7 +446,7 @@ export const SubmitQuestion = () => {
                 id="timeComplexitySolutionIndex"
               >
                 <Grid container spacing={6}>
-                  <Grid item xs={12} sm={4}>
+                  <Grid item xs={12} sm={4} className={classes.button}>
                     <Radio value="0" />
                     <TextField
                       variant="outlined"
@@ -456,7 +459,7 @@ export const SubmitQuestion = () => {
                       fullWidth
                     />
                   </Grid>
-                  <Grid item xs={12} sm={4}>
+                  <Grid item xs={12} sm={4} className={classes.button}>
                     <Radio value="1" />
                     <TextField
                       variant="outlined"
@@ -469,7 +472,7 @@ export const SubmitQuestion = () => {
                       fullWidth
                     />
                   </Grid>
-                  <Grid item xs={12} sm={4}>
+                  <Grid item xs={12} sm={4} className={classes.button}>
                     <Radio value="2" />
                     <TextField
                       variant="outlined"
@@ -488,14 +491,16 @@ export const SubmitQuestion = () => {
             defaultValue=""
             rules={{ required: true }}
           />
-          <Button
-            className={classes.submitButton}
-            variant="contained"
-            color="primary"
-            type="submit"
-          >
-            <Typography variant="h5">Submit</Typography>
-          </Button>
+          <Grid className={classes.button}>
+            <Button
+              className={classes.submitButton}
+              variant="contained"
+              color="primary"
+              type="submit"
+            >
+              <Typography variant="h5">Submit</Typography>
+            </Button>
+          </Grid>
         </form>
       </Container>
     </Box>
