@@ -138,6 +138,7 @@ export const SubmitQuestion = () => {
         },
       });
     }
+    window.location.assign("/submit-question/thanks");
   };
 
   return (
