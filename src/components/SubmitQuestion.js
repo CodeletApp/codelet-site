@@ -113,12 +113,16 @@ export const SubmitQuestion = () => {
     <Box className={classes.root}>
       <Container className={classes.formContainer}>
         <CssBaseline />
-        <Typography variant="h2">Submit A Question</Typography>
-        <Typography variant="h4">
-          Have an idea for a question we should add to our app? Fill out this
-          form to submit it!
+        <Typography variant="h2">Submit a Question</Typography>
+        <Typography variant="h6">
+          Submit a question you'd like to see in codelet.
         </Typography>
         <form style={{ marginBottom: "5%" }} onSubmit={handleSubmit(onSubmit)}>
+          <Typography>Question Title</Typography>
+          <sub>
+            We'll use Palindrome Checker as example throughout this form.
+            Example response: "Palindrome Checker"
+          </sub>
           <TextField
             variant="outlined"
             margin="normal"
@@ -129,9 +133,10 @@ export const SubmitQuestion = () => {
             label="Title"
             placeholder="Please enter the title of the question"
             inputRef={register}
-          />
+          />{" "}
+          <Divider className={classes.divider} />
           <InputLabel id="difficulty-label" required>
-            Difficulty
+            Question Difficulty
           </InputLabel>
           <Controller
             name="difficulty"
@@ -151,6 +156,14 @@ export const SubmitQuestion = () => {
             defaultValue={"Easy"}
             rules={{ required: true }}
           />
+          <Divider className={classes.divider} />
+          <Typography>
+            Question Description: A short description that poses the question.{" "}
+          </Typography>
+          <sub>
+            Example response: "Given a string s, return true if the string is
+            the same when written backwards (a palindrome)."
+          </sub>
           <TextField
             variant="outlined"
             margin="normal"
@@ -164,6 +177,12 @@ export const SubmitQuestion = () => {
             placeholder="Please enter the description of the question"
             inputRef={register}
           />
+          <Divider className={classes.divider} />
+          <Typography>Question Example: Simple input and output</Typography>
+          <sub>
+            Example response: "1) s = 'Apple', Returns: false. 2) s = 'level',
+            Returns: true"
+          </sub>
           <TextField
             variant="outlined"
             margin="normal"
@@ -178,8 +197,10 @@ export const SubmitQuestion = () => {
             inputRef={register}
           />
           <Divider className={classes.divider} />
-          <Typography variant="h6">
-            Approaches (please select the one that is correct):
+          <Typography variant="h6">Approaches</Typography>
+          <Typography>
+            Approaches are short descriptions of how to solve a problem. Please
+            fill out three approaches and select the single correct option.
           </Typography>
           <ErrorMessage
             isError={errors.approachSolutionIndex}
@@ -203,11 +224,13 @@ export const SubmitQuestion = () => {
                       required
                       id="approach1"
                       name="approach1"
-                      label="Approach 1"
                       multiline
                       rows={7}
                       fullWidth
-                      placeholder="Please enter the first approach"
+                      placeholder="Example for isPalindrome: Use two pointers, one at the first index
+                      of a char array of the string, and one at the end. In a for loop,
+                      check the equality of the pointers. If they are ever not equal,
+                      return false, otherwise return true"
                       inputRef={register}
                     />
                   </Grid>
@@ -250,9 +273,15 @@ export const SubmitQuestion = () => {
             rules={{ required: true }}
           />
           <Divider className={classes.divider} />
-          <Typography variant="h6">
-            Algorithms (please select the one that is correct):
+          <Typography>
+            Question Algorithms: Short, <strong>formatted</strong> code snippets
+            that solve the problem. Python, JS, or pseudo code is preferred.
+            Select the single correct option.
           </Typography>
+          <sub>
+            It's okay to assume simple helper functions, such as reverse(), are
+            defined and do not need to be written.
+          </sub>
           <ErrorMessage
             isError={errors.algorithmSolutionIndex}
             message="Please select which algorithm is correct"
@@ -275,11 +304,10 @@ export const SubmitQuestion = () => {
                       required
                       id="algorithm1"
                       name="algorithm1"
-                      label="Algorithm 1"
                       multiline
                       rows={7}
                       fullWidth
-                      placeholder="Please enter the first algorithm"
+                      placeholder={`Ex:\nisPal(s):\ntempStr = reverse(s) \nfor(i=0;i<s.length; i++):\n\tif(s[i]!==tempStr[i])\n\treturn false\n return true`}
                       inputRef={register}
                     />
                   </Grid>
@@ -323,8 +351,13 @@ export const SubmitQuestion = () => {
           />
           <Divider className={classes.divider} />
           <Typography variant="h6">
-            Space Complexities (please select the one that is correct):
+            Algorithm space complexities. Select the correct solution's space
+            complexity.
           </Typography>
+          <sub>
+            Use common notation in string form. Example responses: "nlogn, n,
+            n^2s"
+          </sub>
           <ErrorMessage
             isError={errors.spaceComplexitySolutionIndex}
             message="Please select which space complexity is correct"
@@ -347,7 +380,6 @@ export const SubmitQuestion = () => {
                       required
                       id="spaceComplexity1"
                       name="spaceComplexity1"
-                      label="Space Complexity 1"
                       placeholder="Please enter the first space complexity"
                       inputRef={register}
                       fullWidth
@@ -361,21 +393,19 @@ export const SubmitQuestion = () => {
                       required
                       id="spaceComplexity2"
                       name="spaceComplexity2"
-                      label="Space Complexity 2"
                       placeholder="Please enter the second space complexity"
                       inputRef={register}
                       fullWidth
                     />
                   </Grid>
                   <Grid item xs={12} sm={4}>
-                    <Radio value="2" />
+                    <Radio color="#000" value="2" />
                     <TextField
                       variant="outlined"
                       margin="normal"
                       required
                       id="spaceComplexity3"
                       name="spaceComplexity3"
-                      label="Space Complexity 3"
                       placeholder="Please enter the third space complexity"
                       inputRef={register}
                       fullWidth
@@ -389,8 +419,13 @@ export const SubmitQuestion = () => {
           />
           <Divider className={classes.divider} />
           <Typography variant="h6">
-            Time Complexities (please select the one that is correct):
+            Algorithm time complexities. Select the correct solution's time
+            complexity.
           </Typography>
+          <sub>
+            Use common notation in string form. Example responses: "nlogn, n,
+            n^2s"
+          </sub>
           <ErrorMessage
             isError={errors.timeComplexitySolutionIndex}
             message="Please select which time complexity is correct"
@@ -413,7 +448,6 @@ export const SubmitQuestion = () => {
                       required
                       id="timeComplexity1"
                       name="timeComplexity1"
-                      label="Time Complexity 1"
                       placeholder="Please enter the first time complexity"
                       inputRef={register}
                       fullWidth
@@ -427,7 +461,6 @@ export const SubmitQuestion = () => {
                       required
                       id="timeComplexity2"
                       name="timeComplexity2"
-                      label="Time Complexity 2"
                       placeholder="Please enter the second time complexity"
                       inputRef={register}
                       fullWidth
@@ -441,7 +474,6 @@ export const SubmitQuestion = () => {
                       required
                       id="timeComplexity3"
                       name="timeComplexity3"
-                      label="Time Complexity 3"
                       placeholder="Please enter the third time complexity"
                       inputRef={register}
                       fullWidth
