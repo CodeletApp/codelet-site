@@ -30,6 +30,9 @@ const useStyles = makeStyles({
     paddingTop: "2%",
     paddingBottom: "2%",
   },
+  form: {
+    marginBottom: "5%",
+  },
   submitButton: {
     marginTop: "3%",
     paddingLeft: "5%",
@@ -117,7 +120,7 @@ export const SubmitQuestion = () => {
         <Typography variant="h6">
           Submit a question you'd like to see in codelet.
         </Typography>
-        <form style={{ marginBottom: "5%" }} onSubmit={handleSubmit(onSubmit)}>
+        <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
           <Typography>Question Title</Typography>
           <sub>
             We'll use Palindrome Checker as example throughout this form.
