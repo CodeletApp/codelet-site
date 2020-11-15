@@ -13,6 +13,12 @@ const useStyles = makeStyles({
     marginTop: "auto",
     marginBottom: "auto",
   },
+  subText: {
+    textAlign: "center",
+    marginTop: "auto",
+    marginBottom: "auto",
+    fontSize: 30,
+  },
 });
 
 const backgroundTheme = createMuiTheme({
@@ -29,11 +35,9 @@ export const QuestionSubmissionThankYou = () => {
     <MuiThemeProvider theme={backgroundTheme}>
       <CssBaseline />
       <Typography className={classes.text} variant="h1">
-        <sub>
-          <sub>
-            <sub>Question has been successfully submitted.</sub>
-          </sub>
-        </sub>
+        <span className={classes.subText}>
+          Question has been successfully submitted.
+        </span>
         <br />
         Thank You!
       </Typography>
