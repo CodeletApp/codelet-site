@@ -12,7 +12,7 @@ export function SectionOne() {
     <div className="section1">
       <svg
         role="presentation"
-        class="splash-screen-poly"
+        className="splash-screen-poly"
         viewBox="0 0 100 100"
         preserveAspectRatio="none"
       >

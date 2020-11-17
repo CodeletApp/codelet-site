@@ -369,6 +369,7 @@ li {
   letter-spacing: 0.1em;
   width: 100%;
   padding: 0.7%;
+  z-index: 1;
 
   @media (max-width: $screen-sm-min) {
     font-size: 10px;
@@ -438,7 +439,62 @@ li {
 }
 
 .custom-text-container {
-  margin: 2%;
+  padding: 2%;
 }
 
+.background {
+  background: #255285;
+}
+
+.title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bolder;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.form-group {
+  text-align: center;
+}
+
+.submit-button {
+  width: 10%;
+  padding: 1%;
+  font-size: 24px;
+  border-radius: 8px;
+  background-color: #abd1fc;
+  border: none;
+}
+
+.input-label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.form-input,
+.form-input-small,
+.form-textarea {
+  width: 20%;
+  border: none;
+  border-radius: 8px;
+  margin: 0.25%;
+  padding: 0.5% 0%;
+}
+
+.form-input-small {
+  font-size: x-small;
+}
+
+.form-input,
+.form-input-small {
+  text-align: center;
+}
+form {
+  text-align: left;
+}
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Muli:wght@600&display=swap");
