@@ -508,6 +508,12 @@ export const SubmitQuestion = () => {
             >
               <Typography variant="h5">Submit</Typography>
             </Button>
+            <br />
+            <sub>
+              NOTE: By submitting a question, you affirm that you are the author
+              of its content and give Codelet permission to display, modify, and
+              delete this question at any time.
+            </sub>
           </Grid>
         </form>
       </Container>
