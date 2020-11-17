@@ -77,7 +77,6 @@ export const SubmitQuestion = () => {
       algorithmSolutionIndex,
       spaceComplexitySolutionIndex,
       timeComplexitySolutionIndex,
-      author,
     } = data;
     const approaches = [approach1, approach2, approach3];
     const codeBank = [algorithm1, algorithm2, algorithm3];
@@ -98,46 +97,24 @@ export const SubmitQuestion = () => {
         spaceComplexityBank[parseInt(spaceComplexitySolutionIndex)],
       timeComplexity: timeComplexityBank[parseInt(timeComplexitySolutionIndex)],
     };
-    if (author !== "") {
-      await apiRequest({
-        url: `${getEnvUrl()}/questions/post-question`,
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        data: {
-          title,
-          difficulty,
-          description,
-          example,
-          approaches,
-          codeBank,
-          spaceComplexityBank,
-          timeComplexityBank,
-          solution,
-          author,
-        },
-      });
-    } else {
-      await apiRequest({
-        url: `${getEnvUrl()}/questions/post-question`,
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        data: {
-          title,
-          difficulty,
-          description,
-          example,
-          approaches,
-          codeBank,
-          spaceComplexityBank,
-          timeComplexityBank,
-          solution,
-        },
-      });
-    }
+    await apiRequest({
+      url: `${getEnvUrl()}/questions/post-question`,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: {
+        title,
+        difficulty,
+        description,
+        example,
+        approaches,
+        codeBank,
+        spaceComplexityBank,
+        timeComplexityBank,
+        solution,
+      },
+    });
     window.location.assign("/submit-question/thanks");
   };
 
@@ -150,21 +127,6 @@ export const SubmitQuestion = () => {
           Submit a question you'd like to see in codelet.
         </Typography>
         <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
-          <Typography variant="h6">Author</Typography>
-          <sub>
-            Use your email bound to your Codelet account so we can give your
-            account credit.
-          </sub>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            fullWidth
-            id="author"
-            name="author"
-            placeholder="Please enter your email bound to your Codelet account"
-            inputRef={register}
-          />
-          <Divider className={classes.divider} />
           <Typography variant="h6">
             Question Title <span className={classes.requiredAsterisk}>*</span>
           </Typography>
