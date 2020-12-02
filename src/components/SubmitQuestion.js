@@ -1,6 +1,5 @@
 import React from "react";
-import { useForm, Controller } from "react-hook-form";
-import { apiRequest, getEnvUrl } from "../services";
+import { Controller } from "react-hook-form";
 import {
   Container,
   Typography,
@@ -17,6 +16,7 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { ErrorMessage } from "./ErrorMessage";
+import { useSubmitQuestion } from './CustomHooks'
 
 const useStyles = makeStyles({
   root: {
@@ -52,71 +52,7 @@ const useStyles = makeStyles({
 
 export const SubmitQuestion = () => {
   const classes = useStyles();
-
-  const { register, control, handleSubmit, errors } = useForm();
-
-  const onSubmit = async (data) => {
-    const {
-      title,
-      approach1,
-      approach2,
-      approach3,
-      algorithm1,
-      algorithm2,
-      algorithm3,
-      spaceComplexity1,
-      spaceComplexity2,
-      spaceComplexity3,
-      timeComplexity1,
-      timeComplexity2,
-      timeComplexity3,
-      difficulty,
-      description,
-      example,
-      approachSolutionIndex,
-      algorithmSolutionIndex,
-      spaceComplexitySolutionIndex,
-      timeComplexitySolutionIndex,
-    } = data;
-    const approaches = [approach1, approach2, approach3];
-    const codeBank = [algorithm1, algorithm2, algorithm3];
-    const spaceComplexityBank = [
-      spaceComplexity1,
-      spaceComplexity2,
-      spaceComplexity3,
-    ];
-    const timeComplexityBank = [
-      timeComplexity1,
-      timeComplexity2,
-      timeComplexity3,
-    ];
-    const solution = {
-      approachIndex: parseInt(approachSolutionIndex),
-      codeBlock: parseInt(algorithmSolutionIndex),
-      spaceComplexity:
-        spaceComplexityBank[parseInt(spaceComplexitySolutionIndex)],
-      timeComplexity: timeComplexityBank[parseInt(timeComplexitySolutionIndex)],
-    };
-    await apiRequest({
-      url: `${getEnvUrl()}/questions/post-question`,
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: {
-        title,
-        difficulty,
-        description,
-        example,
-        approaches,
-        codeBank,
-        spaceComplexityBank,
-        timeComplexityBank,
-        solution,
-      },
-    });
-    window.location.assign("/submit-question/thanks");
-  };
+  const { register, control, errors, submitQuestion, submitError } = useSubmitQuestion();
 
   return (
     <Box className={classes.root}>
@@ -126,7 +62,7 @@ export const SubmitQuestion = () => {
         <Typography variant="h5">
           Submit a question you'd like to see in codelet.
         </Typography>
-        <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
+        <form className={classes.form} onSubmit={submitQuestion}>
           <Typography variant="h6">
             Question Title <span className={classes.requiredAsterisk}>*</span>
           </Typography>
@@ -508,6 +444,10 @@ export const SubmitQuestion = () => {
             >
               <Typography variant="h5">Submit</Typography>
             </Button>
+            <ErrorMessage
+              isError={submitError}
+              message={submitError}
+            />
             <br />
             <sub>
               By submitting a question, you affirm that you are the author of
