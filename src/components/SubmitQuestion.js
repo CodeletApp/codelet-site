@@ -31,6 +31,7 @@ const useStyles = makeStyles({
   },
   form: {
     marginBottom: "5%",
+    marginTop: '3%'
   },
   submitButton: {
     marginTop: "3%",
@@ -48,6 +49,9 @@ const useStyles = makeStyles({
   requiredAsterisk: {
     color: "red",
   },
+  input: {
+    backgroundColor: '#FAFAFA'
+  }
 });
 
 export const SubmitQuestion = () => {
@@ -73,6 +77,7 @@ export const SubmitQuestion = () => {
           <TextField
             variant="outlined"
             margin="normal"
+            className={classes.input}
             required
             fullWidth
             id="title"
@@ -91,6 +96,7 @@ export const SubmitQuestion = () => {
             as={
               <Select
                 variant="outlined"
+                className={classes.input}
                 name="difficulty"
                 id="difficulty"
                 labelId="difficulty-label"
@@ -113,6 +119,7 @@ export const SubmitQuestion = () => {
             the same when written backwards (a palindrome)."
           </sub>
           <TextField
+            className={classes.input}
             variant="outlined"
             margin="normal"
             required
@@ -135,6 +142,7 @@ export const SubmitQuestion = () => {
           </sub>
           <TextField
             variant="outlined"
+            className={classes.input}
             margin="normal"
             required
             fullWidth
@@ -172,6 +180,7 @@ export const SubmitQuestion = () => {
                     <TextField
                       variant="outlined"
                       margin="normal"
+                      className={classes.input}
                       required
                       id="approach1"
                       name="approach1"
@@ -190,6 +199,7 @@ export const SubmitQuestion = () => {
                     <TextField
                       variant="outlined"
                       margin="normal"
+                      className={classes.input}
                       required
                       id="approach2"
                       name="approach2"
@@ -204,6 +214,7 @@ export const SubmitQuestion = () => {
                     <Radio value="2" />
                     <TextField
                       variant="outlined"
+                      className={classes.input}
                       margin="normal"
                       required
                       id="approach3"
@@ -252,6 +263,7 @@ export const SubmitQuestion = () => {
                     <Radio value="0" />
                     <TextField
                       variant="outlined"
+                      className={classes.input}
                       margin="normal"
                       required
                       id="algorithm1"
@@ -267,6 +279,7 @@ export const SubmitQuestion = () => {
                     <Radio value="1" />
                     <TextField
                       variant="outlined"
+                      className={classes.input}
                       margin="normal"
                       required
                       id="algorithm2"
@@ -282,6 +295,7 @@ export const SubmitQuestion = () => {
                     <Radio value="2" />
                     <TextField
                       variant="outlined"
+                      className={classes.input}
                       margin="normal"
                       required
                       id="algorithm3"
@@ -326,6 +340,7 @@ export const SubmitQuestion = () => {
                     <Radio value="0" />
                     <TextField
                       variant="outlined"
+                      className={classes.input}
                       margin="normal"
                       required
                       id="spaceComplexity1"
@@ -339,6 +354,7 @@ export const SubmitQuestion = () => {
                     <Radio value="1" />
                     <TextField
                       variant="outlined"
+                      className={classes.input}
                       margin="normal"
                       required
                       id="spaceComplexity2"
@@ -352,6 +368,7 @@ export const SubmitQuestion = () => {
                     <Radio value="2" />
                     <TextField
                       variant="outlined"
+                      className={classes.input}
                       margin="normal"
                       required
                       id="spaceComplexity3"
@@ -394,6 +411,7 @@ export const SubmitQuestion = () => {
                     <Radio value="0" />
                     <TextField
                       variant="outlined"
+                      className={classes.input}
                       margin="normal"
                       required
                       id="timeComplexity1"
@@ -407,6 +425,7 @@ export const SubmitQuestion = () => {
                     <Radio value="1" />
                     <TextField
                       variant="outlined"
+                      className={classes.input}
                       margin="normal"
                       required
                       id="timeComplexity2"
@@ -420,6 +439,7 @@ export const SubmitQuestion = () => {
                     <Radio value="2" />
                     <TextField
                       variant="outlined"
+                      className={classes.input}
                       margin="normal"
                       required
                       id="timeComplexity3"
