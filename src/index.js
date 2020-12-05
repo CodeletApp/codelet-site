@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+import AppRouter from './routes/AppRouter';
 import * as serviceWorker from "./serviceWorker";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
@@ -10,12 +10,16 @@ const theme = createMuiTheme({
     primary: {
       main: "#397ac2",
     },
+    action: {
+      disabledBackground: 'rgba(57, 122, 194, 0.8)',
+      disabled: 'white'
+    }
   },
 });
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
-    <App />
+    <AppRouter />
   </ThemeProvider>,
   document.getElementById("root")
 );

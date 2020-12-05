@@ -15,8 +15,8 @@ import {
   Divider,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
-import { ErrorMessage } from "./ErrorMessage";
-import { useSubmitQuestion } from './CustomHooks'
+import { ErrorMessage } from "../components/ErrorMessage";
+import { useSubmitQuestion } from '../components/customHooks'
 
 const useStyles = makeStyles({
   root: {

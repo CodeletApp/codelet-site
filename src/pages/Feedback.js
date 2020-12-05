@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Loading from "./Loading";
+import Loading from "../components/Loading";
 
 export const Feedback = () => {
   useEffect(() => {

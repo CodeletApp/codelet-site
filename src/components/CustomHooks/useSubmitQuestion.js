@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { apiRequest, getEnvUrl } from "../../services";
 
 export const useSubmitQuestion = (submitUrl = 'questions/post-question') => {
-  const { register, control, handleSubmit, errors } = useForm();
+  const { register, control, handleSubmit, errors, ...rest } = useForm();
   const [submitError, setSubmitError] = useState('');
 
   const onSubmit = async (data) => {
@@ -73,6 +73,7 @@ export const useSubmitQuestion = (submitUrl = 'questions/post-question') => {
     }
   };
   return {
+    ...rest,
     register,
     control,
     errors,
