@@ -1,6 +1,5 @@
 import React from "react";
-import { useForm, Controller } from "react-hook-form";
-import { apiRequest, getEnvUrl } from "../services";
+import { Controller } from "react-hook-form";
 import {
   Container,
   Typography,
@@ -17,6 +16,7 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { ErrorMessage } from "./ErrorMessage";
+import { useSubmitQuestion } from './CustomHooks'
 
 const useStyles = makeStyles({
   root: {
@@ -31,6 +31,7 @@ const useStyles = makeStyles({
   },
   form: {
     marginBottom: "5%",
+    marginTop: '3%'
   },
   submitButton: {
     marginTop: "3%",
@@ -48,75 +49,14 @@ const useStyles = makeStyles({
   requiredAsterisk: {
     color: "red",
   },
+  input: {
+    backgroundColor: '#FAFAFA'
+  }
 });
 
 export const SubmitQuestion = () => {
   const classes = useStyles();
-
-  const { register, control, handleSubmit, errors } = useForm();
-
-  const onSubmit = async (data) => {
-    const {
-      title,
-      approach1,
-      approach2,
-      approach3,
-      algorithm1,
-      algorithm2,
-      algorithm3,
-      spaceComplexity1,
-      spaceComplexity2,
-      spaceComplexity3,
-      timeComplexity1,
-      timeComplexity2,
-      timeComplexity3,
-      difficulty,
-      description,
-      example,
-      approachSolutionIndex,
-      algorithmSolutionIndex,
-      spaceComplexitySolutionIndex,
-      timeComplexitySolutionIndex,
-    } = data;
-    const approaches = [approach1, approach2, approach3];
-    const codeBank = [algorithm1, algorithm2, algorithm3];
-    const spaceComplexityBank = [
-      spaceComplexity1,
-      spaceComplexity2,
-      spaceComplexity3,
-    ];
-    const timeComplexityBank = [
-      timeComplexity1,
-      timeComplexity2,
-      timeComplexity3,
-    ];
-    const solution = {
-      approachIndex: parseInt(approachSolutionIndex),
-      codeBlock: parseInt(algorithmSolutionIndex),
-      spaceComplexity:
-        spaceComplexityBank[parseInt(spaceComplexitySolutionIndex)],
-      timeComplexity: timeComplexityBank[parseInt(timeComplexitySolutionIndex)],
-    };
-    await apiRequest({
-      url: `${getEnvUrl()}/questions/post-question`,
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: {
-        title,
-        difficulty,
-        description,
-        example,
-        approaches,
-        codeBank,
-        spaceComplexityBank,
-        timeComplexityBank,
-        solution,
-      },
-    });
-    window.location.assign("/submit-question/thanks");
-  };
+  const { register, control, errors, submitQuestion, submitError } = useSubmitQuestion();
 
   return (
     <Box className={classes.root}>
@@ -126,7 +66,7 @@ export const SubmitQuestion = () => {
         <Typography variant="h5">
           Submit a question you'd like to see in codelet.
         </Typography>
-        <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
+        <form className={classes.form} onSubmit={submitQuestion}>
           <Typography variant="h6">
             Question Title <span className={classes.requiredAsterisk}>*</span>
           </Typography>
@@ -137,6 +77,7 @@ export const SubmitQuestion = () => {
           <TextField
             variant="outlined"
             margin="normal"
+            className={classes.input}
             required
             fullWidth
             id="title"
@@ -155,6 +96,7 @@ export const SubmitQuestion = () => {
             as={
               <Select
                 variant="outlined"
+                className={classes.input}
                 name="difficulty"
                 id="difficulty"
                 labelId="difficulty-label"
@@ -177,6 +119,7 @@ export const SubmitQuestion = () => {
             the same when written backwards (a palindrome)."
           </sub>
           <TextField
+            className={classes.input}
             variant="outlined"
             margin="normal"
             required
@@ -199,6 +142,7 @@ export const SubmitQuestion = () => {
           </sub>
           <TextField
             variant="outlined"
+            className={classes.input}
             margin="normal"
             required
             fullWidth
@@ -236,6 +180,7 @@ export const SubmitQuestion = () => {
                     <TextField
                       variant="outlined"
                       margin="normal"
+                      className={classes.input}
                       required
                       id="approach1"
                       name="approach1"
@@ -254,6 +199,7 @@ export const SubmitQuestion = () => {
                     <TextField
                       variant="outlined"
                       margin="normal"
+                      className={classes.input}
                       required
                       id="approach2"
                       name="approach2"
@@ -268,6 +214,7 @@ export const SubmitQuestion = () => {
                     <Radio value="2" />
                     <TextField
                       variant="outlined"
+                      className={classes.input}
                       margin="normal"
                       required
                       id="approach3"
@@ -316,6 +263,7 @@ export const SubmitQuestion = () => {
                     <Radio value="0" />
                     <TextField
                       variant="outlined"
+                      className={classes.input}
                       margin="normal"
                       required
                       id="algorithm1"
@@ -331,6 +279,7 @@ export const SubmitQuestion = () => {
                     <Radio value="1" />
                     <TextField
                       variant="outlined"
+                      className={classes.input}
                       margin="normal"
                       required
                       id="algorithm2"
@@ -346,6 +295,7 @@ export const SubmitQuestion = () => {
                     <Radio value="2" />
                     <TextField
                       variant="outlined"
+                      className={classes.input}
                       margin="normal"
                       required
                       id="algorithm3"
@@ -390,6 +340,7 @@ export const SubmitQuestion = () => {
                     <Radio value="0" />
                     <TextField
                       variant="outlined"
+                      className={classes.input}
                       margin="normal"
                       required
                       id="spaceComplexity1"
@@ -403,6 +354,7 @@ export const SubmitQuestion = () => {
                     <Radio value="1" />
                     <TextField
                       variant="outlined"
+                      className={classes.input}
                       margin="normal"
                       required
                       id="spaceComplexity2"
@@ -416,6 +368,7 @@ export const SubmitQuestion = () => {
                     <Radio value="2" />
                     <TextField
                       variant="outlined"
+                      className={classes.input}
                       margin="normal"
                       required
                       id="spaceComplexity3"
@@ -458,6 +411,7 @@ export const SubmitQuestion = () => {
                     <Radio value="0" />
                     <TextField
                       variant="outlined"
+                      className={classes.input}
                       margin="normal"
                       required
                       id="timeComplexity1"
@@ -471,6 +425,7 @@ export const SubmitQuestion = () => {
                     <Radio value="1" />
                     <TextField
                       variant="outlined"
+                      className={classes.input}
                       margin="normal"
                       required
                       id="timeComplexity2"
@@ -484,6 +439,7 @@ export const SubmitQuestion = () => {
                     <Radio value="2" />
                     <TextField
                       variant="outlined"
+                      className={classes.input}
                       margin="normal"
                       required
                       id="timeComplexity3"
@@ -508,6 +464,10 @@ export const SubmitQuestion = () => {
             >
               <Typography variant="h5">Submit</Typography>
             </Button>
+            <ErrorMessage
+              isError={submitError}
+              message={submitError}
+            />
             <br />
             <sub>
               By submitting a question, you affirm that you are the author of
