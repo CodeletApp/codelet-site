@@ -1,10 +1,16 @@
 import React from 'react';
+import cookie from 'react-cookies';
 import { Container, Typography,  } from '@material-ui/core';
 import { LoginForm } from '../../components/LoginForm';
 import { useStyles  } from './styles';
 
 export const AdminLogin = () => {
   const classes = useStyles();
+
+  const handleSuccessfulLogin = (data) => {
+    const tokenExpirationTime = 60 * 60;
+    cookie.save('codeletadmincookie', data.token, { path: '/', maxAge: tokenExpirationTime });
+  }
   return (
     <Container className={classes.root}>
       <img 
@@ -15,7 +21,10 @@ export const AdminLogin = () => {
       <Typography variant="h6" className={classes.typography}>
         Admin Portal
       </Typography>
-      <LoginForm submitTo="/users/signin" />
+      <LoginForm
+        submitTo="/users/cla/signin"
+        onSuccess={handleSuccessfulLogin}
+      />
     </Container>
   );
  }

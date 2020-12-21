@@ -7,14 +7,15 @@ export const PrivateAdminRoute = ({
   component: Component,
   ...rest
 }) => {
-  const data = cookie.load('codeletauthcookie');
+  const token = cookie.load('codeletauthcookie');
+  const isAdmin = cookie.load('codeletadmincookie');
   return (
     <Route
       {...rest}
       component={(props) => (
         <>
           {
-            data && data.token && data.isAdmin ? (
+            token && isAdmin ? (
               <>
                 <Component {...props} />
                 <Footer />
