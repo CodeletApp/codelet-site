@@ -8,22 +8,26 @@ import {
   Typography
 } from '@material-ui/core';
 import { useForm } from 'react-hook-form';
-import { string, number } from 'prop-types';
+import { string, number, func } from 'prop-types';
 import cookie from 'react-cookies';
 import { useStyles } from './styles';
 import { ErrorMessage } from '../ErrorMessage';
-import { GoBack } from '../GoBack';
+import { RefererRedirect } from '../RefererRedirect';
 import { apiRequest, getEnvUrl } from '../../services';
 
-
-export const LoginForm = ({ submitTo, tokenExpirationTime }) => {
+export const LoginForm = ({
+  submitTo,
+  tokenExpirationTime,
+  onSuccess,
+  onFailure,
+}) => {
   const { register, handleSubmit, errors } = useForm();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const classes = useStyles()
 
-  const processSubmit = async (data) => {
+  const processSubmit = async (authData) => {
     try {
       setIsLoading(true);
       const { status, data } = await apiRequest({
@@ -32,22 +36,25 @@ export const LoginForm = ({ submitTo, tokenExpirationTime }) => {
         headers: {
           "Content-Type": "application/json",
         },
+        data: authData
       })
       if (status >= 200 && status < 300) {
-        cookie.save('codeletauthcookie', data, { path: '/', maxAge: tokenExpirationTime });
+        cookie.save('codeletauthcookie', data.token, { path: '/', maxAge: tokenExpirationTime });
+        onSuccess(data);
         setIsLoggedIn(true);
       } else {
         setError(data.message);
+        onFailure(data);
       }
       setIsLoading(false);
     } catch(err) {
-      throw err;
+      setError(err.message);
     }
   }
 
   return (
     <Container className={classes.root}>
-      <GoBack activate={isLoggedIn} />
+      <RefererRedirect activate={isLoggedIn} />
       <CssBaseline />
       <form onSubmit={handleSubmit(processSubmit)}>
         <TextField
@@ -106,10 +113,14 @@ export const LoginForm = ({ submitTo, tokenExpirationTime }) => {
 }
 
 LoginForm.propTypes = {
-  onSubmit: string.isRequired,
-  tokenExpirationTime: number
+  submitTo: string.isRequired,
+  tokenExpirationTime: number,
+  onSuccess: func,
+  onFailure: func,
 };
 
 LoginForm.defaultProps = {
   tokenExpirationTime: 60 * 60, // 1 hour
+  onSuccess: () => {},
+  onFailure: () => {},
 }
