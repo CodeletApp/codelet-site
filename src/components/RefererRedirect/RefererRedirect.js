@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect, useLocation } from 'react-router-dom';
 import { bool } from 'prop-types';
 
-export const GoBack = ({ activate }) => {
+export const RefererRedirect = ({ activate }) => {
   const location = useLocation();
   const referer = location.state && location.state.referer
   return (
@@ -12,6 +12,6 @@ export const GoBack = ({ activate }) => {
   );
 };
 
-GoBack.propTypes = {
+RefererRedirect.propTypes = {
   activate: bool.isRequired,
 };
