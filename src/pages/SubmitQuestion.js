@@ -16,7 +16,7 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { ErrorMessage } from "../components/ErrorMessage";
-import { useSubmitQuestion } from '../components/customHooks'
+import { useSubmitQuestion } from '../components/CustomHooks'
 
 const useStyles = makeStyles({
   root: {
