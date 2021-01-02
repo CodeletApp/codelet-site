@@ -23,6 +23,7 @@ export const AdminLogin = () => {
       </Typography>
       <LoginForm
         submitTo="/users/cla/signin"
+        redirectTo="/cla/questions/portal"
         onSuccess={handleSuccessfulLogin}
       />
     </Container>

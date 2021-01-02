@@ -12,7 +12,7 @@ import { string, number, func } from 'prop-types';
 import cookie from 'react-cookies';
 import { useStyles } from './styles';
 import { ErrorMessage } from '../ErrorMessage';
-import { RefererRedirect } from '../RefererRedirect';
+import { AuthRedirect } from '../AuthRedirect';
 import { apiRequest, getEnvUrl } from '../../services';
 
 export const LoginForm = ({
@@ -20,6 +20,7 @@ export const LoginForm = ({
   tokenExpirationTime,
   onSuccess,
   onFailure,
+  redirectTo,
 }) => {
   const { register, handleSubmit, errors } = useForm();
   const [isLoading, setIsLoading] = useState(false);
@@ -54,7 +55,7 @@ export const LoginForm = ({
 
   return (
     <Container className={classes.root}>
-      <RefererRedirect activate={isLoggedIn} />
+      <AuthRedirect activate={isLoggedIn} to={redirectTo} />
       <CssBaseline />
       <form onSubmit={handleSubmit(processSubmit)}>
         <TextField
@@ -117,10 +118,12 @@ LoginForm.propTypes = {
   tokenExpirationTime: number,
   onSuccess: func,
   onFailure: func,
+  redirectTo: string,
 };
 
 LoginForm.defaultProps = {
   tokenExpirationTime: 60 * 60, // 1 hour
   onSuccess: () => {},
   onFailure: () => {},
+  redirectTo: '',
 }
