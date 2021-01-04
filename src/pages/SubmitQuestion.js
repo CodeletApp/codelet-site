@@ -4,8 +4,10 @@ import { QuestionForm } from "../components/QuestionForm/QuestionForm";
 import { useSubmitQuestion } from "../components/CustomHooks";
 
 export const SubmitQuestion = () => {
+  const formContent = useSubmitQuestion();
+
   return (
-    <QuestionForm showSubmissionFineprint submitHook={useSubmitQuestion}>
+    <QuestionForm showSubmissionFineprint formContent={formContent}>
       <Typography variant="h2">Submit a Question</Typography>
       <Typography variant="h5">
         Submit a question you'd like to see in Codelet.

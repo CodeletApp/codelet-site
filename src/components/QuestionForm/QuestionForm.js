@@ -1,6 +1,6 @@
 import React from "react";
 import { Controller } from "react-hook-form";
-import { any, bool, func } from "prop-types";
+import { any, bool, object } from "prop-types";
 import {
   Container,
   Typography,
@@ -21,7 +21,7 @@ import { ErrorMessage } from "../ErrorMessage";
 export const QuestionForm = ({
   children,
   showSubmissionFineprint,
-  submitHook,
+  formContent,
 }) => {
   const classes = useStyles();
   const {
@@ -30,7 +30,7 @@ export const QuestionForm = ({
     errors,
     submitQuestion,
     submitError,
-  } = submitHook();
+  } = formContent;
 
   return (
     <Box className={classes.root}>
@@ -460,5 +460,5 @@ QuestionForm.defaultProps = {
 QuestionForm.propTypes = {
   children: any.isRequired,
   showSubmissionFineprint: bool,
-  submitHook: func.isRequired,
+  formContent: object.isRequired,
 };

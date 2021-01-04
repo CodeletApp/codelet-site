@@ -1,11 +1,28 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { string } from "prop-types";
 import { apiRequest, getEnvUrl } from "../../services";
 
-// @TODO
-export const useEditQuestion = (id) => {
-  let submitUrl = `questions/number/${id}`;
-  const { register, control, handleSubmit, errors, ...rest } = useForm();
+export const useEditQuestion = ({ questionNumber }) => {
+  let submitUrl = `questions/number/${questionNumber}`;
+
+  const getQuestion = async () => {
+    return await apiRequest({
+      url: `${getEnvUrl()}/${submitUrl}`,
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: {
+        questionNumber,
+      },
+    });
+  };
+  const question = getQuestion();
+
+  const { register, control, handleSubmit, errors, ...rest } = useForm({
+    defaultValues: { ...question },
+  });
   const [submitError, setSubmitError] = useState("");
 
   const onSubmit = async (data) => {
@@ -52,7 +69,7 @@ export const useEditQuestion = (id) => {
     };
     const response = await apiRequest({
       url: `${getEnvUrl()}/${submitUrl}`,
-      method: "POST",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
@@ -82,4 +99,8 @@ export const useEditQuestion = (id) => {
     submitQuestion: handleSubmit(onSubmit),
     submitError,
   };
+};
+
+useEditQuestion.propTypes = {
+  questionNumber: string.isRequired,
 };

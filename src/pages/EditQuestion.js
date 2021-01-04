@@ -1,20 +1,21 @@
 import React from "react";
-import { any } from "prop-types";
+import { object } from "prop-types";
 import { Typography } from "@material-ui/core";
 import { QuestionForm } from "../components/QuestionForm/QuestionForm";
 import { useEditQuestion } from "../components/CustomHooks";
 
 export const EditQuestion = ({ match }) => {
+  const formContent = useEditQuestion(match.params.number);
+
   return (
-    <QuestionForm submitHook={useEditQuestion(match.params.number)}>
-      <Typography variant="h2">Submit a Question</Typography>
-      <Typography variant="h5">
-        Submit a question you'd like to see in Codelet.
+    <QuestionForm formContent={formContent}>
+      <Typography variant="h2">
+        Editing Question {match.params.number}
       </Typography>
     </QuestionForm>
   );
 };
 
 EditQuestion.propTypes = {
-  match: any.isRequired,
+  match: object.isRequired,
 };
