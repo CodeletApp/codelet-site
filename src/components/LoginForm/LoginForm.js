@@ -39,6 +39,7 @@ export const LoginForm = ({
         },
         data: authData
       })
+      //TODO: Addres the different success codes on the backedn instead of this conditional
       if (status >= 200 && status < 300) {
         cookie.save('codeletauthcookie', data.token, { path: '/', maxAge: tokenExpirationTime });
         onSuccess(data);
