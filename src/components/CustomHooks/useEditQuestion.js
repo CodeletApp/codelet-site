@@ -3,19 +3,13 @@ import { useForm } from "react-hook-form";
 import { string } from "prop-types";
 import { apiRequest, getEnvUrl } from "../../services";
 
-export const useEditQuestion = ({ questionNumber }) => {
+export const useEditQuestion = (questionNumber) => {
   let submitUrl = `questions/number/${questionNumber}`;
 
   const getQuestion = async () => {
     return await apiRequest({
       url: `${getEnvUrl()}/${submitUrl}`,
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: {
-        questionNumber,
-      },
     });
   };
   const question = getQuestion();
