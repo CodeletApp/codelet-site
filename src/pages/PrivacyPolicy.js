@@ -1,5 +1,5 @@
 import React from "react";
-import CustomTextContainer from "./CustomTextContainer";
+import CustomTextContainer from "../components/CustomTextContainer";
 
 export function PrivacyPolicy() {
   return (

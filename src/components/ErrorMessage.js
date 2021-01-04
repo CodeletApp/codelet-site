@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/styles";
-import { Container, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles({
   errorMessage: {
@@ -11,7 +11,7 @@ const useStyles = makeStyles({
 export function ErrorMessage({ isError, message }) {
   const classes = useStyles();
   return (
-    <Container>
+    <>
       {isError ? (
         <Typography variant="h6" className={classes.errorMessage}>
           {message}
@@ -19,6 +19,6 @@ export function ErrorMessage({ isError, message }) {
       ) : (
         ""
       )}
-    </Container>
+    </>
   );
 }
