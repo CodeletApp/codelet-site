@@ -159,7 +159,11 @@ export const QuestionForm = ({
             name="approachSolutionIndex"
             control={control}
             as={
-              <RadioGroup row>
+              <RadioGroup
+                row
+                name="approachSolutionIndex"
+                id="approachSolutionIndex"
+              >
                 <Grid container spacing={6}>
                   <Grid item xs={12} sm={4} className={classes.button}>
                     <Radio value="0" />
@@ -239,7 +243,11 @@ export const QuestionForm = ({
             name="algorithmSolutionIndex"
             control={control}
             as={
-              <RadioGroup row>
+              <RadioGroup
+                row
+                name="algorithmSolutionIndex"
+                id="algorithmSolutionIndex"
+              >
                 <Grid container spacing={6}>
                   <Grid item xs={12} sm={4} className={classes.button}>
                     <Radio value="0" />

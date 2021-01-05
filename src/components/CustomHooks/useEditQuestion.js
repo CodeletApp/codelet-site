@@ -99,29 +99,43 @@ export const useEditQuestion = (question) => {
         spaceComplexityBank[parseInt(spaceComplexitySolutionIndex)],
       timeComplexity: timeComplexityBank[parseInt(timeComplexitySolutionIndex)],
     };
-    const response = await apiRequest({
-      url: `${getEnvUrl()}/${submitUrl}`,
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: {
-        title,
-        difficulty,
-        description,
-        example,
-        approaches,
-        codeBank,
-        spaceComplexityBank,
-        timeComplexityBank,
-        solution,
-      },
-    });
-    if (response.status >= 200 && response.status < 300) {
-      window.location.assign("/submit-question/thanks");
-    } else {
-      setSubmitError(response.data.message);
-    }
+
+    /**
+     * The issue is that approachSolutionIndex and algorithmSolutionIndex are coming back undefined from the form
+     * The two need to come back with their actual values, their values being the values associated to the radio buttons selected
+     * The QuestionForm is used for both SubmitQuestion and EditQuestion
+     * It works perfectly (it gets the values) in SubmitQuestion
+     * So we know the problem is not with QuestionForm but rather with the useEditQuestion hook
+     * So the question is: Why is the data the two hooks are receiving different?
+     * There shouldn't be a difference but there is and I can't find it...
+     * Once this console.log prints an object with NO undefined values, we know it works
+     */
+    console.log(data);
+    // Everything under this console.log is commented out to simplify the debugging of this issue
+
+    // const response = await apiRequest({
+    //   url: `${getEnvUrl()}/${submitUrl}`,
+    //   method: "PUT",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   data: {
+    //     title,
+    //     difficulty,
+    //     description,
+    //     example,
+    //     approaches,
+    //     codeBank,
+    //     spaceComplexityBank,
+    //     timeComplexityBank,
+    //     solution,
+    //   },
+    // });
+    // if (response.status >= 200 && response.status < 300) {
+    //   window.location.assign("/submit-question/thanks");
+    // } else {
+    //   setSubmitError(response.data.message);
+    // }
   };
   return {
     ...rest,
