@@ -1,22 +1,60 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { string } from "prop-types";
 import { apiRequest, getEnvUrl } from "../../services";
 
-export const useEditQuestion = (questionNumber) => {
-  let submitUrl = `questions/number/${questionNumber}`;
+export const useEditQuestion = (question) => {
+  let submitUrl = `questions/number/${question.questionNumber}`;
 
-  const getQuestion = async () => {
-    return await apiRequest({
-      url: `${getEnvUrl()}/${submitUrl}`,
-      method: "GET",
-    });
-  };
-  const question = getQuestion();
+  const form = useForm();
 
-  const { register, control, handleSubmit, errors, ...rest } = useForm({
-    defaultValues: { ...question },
-  });
+  useEffect(() => {
+    if (question) {
+      form.reset({
+        title: question.title ? question.title : "",
+        approach1: question.approaches ? question.approaches[0] : "",
+        approach2: question.approaches ? question.approaches[1] : "",
+        approach3: question.approaches ? question.approaches[2] : "",
+        algorithm1: question.codeBank ? question.codeBank[0] : "",
+        algorithm2: question.codeBank ? question.codeBank[1] : "",
+        algorithm3: question.codeBank ? question.codeBank[2] : "",
+        spaceComplexity1: question.spaceComplexityBank
+          ? question.spaceComplexityBank[0]
+          : "",
+        spaceComplexity2: question.spaceComplexityBank
+          ? question.spaceComplexityBank[1]
+          : "",
+        spaceComplexity3: question.spaceComplexityBank
+          ? question.spaceComplexityBank[2]
+          : "",
+        timeComplexity1: question.timeComplexityBank
+          ? question.timeComplexityBank[0]
+          : "",
+        timeComplexity2: question.timeComplexityBank
+          ? question.timeComplexityBank[1]
+          : "",
+        timeComplexity3: question.timeComplexityBank
+          ? question.timeComplexityBank[2]
+          : "",
+        difficulty: question.difficulty ? question.difficulty : "",
+        description: question.description ? question.description : "",
+        example: question.example ? question.example : "",
+        approachSolution: question.solution
+          ? question.solution.approachIndex
+          : "",
+        algorithmSolution: question.solution ? question.solution.codeBlock : "",
+        spaceComplexitySolution: question.solution
+          ? question.solution.spaceComplexity
+          : "",
+        timeComplexitySolution: question.solution
+          ? question.solution.timeComplexity
+          : "",
+      });
+    }
+  }, [question]);
+
+  const { register, watch, control, handleSubmit, errors, ...rest } = form;
+
   const [submitError, setSubmitError] = useState("");
 
   const onSubmit = async (data) => {
@@ -88,6 +126,7 @@ export const useEditQuestion = (questionNumber) => {
   return {
     ...rest,
     register,
+    watch,
     control,
     errors,
     submitQuestion: handleSubmit(onSubmit),

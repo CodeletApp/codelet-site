@@ -26,11 +26,30 @@ export const QuestionForm = ({
   const classes = useStyles();
   const {
     register,
+    watch,
     control,
     errors,
     submitQuestion,
     submitError,
   } = formContent;
+  const watching = watch();
+  let approachSolutionIndex = watching.approachSolution + "";
+  let algorithmSolutionIndex = watching.algorithmSolution + "";
+  let spaceComplexitySolutionIndex, timeComplexitySolutionIndex;
+  if (watching.spaceComplexitySolution === watching.spaceComplexity1) {
+    spaceComplexitySolutionIndex = "0";
+  } else if (watching.spaceComplexitySolution === watching.spaceComplexity2) {
+    spaceComplexitySolutionIndex = "1";
+  } else {
+    spaceComplexitySolutionIndex = "2";
+  }
+  if (watching.timeComplexitySolution === watching.timeComplexity1) {
+    timeComplexitySolutionIndex = "0";
+  } else if (watching.timeComplexitySolution === watching.timeComplexity2) {
+    timeComplexitySolutionIndex = "1";
+  } else {
+    timeComplexitySolutionIndex = "2";
+  }
 
   return (
     <Box className={classes.root}>
@@ -140,11 +159,7 @@ export const QuestionForm = ({
             name="approachSolutionIndex"
             control={control}
             as={
-              <RadioGroup
-                row
-                name="approachSolutionIndex"
-                id="approachSolutionIndex"
-              >
+              <RadioGroup row>
                 <Grid container spacing={6}>
                   <Grid item xs={12} sm={4} className={classes.button}>
                     <Radio value="0" />
@@ -200,7 +215,7 @@ export const QuestionForm = ({
                 </Grid>
               </RadioGroup>
             }
-            defaultValue=""
+            defaultValue={approachSolutionIndex}
             rules={{ required: true }}
           />
           <Divider className={classes.divider} />
@@ -224,11 +239,7 @@ export const QuestionForm = ({
             name="algorithmSolutionIndex"
             control={control}
             as={
-              <RadioGroup
-                row
-                name="algorithmSolutionIndex"
-                id="algorithmSolutionIndex"
-              >
+              <RadioGroup row>
                 <Grid container spacing={6}>
                   <Grid item xs={12} sm={4} className={classes.button}>
                     <Radio value="0" />
@@ -281,7 +292,7 @@ export const QuestionForm = ({
                 </Grid>
               </RadioGroup>
             }
-            defaultValue=""
+            defaultValue={algorithmSolutionIndex}
             rules={{ required: true }}
           />
           <Divider className={classes.divider} />
@@ -352,7 +363,7 @@ export const QuestionForm = ({
                 </Grid>
               </RadioGroup>
             }
-            defaultValue=""
+            defaultValue={spaceComplexitySolutionIndex}
             rules={{ required: true }}
           />
           <Divider className={classes.divider} />
@@ -423,7 +434,7 @@ export const QuestionForm = ({
                 </Grid>
               </RadioGroup>
             }
-            defaultValue=""
+            defaultValue={timeComplexitySolutionIndex}
             rules={{ required: true }}
           />
           <Grid className={classes.button}>
@@ -455,6 +466,7 @@ export const QuestionForm = ({
 
 QuestionForm.defaultProps = {
   showSubmissionFineprint: false,
+  questionNumber: "",
 };
 
 QuestionForm.propTypes = {
