@@ -22,6 +22,7 @@ export const QuestionForm = ({
   children,
   showSubmissionFineprint,
   formContent,
+  showAdminFields,
 }) => {
   const classes = useStyles();
   const {
@@ -57,29 +58,65 @@ export const QuestionForm = ({
             inputRef={register}
           />
           <Divider className={classes.divider} />
-          <Typography variant="h6">
-            Question Difficulty{" "}
-            <span className={classes.requiredAsterisk}>*</span>
-          </Typography>
-          <Controller
-            name="difficulty"
-            control={control}
-            as={
-              <Select
-                variant="outlined"
-                className={classes.input}
+          <Grid container spacing={6}>
+            <Grid
+              item
+              xs={12}
+              sm={showAdminFields ? 6 : 4}
+              className={classes.button}
+            >
+              <Typography variant="h6">
+                Question Difficulty{" "}
+                <span className={classes.requiredAsterisk}>*</span>
+              </Typography>
+              <Controller
                 name="difficulty"
-                id="difficulty"
-                labelId="difficulty-label"
-              >
-                <MenuItem value="Easy">Easy</MenuItem>
-                <MenuItem value="Medium">Medium</MenuItem>
-                <MenuItem value="Hard">Hard</MenuItem>
-              </Select>
-            }
-            defaultValue={"Easy"}
-            rules={{ required: true }}
-          />
+                control={control}
+                as={
+                  <Select
+                    variant="outlined"
+                    className={classes.input}
+                    name="difficulty"
+                    id="difficulty"
+                    labelId="difficulty-label"
+                  >
+                    <MenuItem value="Easy">Easy</MenuItem>
+                    <MenuItem value="Medium">Medium</MenuItem>
+                    <MenuItem value="Hard">Hard</MenuItem>
+                  </Select>
+                }
+                defaultValue={"Easy"}
+                rules={{ required: true }}
+              />
+            </Grid>
+            {showAdminFields ? (
+              <Grid item xs={12} sm={6} className={classes.button}>
+                <Typography variant="h6">
+                  Published <span className={classes.requiredAsterisk}>*</span>
+                </Typography>
+                <Controller
+                  name="published"
+                  control={control}
+                  as={
+                    <Select
+                      variant="outlined"
+                      className={classes.input}
+                      name="published"
+                      id="published"
+                      labelId="published-label"
+                    >
+                      <MenuItem value="true">true</MenuItem>
+                      <MenuItem value="false">false</MenuItem>
+                    </Select>
+                  }
+                  defaultValue={""}
+                  rules={{ required: true }}
+                />
+              </Grid>
+            ) : (
+              <span />
+            )}
+          </Grid>
           <Divider className={classes.divider} />
           <Typography variant="h6">
             Question Description: A short description that poses the question.{" "}
@@ -456,10 +493,12 @@ export const QuestionForm = ({
 QuestionForm.defaultProps = {
   showSubmissionFineprint: false,
   questionNumber: "",
+  showAdminFields: false,
 };
 
 QuestionForm.propTypes = {
   children: any.isRequired,
   showSubmissionFineprint: bool,
   formContent: object.isRequired,
+  showAdminFields: bool,
 };

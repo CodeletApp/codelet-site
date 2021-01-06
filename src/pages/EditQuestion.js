@@ -27,7 +27,7 @@ export const EditQuestion = ({ match }) => {
   const formContent = useEditQuestion(question);
 
   return !invalidQuestionNumber ? (
-    <QuestionForm formContent={formContent}>
+    <QuestionForm formContent={formContent} showAdminFields>
       <Typography variant="h2">
         Editing Question {match.params.number}
       </Typography>
