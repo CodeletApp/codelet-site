@@ -463,26 +463,68 @@ export const QuestionForm = ({
             defaultValue=""
             rules={{ required: true }}
           />
-          <Divider className={classes.divider} />
-          <Grid container spacing={6}>
-            <Grid item xs={12} sm={3} className={classes.button}>
-              <Typography variant="h6">
-                Question Number:{" "}
-                <span className={classes.requiredAsterisk}>*</span>
-              </Typography>
-              <TextField
-                type="number"
-                variant="outlined"
-                className={classes.input}
-                margin="normal"
-                required
-                id="questionNumber"
-                name="questionNumber"
-                inputRef={register}
-                fullWidth
-              />
-            </Grid>
-          </Grid>
+          {showAdminFields ? (
+            <>
+              <Divider className={classes.divider} />
+              <Grid container spacing={6}>
+                <Grid item xs={12} sm={3} className={classes.button}>
+                  <Typography variant="h6">
+                    Question Number:{" "}
+                    <span className={classes.requiredAsterisk}>*</span>
+                  </Typography>
+                  <TextField
+                    type="number"
+                    variant="outlined"
+                    className={classes.input}
+                    margin="normal"
+                    required
+                    id="questionNumber"
+                    name="questionNumber"
+                    inputRef={register}
+                    fullWidth
+                  />
+                </Grid>
+                <Grid item xs={12} sm={3} className={classes.button}>
+                  <Typography variant="h6">
+                    Rating Likes:{" "}
+                    <span className={classes.requiredAsterisk}>*</span>
+                  </Typography>
+                  <TextField
+                    type="number"
+                    variant="outlined"
+                    className={classes.input}
+                    margin="normal"
+                    required
+                    id="like"
+                    name="like"
+                    inputRef={register}
+                    fullWidth
+                    InputProps={{ inputProps: { min: 0 } }}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={3} className={classes.button}>
+                  <Typography variant="h6">
+                    Rating Dislikes:{" "}
+                    <span className={classes.requiredAsterisk}>*</span>
+                  </Typography>
+                  <TextField
+                    type="number"
+                    variant="outlined"
+                    className={classes.input}
+                    margin="normal"
+                    required
+                    id="dislike"
+                    name="dislike"
+                    inputRef={register}
+                    fullWidth
+                    InputProps={{ inputProps: { min: 0 } }}
+                  />
+                </Grid>
+              </Grid>
+            </>
+          ) : (
+            <span />
+          )}
           <Grid className={classes.button}>
             <Button
               className={classes.submitButton}

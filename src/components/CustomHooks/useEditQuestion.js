@@ -81,6 +81,8 @@ export const useEditQuestion = (question) => {
         published:
           question.published !== undefined ? question.published + "" : "",
         questionNumber: question.questionNumber ? question.questionNumber : "",
+        like: question.rating ? question.rating.like : "",
+        dislike: question.rating ? question.rating.dislike : "",
       });
     }
   }, [question]);
@@ -113,6 +115,8 @@ export const useEditQuestion = (question) => {
       timeComplexitySolutionIndex,
       published,
       questionNumber,
+      like,
+      dislike,
     } = data;
     const approaches = [approach1, approach2, approach3];
     const codeBank = [algorithm1, algorithm2, algorithm3];
@@ -152,6 +156,8 @@ export const useEditQuestion = (question) => {
         solution,
         published,
         questionNumber,
+        "rating.like": parseInt(like),
+        "rating.dislike": parseInt(dislike),
       },
     });
     if (response.status >= 200 && response.status < 300) {
