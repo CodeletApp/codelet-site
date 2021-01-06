@@ -469,9 +469,13 @@ export const QuestionForm = ({
               <Grid container spacing={6}>
                 <Grid item xs={12} sm={4} className={classes.button}>
                   <Typography variant="h6">
-                    Question Number:{" "}
+                    Question Number{" "}
                     <span className={classes.requiredAsterisk}>*</span>
                   </Typography>
+                  <ErrorMessage
+                    isError={errors.questionNumber}
+                    message="Please enter a valid question number"
+                  />
                   <TextField
                     type="number"
                     variant="outlined"
@@ -486,9 +490,13 @@ export const QuestionForm = ({
                 </Grid>
                 <Grid item xs={12} sm={4} className={classes.button}>
                   <Typography variant="h6">
-                    Rating Likes:{" "}
+                    Rating Likes{" "}
                     <span className={classes.requiredAsterisk}>*</span>
                   </Typography>
+                  <ErrorMessage
+                    isError={errors.like}
+                    message="Please enter a valid number of likes"
+                  />
                   <TextField
                     type="number"
                     variant="outlined"
@@ -504,9 +512,13 @@ export const QuestionForm = ({
                 </Grid>
                 <Grid item xs={12} sm={4} className={classes.button}>
                   <Typography variant="h6">
-                    Rating Dislikes:{" "}
+                    Rating Dislikes{" "}
                     <span className={classes.requiredAsterisk}>*</span>
                   </Typography>
+                  <ErrorMessage
+                    isError={errors.dislike}
+                    message="Please enter a valid number of dislikes"
+                  />
                   <TextField
                     type="number"
                     variant="outlined"
@@ -524,9 +536,13 @@ export const QuestionForm = ({
               <Grid container spacing={6}>
                 <Grid item xs={12} sm={6} className={classes.button}>
                   <Typography variant="h6">
-                    Successful Global Attempt:{" "}
+                    Successful Global Attempt{" "}
                     <span className={classes.requiredAsterisk}>*</span>
                   </Typography>
+                  <ErrorMessage
+                    isError={errors.successful}
+                    message="Please enter a valid number of successful global attempts"
+                  />
                   <TextField
                     type="number"
                     variant="outlined"
@@ -541,9 +557,13 @@ export const QuestionForm = ({
                 </Grid>
                 <Grid item xs={12} sm={6} className={classes.button}>
                   <Typography variant="h6">
-                    Unsuccessful Global Attempts:{" "}
+                    Unsuccessful Global Attempts{" "}
                     <span className={classes.requiredAsterisk}>*</span>
                   </Typography>
+                  <ErrorMessage
+                    isError={errors.unsuccessful}
+                    message="Please enter a valid number of unsuccessful global attempts"
+                  />
                   <TextField
                     type="number"
                     variant="outlined"
@@ -558,6 +578,18 @@ export const QuestionForm = ({
                 </Grid>
               </Grid>
               <Divider className={classes.divider} />
+              <Typography variant="h6">Tags</Typography>
+              <sub>Separate tags by commas.</sub>
+              <TextField
+                variant="outlined"
+                className={classes.input}
+                margin="normal"
+                required
+                id="tags"
+                name="tags"
+                inputRef={register}
+                fullWidth
+              />
             </>
           ) : (
             <span />

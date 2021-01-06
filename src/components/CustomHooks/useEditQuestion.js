@@ -89,6 +89,7 @@ export const useEditQuestion = (question) => {
         unsuccessful: question.globalAttempts
           ? question.globalAttempts.unsuccessful
           : "",
+        tags: question.tags ? question.tags.join(",") : "",
       });
     }
   }, [question]);
@@ -125,6 +126,7 @@ export const useEditQuestion = (question) => {
       dislike,
       successful,
       unsuccessful,
+      tags,
     } = data;
     const approaches = [approach1, approach2, approach3];
     const codeBank = [algorithm1, algorithm2, algorithm3];
@@ -168,6 +170,7 @@ export const useEditQuestion = (question) => {
         "rating.dislike": parseInt(dislike),
         "globalAttempts.successful": parseInt(successful),
         "globalAttempts.unsuccessful": parseInt(unsuccessful),
+        tags: tags.split(","),
       },
     });
     // if (response.status >= 200 && response.status < 300) {
