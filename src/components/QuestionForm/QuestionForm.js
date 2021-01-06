@@ -463,6 +463,26 @@ export const QuestionForm = ({
             defaultValue=""
             rules={{ required: true }}
           />
+          <Divider className={classes.divider} />
+          <Grid container spacing={6}>
+            <Grid item xs={12} sm={3} className={classes.button}>
+              <Typography variant="h6">
+                Question Number:{" "}
+                <span className={classes.requiredAsterisk}>*</span>
+              </Typography>
+              <TextField
+                type="number"
+                variant="outlined"
+                className={classes.input}
+                margin="normal"
+                required
+                id="questionNumber"
+                name="questionNumber"
+                inputRef={register}
+                fullWidth
+              />
+            </Grid>
+          </Grid>
           <Grid className={classes.button}>
             <Button
               className={classes.submitButton}

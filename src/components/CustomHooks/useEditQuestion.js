@@ -80,6 +80,7 @@ export const useEditQuestion = (question) => {
         timeComplexitySolutionIndex,
         published:
           question.published !== undefined ? question.published + "" : "",
+        questionNumber: question.questionNumber ? question.questionNumber : "",
       });
     }
   }, [question]);
@@ -111,6 +112,7 @@ export const useEditQuestion = (question) => {
       spaceComplexitySolutionIndex,
       timeComplexitySolutionIndex,
       published,
+      questionNumber,
     } = data;
     const approaches = [approach1, approach2, approach3];
     const codeBank = [algorithm1, algorithm2, algorithm3];
@@ -149,6 +151,7 @@ export const useEditQuestion = (question) => {
         timeComplexityBank,
         solution,
         published,
+        questionNumber,
       },
     });
     if (response.status >= 200 && response.status < 300) {
