@@ -584,7 +584,6 @@ export const QuestionForm = ({
                 variant="outlined"
                 className={classes.input}
                 margin="normal"
-                required
                 id="tags"
                 name="tags"
                 inputRef={register}

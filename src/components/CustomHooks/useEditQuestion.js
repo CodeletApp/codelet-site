@@ -128,6 +128,14 @@ export const useEditQuestion = (question) => {
       unsuccessful,
       tags,
     } = data;
+    const rating = {
+      like: parseInt(like),
+      dislike: parseInt(dislike),
+    };
+    const globalAttempts = {
+      successful: parseInt(successful),
+      unsuccessful: parseInt(unsuccessful),
+    };
     const approaches = [approach1, approach2, approach3];
     const codeBank = [algorithm1, algorithm2, algorithm3];
     const spaceComplexityBank = [
@@ -166,10 +174,8 @@ export const useEditQuestion = (question) => {
         solution,
         published,
         questionNumber,
-        "rating.like": parseInt(like),
-        "rating.dislike": parseInt(dislike),
-        "globalAttempts.successful": parseInt(successful),
-        "globalAttempts.unsuccessful": parseInt(unsuccessful),
+        rating,
+        globalAttempts,
         tags: tags.split(","),
       },
     });
