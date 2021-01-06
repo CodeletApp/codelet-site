@@ -26,30 +26,11 @@ export const QuestionForm = ({
   const classes = useStyles();
   const {
     register,
-    watch,
     control,
     errors,
     submitQuestion,
     submitError,
   } = formContent;
-  const watching = watch();
-  let approachSolutionIndex = watching.approachSolution + "";
-  let algorithmSolutionIndex = watching.algorithmSolution + "";
-  let spaceComplexitySolutionIndex, timeComplexitySolutionIndex;
-  if (watching.spaceComplexitySolution === watching.spaceComplexity1) {
-    spaceComplexitySolutionIndex = "0";
-  } else if (watching.spaceComplexitySolution === watching.spaceComplexity2) {
-    spaceComplexitySolutionIndex = "1";
-  } else {
-    spaceComplexitySolutionIndex = "2";
-  }
-  if (watching.timeComplexitySolution === watching.timeComplexity1) {
-    timeComplexitySolutionIndex = "0";
-  } else if (watching.timeComplexitySolution === watching.timeComplexity2) {
-    timeComplexitySolutionIndex = "1";
-  } else {
-    timeComplexitySolutionIndex = "2";
-  }
 
   return (
     <Box className={classes.root}>
@@ -219,7 +200,7 @@ export const QuestionForm = ({
                 </Grid>
               </RadioGroup>
             }
-            defaultValue={approachSolutionIndex}
+            defaultValue=""
             rules={{ required: true }}
           />
           <Divider className={classes.divider} />
@@ -300,7 +281,7 @@ export const QuestionForm = ({
                 </Grid>
               </RadioGroup>
             }
-            defaultValue={algorithmSolutionIndex}
+            defaultValue=""
             rules={{ required: true }}
           />
           <Divider className={classes.divider} />
@@ -371,7 +352,7 @@ export const QuestionForm = ({
                 </Grid>
               </RadioGroup>
             }
-            defaultValue={spaceComplexitySolutionIndex}
+            defaultValue=""
             rules={{ required: true }}
           />
           <Divider className={classes.divider} />
@@ -442,7 +423,7 @@ export const QuestionForm = ({
                 </Grid>
               </RadioGroup>
             }
-            defaultValue={timeComplexitySolutionIndex}
+            defaultValue=""
             rules={{ required: true }}
           />
           <Grid className={classes.button}>
