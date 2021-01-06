@@ -148,7 +148,7 @@ export const useEditQuestion = (question) => {
       },
     });
     if (response.status >= 200 && response.status < 300) {
-      window.location.assign("/submit-question/thanks");
+      window.location.assign("/cla/questions/portal/");
     } else {
       setSubmitError(response.data.message);
     }
