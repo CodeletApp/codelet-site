@@ -467,7 +467,7 @@ export const QuestionForm = ({
             <>
               <Divider className={classes.divider} />
               <Grid container spacing={6}>
-                <Grid item xs={12} sm={3} className={classes.button}>
+                <Grid item xs={12} sm={4} className={classes.button}>
                   <Typography variant="h6">
                     Question Number:{" "}
                     <span className={classes.requiredAsterisk}>*</span>
@@ -484,7 +484,7 @@ export const QuestionForm = ({
                     fullWidth
                   />
                 </Grid>
-                <Grid item xs={12} sm={3} className={classes.button}>
+                <Grid item xs={12} sm={4} className={classes.button}>
                   <Typography variant="h6">
                     Rating Likes:{" "}
                     <span className={classes.requiredAsterisk}>*</span>
@@ -502,7 +502,7 @@ export const QuestionForm = ({
                     InputProps={{ inputProps: { min: 0 } }}
                   />
                 </Grid>
-                <Grid item xs={12} sm={3} className={classes.button}>
+                <Grid item xs={12} sm={4} className={classes.button}>
                   <Typography variant="h6">
                     Rating Dislikes:{" "}
                     <span className={classes.requiredAsterisk}>*</span>
@@ -521,6 +521,43 @@ export const QuestionForm = ({
                   />
                 </Grid>
               </Grid>
+              <Grid container spacing={6}>
+                <Grid item xs={12} sm={6} className={classes.button}>
+                  <Typography variant="h6">
+                    Successful Global Attempt:{" "}
+                    <span className={classes.requiredAsterisk}>*</span>
+                  </Typography>
+                  <TextField
+                    type="number"
+                    variant="outlined"
+                    className={classes.input}
+                    margin="normal"
+                    required
+                    id="successful"
+                    name="successful"
+                    inputRef={register}
+                    InputProps={{ inputProps: { min: 0 } }}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6} className={classes.button}>
+                  <Typography variant="h6">
+                    Unsuccessful Global Attempts:{" "}
+                    <span className={classes.requiredAsterisk}>*</span>
+                  </Typography>
+                  <TextField
+                    type="number"
+                    variant="outlined"
+                    className={classes.input}
+                    margin="normal"
+                    required
+                    id="unsuccessful"
+                    name="unsuccessful"
+                    inputRef={register}
+                    InputProps={{ inputProps: { min: 0 } }}
+                  />
+                </Grid>
+              </Grid>
+              <Divider className={classes.divider} />
             </>
           ) : (
             <span />

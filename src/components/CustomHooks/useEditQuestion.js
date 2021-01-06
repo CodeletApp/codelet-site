@@ -83,6 +83,12 @@ export const useEditQuestion = (question) => {
         questionNumber: question.questionNumber ? question.questionNumber : "",
         like: question.rating ? question.rating.like : "",
         dislike: question.rating ? question.rating.dislike : "",
+        successful: question.globalAttempts
+          ? question.globalAttempts.successful
+          : "",
+        unsuccessful: question.globalAttempts
+          ? question.globalAttempts.unsuccessful
+          : "",
       });
     }
   }, [question]);
@@ -117,6 +123,8 @@ export const useEditQuestion = (question) => {
       questionNumber,
       like,
       dislike,
+      successful,
+      unsuccessful,
     } = data;
     const approaches = [approach1, approach2, approach3];
     const codeBank = [algorithm1, algorithm2, algorithm3];
@@ -158,13 +166,15 @@ export const useEditQuestion = (question) => {
         questionNumber,
         "rating.like": parseInt(like),
         "rating.dislike": parseInt(dislike),
+        "globalAttempts.successful": parseInt(successful),
+        "globalAttempts.unsuccessful": parseInt(unsuccessful),
       },
     });
-    if (response.status >= 200 && response.status < 300) {
-      window.location.assign("/cla/questions/portal/");
-    } else {
-      setSubmitError(response.data.message);
-    }
+    // if (response.status >= 200 && response.status < 300) {
+    //   window.location.assign("/cla/questions/portal/");
+    // } else {
+    //   setSubmitError(response.data.message);
+    // }
   };
   return {
     ...rest,
