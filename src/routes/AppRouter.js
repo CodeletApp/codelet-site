@@ -33,12 +33,12 @@ export const AppRouter = () => (
         path="/cla/questions/portal/login"
         component={AdminLogin}
       />
-      <PrivateAdminRoute
+      <PublicRoute // MAKE THIS PRIVATEADMINROUTE BEFORE FINAL COMMIT
         exact
         path="/cla/questions/portal"
         component={AdminDashboard}
       />
-      <PublicRoute
+      <PublicRoute // MAKE THIS PRIVATEADMINROUTE BEFORE FINAL COMMIT
         exact
         path="/cla/questions/portal/edit-question/:number"
         component={EditQuestion}
