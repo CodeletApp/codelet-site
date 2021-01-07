@@ -179,11 +179,11 @@ export const useEditQuestion = (question) => {
         tags: tags !== "" ? tags.split(",") : [],
       },
     });
-    // if (response.status >= 200 && response.status < 300) {
-    //   window.location.assign("/cla/questions/portal/");
-    // } else {
-    //   setSubmitError(response.data.message);
-    // }
+    if (response.status >= 200 && response.status < 300) {
+      window.location.assign("/cla/questions/portal/");
+    } else {
+      setSubmitError(response.data.message);
+    }
   };
   return {
     ...rest,
