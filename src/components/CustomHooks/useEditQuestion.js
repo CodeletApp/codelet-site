@@ -176,7 +176,7 @@ export const useEditQuestion = (question) => {
         questionNumber,
         rating,
         globalAttempts,
-        tags: tags.split(","),
+        tags: tags !== "" ? tags.split(",") : [],
       },
     });
     // if (response.status >= 200 && response.status < 300) {
