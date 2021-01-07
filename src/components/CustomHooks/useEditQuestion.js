@@ -152,34 +152,34 @@ export const useEditQuestion = (question) => {
       timeComplexity: timeComplexityBank[parseInt(timeComplexitySolutionIndex)],
     };
 
-    // const response = await apiRequest({
-    //   url: `${getEnvUrl()}/${submitUrl}`,
-    //   method: "PUT",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   data: {
-    //     title,
-    //     difficulty,
-    //     description,
-    //     example,
-    //     approaches,
-    //     codeBank,
-    //     spaceComplexityBank,
-    //     timeComplexityBank,
-    //     solution,
-    //     published,
-    //     questionNumber,
-    //     rating,
-    //     globalAttempts,
-    //     tags: tags !== "" ? tags.split(",") : [],
-    //   },
-    // });
-    // if (response.status >= 200 && response.status < 300) {
-    //   window.location.assign("/cla/questions/portal/");
-    // } else {
-    //   setSubmitError(response.data.message);
-    // }
+    const response = await apiRequest({
+      url: `${getEnvUrl()}/${submitUrl}`,
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: {
+        title,
+        difficulty,
+        description,
+        example,
+        approaches,
+        codeBank,
+        spaceComplexityBank,
+        timeComplexityBank,
+        solution,
+        published,
+        questionNumber,
+        rating,
+        globalAttempts,
+        tags: tags !== "" ? tags.split(",") : [],
+      },
+    });
+    if (response.status >= 200 && response.status < 300) {
+      window.location.assign("/cla/questions/portal/");
+    } else {
+      setSubmitError(response.data.message);
+    }
   };
   return {
     ...rest,
