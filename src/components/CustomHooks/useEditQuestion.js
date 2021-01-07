@@ -3,6 +3,19 @@ import { useForm } from "react-hook-form";
 import { string } from "prop-types";
 import { apiRequest, getEnvUrl } from "../../services";
 
+const findComplexitySolution = (solution, complexityBank) => {
+  let index = "";
+  // Find the index matching the solution by checking to see which complexityBank value it matches
+  if (solution === complexityBank[0]) {
+    index = "0";
+  } else if (solution === complexityBank[1]) {
+    index = "1";
+  } else if (solution === complexityBank[2]) {
+    index = "2";
+  }
+  return index;
+};
+
 export const useEditQuestion = (question) => {
   let submitUrl = `questions/number/${question.questionNumber}`;
 
@@ -10,37 +23,6 @@ export const useEditQuestion = (question) => {
 
   useEffect(() => {
     if (question) {
-      let timeComplexitySolutionIndex,
-        spaceComplexitySolutionIndex = "";
-      if (question.solution) {
-        if (
-          question.solution.timeComplexity === question.timeComplexityBank[0]
-        ) {
-          timeComplexitySolutionIndex = "0";
-        } else if (
-          question.solution.timeComplexity === question.timeComplexityBank[1]
-        ) {
-          timeComplexitySolutionIndex = "1";
-        } else if (
-          question.solution.timeComplexity === question.timeComplexityBank[2]
-        ) {
-          timeComplexitySolutionIndex = "2";
-        }
-        if (
-          question.solution.spaceComplexity === question.spaceComplexityBank[0]
-        ) {
-          spaceComplexitySolutionIndex = "0";
-        } else if (
-          question.solution.spaceComplexity === question.spaceComplexityBank[1]
-        ) {
-          spaceComplexitySolutionIndex = "1";
-        } else if (
-          question.solution.spaceComplexity === question.spaceComplexityBank[2]
-        ) {
-          spaceComplexitySolutionIndex = "2";
-        }
-      }
-
       form.reset({
         title: question.title ? question.title : "",
         approach1: question.approaches ? question.approaches[0] : "",
@@ -76,8 +58,18 @@ export const useEditQuestion = (question) => {
         algorithmSolutionIndex: question.solution
           ? question.solution.codeBlock + ""
           : "",
-        spaceComplexitySolutionIndex,
-        timeComplexitySolutionIndex,
+        spaceComplexitySolutionIndex: question.solution
+          ? findComplexitySolution(
+              question.solution.spaceComplexity,
+              question.spaceComplexityBank
+            )
+          : "",
+        timeComplexitySolutionIndex: question.solution
+          ? findComplexitySolution(
+              question.solution.timeComplexity,
+              question.timeComplexityBank
+            )
+          : "",
         published:
           question.published !== undefined ? question.published + "" : "",
         questionNumber: question.questionNumber ? question.questionNumber : "",
