@@ -16,6 +16,61 @@ const findComplexitySolution = (solution, complexityBank) => {
   return index;
 };
 
+const makeFormDefaultValuesObject = (question) => {
+  /**
+   * The && operator or a ternary is requried for the properties which are less straightforward than a string, number, or boolean
+   * This applies to arrays such as approaches and objects such as solution
+   */
+  return {
+    title: question.title,
+    approach1: question.approaches && question.approaches[0],
+    approach2: question.approaches && question.approaches[1],
+    approach3: question.approaches && question.approaches[2],
+    algorithm1: question.codeBank && question.codeBank[0],
+    algorithm2: question.codeBank && question.codeBank[1],
+    algorithm3: question.codeBank && question.codeBank[2],
+    spaceComplexity1:
+      question.spaceComplexityBank && question.spaceComplexityBank[0],
+    spaceComplexity2:
+      question.spaceComplexityBank && question.spaceComplexityBank[1],
+    spaceComplexity3:
+      question.spaceComplexityBank && question.spaceComplexityBank[2],
+    timeComplexity1:
+      question.timeComplexityBank && question.timeComplexityBank[0],
+    timeComplexity2:
+      question.timeComplexityBank && question.timeComplexityBank[1],
+    timeComplexity3:
+      question.timeComplexityBank && question.timeComplexityBank[2],
+    difficulty: question.difficulty,
+    description: question.description,
+    example: question.example,
+    approachSolutionIndex:
+      question.solution && question.solution.approachIndex + "",
+    algorithmSolutionIndex:
+      question.solution && question.solution.codeBlock + "",
+    spaceComplexitySolutionIndex:
+      question.solution &&
+      findComplexitySolution(
+        question.solution.spaceComplexity,
+        question.spaceComplexityBank
+      ),
+    timeComplexitySolutionIndex:
+      question.solution &&
+      findComplexitySolution(
+        question.solution.timeComplexity,
+        question.timeComplexityBank
+      ),
+    published: question.published + "",
+    questionNumber: question.questionNumber,
+    like: question.rating && question.rating.like,
+    dislike: question.rating && question.rating.dislike,
+    successful: question.globalAttempts && question.globalAttempts.successful,
+    unsuccessful:
+      question.globalAttempts && question.globalAttempts.unsuccessful,
+    tags: question.tags && question.tags.join(","),
+  };
+};
+
 export const useEditQuestion = (question) => {
   let submitUrl = `questions/number/${question.questionNumber}`;
 
@@ -23,66 +78,15 @@ export const useEditQuestion = (question) => {
 
   useEffect(() => {
     if (question) {
-      form.reset({
-        title: question.title ? question.title : "",
-        approach1: question.approaches ? question.approaches[0] : "",
-        approach2: question.approaches ? question.approaches[1] : "",
-        approach3: question.approaches ? question.approaches[2] : "",
-        algorithm1: question.codeBank ? question.codeBank[0] : "",
-        algorithm2: question.codeBank ? question.codeBank[1] : "",
-        algorithm3: question.codeBank ? question.codeBank[2] : "",
-        spaceComplexity1: question.spaceComplexityBank
-          ? question.spaceComplexityBank[0]
-          : "",
-        spaceComplexity2: question.spaceComplexityBank
-          ? question.spaceComplexityBank[1]
-          : "",
-        spaceComplexity3: question.spaceComplexityBank
-          ? question.spaceComplexityBank[2]
-          : "",
-        timeComplexity1: question.timeComplexityBank
-          ? question.timeComplexityBank[0]
-          : "",
-        timeComplexity2: question.timeComplexityBank
-          ? question.timeComplexityBank[1]
-          : "",
-        timeComplexity3: question.timeComplexityBank
-          ? question.timeComplexityBank[2]
-          : "",
-        difficulty: question.difficulty ? question.difficulty : "",
-        description: question.description ? question.description : "",
-        example: question.example ? question.example : "",
-        approachSolutionIndex: question.solution
-          ? question.solution.approachIndex + ""
-          : "",
-        algorithmSolutionIndex: question.solution
-          ? question.solution.codeBlock + ""
-          : "",
-        spaceComplexitySolutionIndex: question.solution
-          ? findComplexitySolution(
-              question.solution.spaceComplexity,
-              question.spaceComplexityBank
-            )
-          : "",
-        timeComplexitySolutionIndex: question.solution
-          ? findComplexitySolution(
-              question.solution.timeComplexity,
-              question.timeComplexityBank
-            )
-          : "",
-        published:
-          question.published !== undefined ? question.published + "" : "",
-        questionNumber: question.questionNumber ? question.questionNumber : "",
-        like: question.rating ? question.rating.like : "",
-        dislike: question.rating ? question.rating.dislike : "",
-        successful: question.globalAttempts
-          ? question.globalAttempts.successful
-          : "",
-        unsuccessful: question.globalAttempts
-          ? question.globalAttempts.unsuccessful
-          : "",
-        tags: question.tags ? question.tags.join(",") : "",
-      });
+      /**
+       * The form is initially created with no defaultValues.
+       * In order to populate it with the default values equivalent to the values of the quesiton,
+       * we must reset the form and pass into it any of the useForm() fields we want it to have
+       * In this case that is only the defaultValues.
+       * We cannot set the defaultValues upon initial creation of the form because question initially starts undefined
+       * Using this useEffect, we can update the form by resetting when question updates with the question's default values
+       */
+      form.reset(makeFormDefaultValuesObject(question));
     }
   }, [question]);
 
@@ -148,34 +152,34 @@ export const useEditQuestion = (question) => {
       timeComplexity: timeComplexityBank[parseInt(timeComplexitySolutionIndex)],
     };
 
-    const response = await apiRequest({
-      url: `${getEnvUrl()}/${submitUrl}`,
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: {
-        title,
-        difficulty,
-        description,
-        example,
-        approaches,
-        codeBank,
-        spaceComplexityBank,
-        timeComplexityBank,
-        solution,
-        published,
-        questionNumber,
-        rating,
-        globalAttempts,
-        tags: tags !== "" ? tags.split(",") : [],
-      },
-    });
-    if (response.status >= 200 && response.status < 300) {
-      window.location.assign("/cla/questions/portal/");
-    } else {
-      setSubmitError(response.data.message);
-    }
+    // const response = await apiRequest({
+    //   url: `${getEnvUrl()}/${submitUrl}`,
+    //   method: "PUT",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   data: {
+    //     title,
+    //     difficulty,
+    //     description,
+    //     example,
+    //     approaches,
+    //     codeBank,
+    //     spaceComplexityBank,
+    //     timeComplexityBank,
+    //     solution,
+    //     published,
+    //     questionNumber,
+    //     rating,
+    //     globalAttempts,
+    //     tags: tags !== "" ? tags.split(",") : [],
+    //   },
+    // });
+    // if (response.status >= 200 && response.status < 300) {
+    //   window.location.assign("/cla/questions/portal/");
+    // } else {
+    //   setSubmitError(response.data.message);
+    // }
   };
   return {
     ...rest,

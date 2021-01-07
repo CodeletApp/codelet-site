@@ -38,7 +38,7 @@ export const AppRouter = () => (
         path="/cla/questions/portal"
         component={AdminDashboard}
       />
-      <PrivateAdminRoute
+      <PublicRoute
         exact
         path="/cla/questions/portal/edit-question/:number"
         component={EditQuestion}
