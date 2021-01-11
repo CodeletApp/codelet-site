@@ -107,10 +107,11 @@ export const useEditQuestion = (question) => {
         tags: tags !== "" ? tags.split(",") : [],
       },
     });
-    if (response.status >= 200 && response.status < 300) {
-      window.location.assign("/cla/questions/portal/");
+    if (response.status === 200) {
+      alert("Successfully updated question.");
     } else {
       setSubmitError(response.data.message);
+      alert("Failed to update question.");
     }
   };
   return {
