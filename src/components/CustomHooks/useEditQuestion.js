@@ -3,74 +3,6 @@ import { useForm } from "react-hook-form";
 import { string } from "prop-types";
 import { apiRequest, getEnvUrl } from "../../services";
 
-const findComplexitySolution = (solution, complexityBank) => {
-  let index = "";
-  // Find the index matching the solution by checking to see which complexityBank value it matches
-  if (solution === complexityBank[0]) {
-    index = "0";
-  } else if (solution === complexityBank[1]) {
-    index = "1";
-  } else if (solution === complexityBank[2]) {
-    index = "2";
-  }
-  return index;
-};
-
-const makeFormDefaultValuesObject = (question) => {
-  /**
-   * The && operator or a ternary is requried for the properties which are less straightforward than a string, number, or boolean
-   * This applies to arrays such as approaches and objects such as solution
-   */
-  return {
-    title: question.title,
-    approach1: question.approaches && question.approaches[0],
-    approach2: question.approaches && question.approaches[1],
-    approach3: question.approaches && question.approaches[2],
-    algorithm1: question.codeBank && question.codeBank[0],
-    algorithm2: question.codeBank && question.codeBank[1],
-    algorithm3: question.codeBank && question.codeBank[2],
-    spaceComplexity1:
-      question.spaceComplexityBank && question.spaceComplexityBank[0],
-    spaceComplexity2:
-      question.spaceComplexityBank && question.spaceComplexityBank[1],
-    spaceComplexity3:
-      question.spaceComplexityBank && question.spaceComplexityBank[2],
-    timeComplexity1:
-      question.timeComplexityBank && question.timeComplexityBank[0],
-    timeComplexity2:
-      question.timeComplexityBank && question.timeComplexityBank[1],
-    timeComplexity3:
-      question.timeComplexityBank && question.timeComplexityBank[2],
-    difficulty: question.difficulty,
-    description: question.description,
-    example: question.example,
-    approachSolutionIndex:
-      question.solution && question.solution.approachIndex + "",
-    algorithmSolutionIndex:
-      question.solution && question.solution.codeBlock + "",
-    spaceComplexitySolutionIndex:
-      question.solution &&
-      findComplexitySolution(
-        question.solution.spaceComplexity,
-        question.spaceComplexityBank
-      ),
-    timeComplexitySolutionIndex:
-      question.solution &&
-      findComplexitySolution(
-        question.solution.timeComplexity,
-        question.timeComplexityBank
-      ),
-    published: question.published + "",
-    questionNumber: question.questionNumber,
-    like: question.rating && question.rating.like,
-    dislike: question.rating && question.rating.dislike,
-    successful: question.globalAttempts && question.globalAttempts.successful,
-    unsuccessful:
-      question.globalAttempts && question.globalAttempts.unsuccessful,
-    tags: question.tags && question.tags.join(","),
-  };
-};
-
 export const useEditQuestion = (question) => {
   let submitUrl = `questions/number/${question.questionNumber}`;
 
@@ -193,4 +125,72 @@ export const useEditQuestion = (question) => {
 
 useEditQuestion.propTypes = {
   questionNumber: string.isRequired,
+};
+
+const findComplexitySolution = (solution, complexityBank) => {
+  let index = "";
+  // Find the index matching the solution by checking to see which complexityBank value it matches
+  if (solution === complexityBank[0]) {
+    index = "0";
+  } else if (solution === complexityBank[1]) {
+    index = "1";
+  } else if (solution === complexityBank[2]) {
+    index = "2";
+  }
+  return index;
+};
+
+const makeFormDefaultValuesObject = (question) => {
+  /**
+   * The && operator or a ternary is requried for the properties which are less straightforward than a string, number, or boolean
+   * This applies to arrays such as approaches and objects such as solution
+   */
+  return {
+    title: question.title,
+    approach1: question.approaches && question.approaches[0],
+    approach2: question.approaches && question.approaches[1],
+    approach3: question.approaches && question.approaches[2],
+    algorithm1: question.codeBank && question.codeBank[0],
+    algorithm2: question.codeBank && question.codeBank[1],
+    algorithm3: question.codeBank && question.codeBank[2],
+    spaceComplexity1:
+      question.spaceComplexityBank && question.spaceComplexityBank[0],
+    spaceComplexity2:
+      question.spaceComplexityBank && question.spaceComplexityBank[1],
+    spaceComplexity3:
+      question.spaceComplexityBank && question.spaceComplexityBank[2],
+    timeComplexity1:
+      question.timeComplexityBank && question.timeComplexityBank[0],
+    timeComplexity2:
+      question.timeComplexityBank && question.timeComplexityBank[1],
+    timeComplexity3:
+      question.timeComplexityBank && question.timeComplexityBank[2],
+    difficulty: question.difficulty,
+    description: question.description,
+    example: question.example,
+    approachSolutionIndex:
+      question.solution && question.solution.approachIndex + "",
+    algorithmSolutionIndex:
+      question.solution && question.solution.codeBlock + "",
+    spaceComplexitySolutionIndex:
+      question.solution &&
+      findComplexitySolution(
+        question.solution.spaceComplexity,
+        question.spaceComplexityBank
+      ),
+    timeComplexitySolutionIndex:
+      question.solution &&
+      findComplexitySolution(
+        question.solution.timeComplexity,
+        question.timeComplexityBank
+      ),
+    published: question.published + "",
+    questionNumber: question.questionNumber,
+    like: question.rating && question.rating.like,
+    dislike: question.rating && question.rating.dislike,
+    successful: question.globalAttempts && question.globalAttempts.successful,
+    unsuccessful:
+      question.globalAttempts && question.globalAttempts.unsuccessful,
+    tags: question.tags && question.tags.join(","),
+  };
 };
