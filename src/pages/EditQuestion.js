@@ -23,8 +23,7 @@ export const EditQuestion = ({ match }) => {
       }
     }
     fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [match.params.number]);
 
   return !invalidQuestionNumber ? (
     <QuestionForm showAdminFields useHook={useEditQuestion} question={question}>
