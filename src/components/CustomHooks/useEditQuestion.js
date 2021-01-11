@@ -20,6 +20,7 @@ export const useEditQuestion = (question) => {
        */
       form.reset(makeFormDefaultValuesObject(question));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [question]);
 
   const { register, control, handleSubmit, errors, ...rest } = form;

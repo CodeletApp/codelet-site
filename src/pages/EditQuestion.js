@@ -23,6 +23,7 @@ export const EditQuestion = ({ match }) => {
       }
     }
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return !invalidQuestionNumber ? (
