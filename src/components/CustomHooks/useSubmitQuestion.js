@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { apiRequest, getEnvUrl } from "../../services";
 
-export const useSubmitQuestion = (submitUrl = 'questions/post-question') => {
+export const useSubmitQuestion = () => {
+  let submitUrl = "questions/post-question";
   const { register, control, handleSubmit, errors, ...rest } = useForm();
-  const [submitError, setSubmitError] = useState('');
+  const [submitError, setSubmitError] = useState("");
 
   const onSubmit = async (data) => {
     const {
@@ -69,7 +70,7 @@ export const useSubmitQuestion = (submitUrl = 'questions/post-question') => {
     if (response.status >= 200 && response.status < 300) {
       window.location.assign("/submit-question/thanks");
     } else {
-      setSubmitError(response.data.message)
+      setSubmitError(response.data.message);
     }
   };
   return {
@@ -79,5 +80,5 @@ export const useSubmitQuestion = (submitUrl = 'questions/post-question') => {
     errors,
     submitQuestion: handleSubmit(onSubmit),
     submitError,
-  }
+  };
 };
