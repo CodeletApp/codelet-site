@@ -24,10 +24,9 @@ export const EditQuestion = ({ match }) => {
     }
     fetchData();
   }, []);
-  const formContent = useEditQuestion(question);
 
   return !invalidQuestionNumber ? (
-    <QuestionForm formContent={formContent} showAdminFields>
+    <QuestionForm showAdminFields useHook={useEditQuestion} question={question}>
       <Typography variant="h2">
         Editing Question {match.params.number}
       </Typography>

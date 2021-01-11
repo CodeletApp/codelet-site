@@ -185,7 +185,7 @@ const makeFormDefaultValuesObject = (question) => {
         question.solution.timeComplexity,
         question.timeComplexityBank
       ),
-    published: question.published + "",
+    published: question.published !== undefined && question.published + "",
     questionNumber: question.questionNumber,
     like: question.rating && question.rating.like,
     dislike: question.rating && question.rating.dislike,

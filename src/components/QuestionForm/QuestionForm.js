@@ -1,6 +1,6 @@
 import React from "react";
 import { Controller } from "react-hook-form";
-import { any, bool, object } from "prop-types";
+import { any, bool, object, func } from "prop-types";
 import {
   Container,
   Typography,
@@ -21,10 +21,14 @@ import { ErrorMessage } from "../ErrorMessage";
 export const QuestionForm = ({
   children,
   showSubmissionFineprint,
-  formContent,
   showAdminFields,
+  useHook,
+  question,
 }) => {
   const classes = useStyles();
+
+  const formContent = useHook(question);
+
   const {
     register,
     control,
@@ -622,13 +626,14 @@ export const QuestionForm = ({
 
 QuestionForm.defaultProps = {
   showSubmissionFineprint: false,
-  questionNumber: "",
   showAdminFields: false,
+  question: {},
 };
 
 QuestionForm.propTypes = {
   children: any.isRequired,
   showSubmissionFineprint: bool,
-  formContent: object.isRequired,
   showAdminFields: bool,
+  useHook: func.isRequired,
+  question: object,
 };
