@@ -8,6 +8,10 @@ export const useEditQuestion = (question) => {
 
   const form = useForm();
 
+  const { register, control, handleSubmit, errors, reset, ...rest } = form;
+
+  const [submitError, setSubmitError] = useState("");
+
   useEffect(() => {
     if (question) {
       /**
@@ -18,14 +22,9 @@ export const useEditQuestion = (question) => {
        * We cannot set the defaultValues upon initial creation of the form because question initially starts undefined
        * Using this useEffect, we can update the form by resetting when question updates with the question's default values
        */
-      form.reset(makeFormDefaultValuesObject(question));
+      reset(makeFormDefaultValuesObject(question));
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [question]);
-
-  const { register, control, handleSubmit, errors, ...rest } = form;
-
-  const [submitError, setSubmitError] = useState("");
+  }, [question, reset]);
 
   const onSubmit = async (data) => {
     const {
