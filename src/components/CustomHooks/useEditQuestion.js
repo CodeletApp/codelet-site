@@ -4,12 +4,8 @@ import { string } from "prop-types";
 import { apiRequest, getEnvUrl } from "../../services";
 
 export const useEditQuestion = (question) => {
-  let submitUrl = `questions/number/${question.questionNumber}`;
-
-  const form = useForm();
-
-  const { register, control, handleSubmit, errors, reset, ...rest } = form;
-
+  const submitUrl = `questions/number/${question.questionNumber}`;
+  const { register, control, handleSubmit, errors, reset, ...rest } = useForm();
   const [submitError, setSubmitError] = useState("");
 
   useEffect(() => {

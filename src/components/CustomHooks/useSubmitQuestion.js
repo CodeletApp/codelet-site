@@ -3,8 +3,8 @@ import { useForm } from "react-hook-form";
 import { apiRequest, getEnvUrl } from "../../services";
 
 export const useSubmitQuestion = () => {
-  let submitUrl = "questions/post-question";
-  const { register, control, handleSubmit, errors, ...rest } = useForm();
+  const submitUrl = "questions/post-question";
+  const { register, control, handleSubmit, errors, reset, ...rest } = useForm();
   const [submitError, setSubmitError] = useState("");
 
   const onSubmit = async (data) => {
@@ -67,7 +67,8 @@ export const useSubmitQuestion = () => {
         solution,
       },
     });
-    if (response.status >= 200 && response.status < 300) {
+    if (response.status === 201) {
+      reset();
       window.location.assign("/submit-question/thanks");
     } else {
       setSubmitError(response.data.message);
