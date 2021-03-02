@@ -33,6 +33,10 @@ $screen-md-min: 1200px; // < 1200 px (large desktops
   max-width: 100%;
 }
 
+.screens {
+  max-height: 500px;
+}
+
 h1 {
   font-family: "Muli", sans-serif;
 }
@@ -348,12 +352,11 @@ li {
   width: 60%;
   text-align: center;
   margin: 0 auto;
-  margin-top: 5%;
   margin-bottom: 5%;
+  color: #3a3a3a;
   @media (min-width: $screen-sm-min) {
     font-family: "Montserrat";
     font-size: 38px;
-    font-weight: bold;
     width: 90%;
   }
 }

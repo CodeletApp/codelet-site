@@ -26,11 +26,7 @@ export function SectionThree() {
     <div className="section3">
       <div className="phoneframe2">
         <div>
-          <img
-            src={getScreenURL()}
-            alt="algo-screens"
-            style={{ maxHeight: "500px" }}
-          />
+          <img className="screens" src={getScreenURL()} alt="algo-screens" />
         </div>
       </div>
       <div className="rightSection3">
