@@ -37,7 +37,7 @@ export function SectionThree() {
         <h1 className="headline-h2-section3"> Solving a Question</h1>
         <p
           className={`step-header ${
-            screen === 1 ? "color-secondary" : "color-light"
+            screen === 1 ? "color-active" : "color-light"
           }`}
           onClick={() => changeScreens(1)}
         >
@@ -45,7 +45,7 @@ export function SectionThree() {
         </p>
         <p
           className={`step-header ${
-            screen === 2 ? "color-secondary" : "color-light"
+            screen === 2 ? "color-active" : "color-light"
           }`}
           onClick={() => changeScreens(2)}
         >
@@ -53,7 +53,7 @@ export function SectionThree() {
         </p>
         <p
           className={`step-header ${
-            screen === 3 ? "color-secondary" : "color-light"
+            screen === 3 ? "color-active" : "color-light"
           }`}
           onClick={() => changeScreens(3)}
         >
@@ -61,7 +61,7 @@ export function SectionThree() {
         </p>
         <p
           className={`step-header ${
-            screen === 4 ? "color-secondary" : "color-light"
+            screen === 4 ? "color-active" : "color-light"
           }`}
           onClick={() => changeScreens(4)}
         >
