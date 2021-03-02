@@ -206,47 +206,6 @@ h1 {
   }
 }
 
-.section4 {
-  max-height: 10vh;
-
-  > {
-    h1 {
-      font-size: 50px;
-      margin-top: 8%;
-    }
-
-    form {
-      width: 60%;
-      margin: 0 auto;
-      height: 50%;
-
-      > textarea {
-        width: 99%;
-        height: 50%;
-        margin-top: 10px;
-        font-size: 16px;
-      }
-    }
-  }
-}
-
-.section4 > form > button {
-  width: 50%;
-  margin: 0 auto;
-  padding: 10px;
-  border: none;
-  background-color: var(--primary-color);
-  color: white;
-  font-size: 18px;
-  border-radius: 5px;
-  margin-top: 20px;
-
-  &:hover {
-    background-color: var(--primary-color);
-    cursor: pointer;
-  }
-}
-
 .step-header {
   font-family: "Muli", sans-serif;
   font-size: 20px;
