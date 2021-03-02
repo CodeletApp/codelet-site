@@ -39,6 +39,7 @@ $screen-md-min: 1200px; // < 1200 px (large desktops
   @media (max-width: $screen-sm-min) {
     padding-top: 5%;
     padding-right: 5%;
+    padding-left: 5%;
     padding-bottom: 5%;
   }
 }
@@ -197,7 +198,7 @@ h1 {
 
 .rightSection3 {
   width: 100%;
-  margin: 1% auto auto auto;
+  margin: auto;
   justify-content: space-between;
   @media (min-width: $screen-sm-min) {
     height: 60%;
@@ -258,7 +259,6 @@ li {
   font-size: 35px;
   font-family: "Muli", sans-serif;
   color: var(--light-color);
-  text-decoration: underline;
   @media (min-width: $screen-sm-min) {
     font-size: 55px;
   }

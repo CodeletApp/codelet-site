@@ -17,6 +17,8 @@ export function SectionThree() {
         return "/screenshots/step3.png";
       case 4:
         return "/screenshots/results.png";
+      case 5:
+        return "/screenshots/profile.png";
       default:
         return "#";
     }
@@ -62,6 +64,14 @@ export function SectionThree() {
           onClick={() => changeScreens(4)}
         >
           Check Your Results
+        </p>
+        <p
+          className={`step-header ${
+            screen === 5 ? "color-active" : "color-light"
+          }`}
+          onClick={() => changeScreens(5)}
+        >
+          View Your Progress
         </p>
       </div>
     </div>
