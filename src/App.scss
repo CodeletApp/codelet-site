@@ -208,12 +208,12 @@ h1 {
 
 .step-header {
   font-family: "Muli", sans-serif;
-  font-size: 20px;
-
+  font-size: 15px;
   cursor: pointer;
 
   @media (min-width: $screen-sm-min) {
     font-weight: 300;
+    font-size: 20px;
   }
 }
 
@@ -301,7 +301,7 @@ li {
   align-self: center;
   margin: 0;
   padding-top: 10%;
-  font-size: 30px;
+  font-size: 20px;
   @media (min-width: $screen-sm-min) {
     font-size: 65px;
   }
