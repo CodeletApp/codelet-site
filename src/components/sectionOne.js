@@ -25,12 +25,11 @@ export function SectionOne() {
       </div>
       <div className="rightSection1Box">
         <img
-          className="logo-large"
-          width={450}
+          style={{ maxWidth: "100%" }}
           src="/logos/logo-large-blue.png"
           alt="logo-large"
         />
-        <h2 className="headline-h2">Beat Technical Interviews</h2>
+        <br />
         <p className="headline-p">
           An interactive mobile platform designed to quickly prepare software
           engineers for technical interviews on the go.
