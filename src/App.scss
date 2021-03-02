@@ -361,15 +361,15 @@ li {
   }
 }
 
-.fixed-footer {
-  position: fixed;
+.footer {
   bottom: 0;
   text-align: right;
-  background-color: var(--active-color);
+  background-color: var(--dark-color);
   font-family: "Muli", sans-serif;
   letter-spacing: 0.1em;
   width: 100%;
-  padding: 0.7%;
+  padding-top: 0.7%;
+  padding-bottom: 0.7%;
   z-index: 1;
 
   @media (max-width: $screen-sm-min) {
@@ -378,7 +378,7 @@ li {
 }
 
 .footer-link {
-  color: black;
+  color: var(--light-color);
   margin-right: 3%;
 }
 
