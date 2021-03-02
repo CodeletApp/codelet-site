@@ -1,5 +1,6 @@
 import React from "react";
 import { IPhoneX, Pixel3XL } from "react-device-frames";
+
 export function SectionOne() {
   function scrollToMiddle() {
     window.scrollTo({
@@ -8,15 +9,19 @@ export function SectionOne() {
       top: document.querySelector(".section2").offsetTop,
     });
   }
+
   return (
     <div className="section1">
       <div className="leftSection1">
         <div className="phone-frames">
           <Pixel3XL
             className="android-phone"
-            screenshot="/screenshots/questions.png"
+            screenshot="/screenshots/questionsPixel3XL.png"
           />
-          <IPhoneX className="iphone" screenshot="/screenshots/questions.png" />
+          <IPhoneX
+            className="iphone"
+            screenshot="/screenshots/questionsIPhoneX.png"
+          />
         </div>
         <div className="stores">
           <img src="/logos/google_play.png" alt="google-play" />

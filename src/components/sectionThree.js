@@ -7,7 +7,7 @@ export function SectionThree() {
     setScreen(num);
   };
 
-  const getScreenUrl = () => {
+  const getScreenURL = () => {
     switch (screen) {
       case 1:
         return "/screenshots/step1.png";
@@ -24,9 +24,13 @@ export function SectionThree() {
 
   return (
     <div className="section3">
-      <div className="leftSection3">
-        <div className="phoneframe2">
-          <img src={getScreenUrl()} alt="algo-screens" />
+      <div className="phoneframe2">
+        <div>
+          <img
+            src={getScreenURL()}
+            alt="algo-screens"
+            style={{ maxHeight: "500px" }}
+          />
         </div>
       </div>
       <div className="rightSection3">
