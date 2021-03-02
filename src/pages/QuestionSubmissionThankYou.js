@@ -24,7 +24,7 @@ const useStyles = makeStyles({
 const backgroundTheme = createMuiTheme({
   palette: {
     background: {
-      default: "#397ac2",
+      default: "#1D589A",
     },
   },
 });

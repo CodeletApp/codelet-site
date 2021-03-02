@@ -10,16 +10,6 @@ export function SectionOne() {
   }
   return (
     <div className="section1">
-      <svg
-        role="presentation"
-        className="splash-screen-poly"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="none"
-      >
-        <polygon fill="#1D589A" points="0,77 0,85 100,8 100,1"></polygon>
-        <polygon fill="#397AC2" points="0,84 0,100 100,100 100,7"></polygon>
-      </svg>
-
       <div className="leftSection1">
         <div className="phone-frames">
           <Pixel3XL

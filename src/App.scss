@@ -8,6 +8,25 @@ $screen-xs-min: 768px; // < 768 (xsmall phones)
 $screen-sm-min: 992px; // < 992px (small tablet)
 $screen-md-min: 1200px; // < 1200 px (large desktops
 
+/* Global Styles */
+:root {
+  --primary-color: #1d589a;
+  --secondary-color: #abd1fc;
+  --light-color: #f5f5f5;
+}
+
+.color-primary {
+  color: var(--primary-color);
+}
+
+.color-secondary {
+  color: var(--secondary-color);
+}
+
+.color-light {
+  color: var(--light-color);
+}
+
 h1 {
   font-family: "Muli", sans-serif;
 }
@@ -17,7 +36,7 @@ h1 {
   align-content: center;
   display: flex;
   flex-direction: column;
-  background-color: #f7f7f7;
+  background-color: var(--light-color);
   width: 100%;
 }
 
@@ -28,7 +47,7 @@ h1 {
   // min-height: 100vh;
   margin-top: 5%;
   margin-bottom: 5%;
-  background-color: #f7f7f7;
+  background-color: var(--light-color);
   // For the smallest non mobile device (non-mobile after)
   @media (min-width: $screen-sm-min) {
     align-items: center;
@@ -60,7 +79,7 @@ h1 {
 }
 
 .rightSection1Box > button:hover {
-  background-color: #abd1fc;
+  background-color: var(--secondary-color);
   cursor: pointer;
   color: black;
 }
@@ -94,7 +113,7 @@ h1 {
   display: flex;
   flex-direction: column;
   height: auto;
-  background-color: #397ac2;
+  background-color: var(--primary-color);
   padding-top: 10%;
   padding-bottom: 10%;
   @media (min-width: $screen-sm-min) {
@@ -127,7 +146,7 @@ h1 {
 
 .section2-list {
   font-family: "Muli", sans-serif;
-  color: #f7f7f7;
+  color: var(--light-color);
   list-style: none;
   margin: 2%;
   padding: 0;
@@ -220,14 +239,14 @@ h1 {
   margin: 0 auto;
   padding: 10px;
   border: none;
-  background-color: #397ac2;
+  background-color: var(--primary-color);
   color: white;
   font-size: 18px;
   border-radius: 5px;
   margin-top: 20px;
 
   &:hover {
-    background-color: #255285;
+    background-color: var(--primary-color);
     cursor: pointer;
   }
 }
@@ -280,7 +299,7 @@ li {
 .ul-title {
   font-size: 35px;
   font-family: "Muli", sans-serif;
-  color: #f7f7f7;
+  color: var(--light-color);
   text-decoration: underline;
   @media (min-width: $screen-sm-min) {
     font-size: 55px;
@@ -333,7 +352,7 @@ li {
 
 .headline-h2-section3 {
   font-family: "Muli", sans-serif;
-  color: #f5f5f5;
+  color: var(--light-color);
   align-self: center;
   margin: 0;
   padding-top: 10%;
@@ -364,7 +383,7 @@ li {
   position: fixed;
   bottom: 0;
   text-align: right;
-  background-color: rgb(184, 217, 255);
+  background-color: var(--secondary-color);
   font-family: "Muli", sans-serif;
   letter-spacing: 0.1em;
   width: 100%;
@@ -393,8 +412,8 @@ li {
   max-width: 170px;
   padding: 10px;
   border: none;
-  background-color: #397ac2;
-  color: #f5f5f5;
+  background-color: var(--primary-color);
+  color: var(--light-color);
   font-size: 18px;
   font-family: "Muli", sans-serif;
   letter-spacing: 0.1em;
@@ -412,8 +431,8 @@ li {
   min-width: 150px;
   padding: 10px;
   border-width: 1px;
-  border-color: #255285;
-  background-color: #f5f5f5;
+  border-color: var(--primary-color);
+  background-color: var(--light-color);
   color: black;
   font-size: 18px;
   font-family: "Muli", sans-serif;
@@ -426,24 +445,8 @@ li {
   }
 }
 
-.splash-screen-poly {
-  display: none;
-  @media (min-width: $screen-sm-min) {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    height: 10%;
-    width: 100%;
-    border-bottom: #373f41;
-  }
-}
-
 .custom-text-container {
   padding: 2%;
-}
-
-.background {
-  background: #255285;
 }
 
 .title {
@@ -467,7 +470,7 @@ li {
   padding: 1%;
   font-size: 24px;
   border-radius: 8px;
-  background-color: #abd1fc;
+  background-color: var(--secondary-color);
   border: none;
 }
 

@@ -1,19 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import AppRouter from './routes/AppRouter';
+import AppRouter from "./routes/AppRouter";
 import * as serviceWorker from "./serviceWorker";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#397ac2",
+      main: "#1D589A",
     },
     action: {
-      disabledBackground: 'rgba(57, 122, 194, 0.8)',
-      disabled: 'white'
-    }
+      disabledBackground: "rgba(57, 122, 194, 0.8)",
+      disabled: "white",
+    },
   },
 });
 

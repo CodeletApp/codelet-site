@@ -32,29 +32,33 @@ export function SectionThree() {
       <div className="rightSection3">
         <h1 className="headline-h2-section3"> Solving a Question</h1>
         <p
-          className="step-header"
-          style={{ color: screen === 1 ? "#ABD1FC" : "#f5f5f5" }}
+          className={`step-header ${
+            screen === 1 ? "color-secondary" : "color-light"
+          }`}
           onClick={() => changeScreens(1)}
         >
           Choose Your Approach
         </p>
         <p
-          className="step-header"
-          style={{ color: screen === 2 ? "#ABD1FC" : "#f5f5f5" }}
+          className={`step-header ${
+            screen === 2 ? "color-secondary" : "color-light"
+          }`}
           onClick={() => changeScreens(2)}
         >
           Design Your Algorithm
         </p>
         <p
-          className="step-header"
-          style={{ color: screen === 3 ? "#ABD1FC" : "#f5f5f5" }}
+          className={`step-header ${
+            screen === 3 ? "color-secondary" : "color-light"
+          }`}
           onClick={() => changeScreens(3)}
         >
           Analyze Your Algorithm
         </p>
         <p
-          className="step-header"
-          style={{ color: screen === 4 ? "#ABD1FC" : "#f5f5f5" }}
+          className={`step-header ${
+            screen === 4 ? "color-secondary" : "color-light"
+          }`}
           onClick={() => changeScreens(4)}
         >
           Check Your Results
