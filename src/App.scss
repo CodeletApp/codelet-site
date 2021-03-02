@@ -91,7 +91,6 @@ h1 {
   @media (min-width: $screen-sm-min) {
     width: 35%;
     height: 100%;
-    text-align: left;
     margin-top: 0%;
     > {
       h1 {
@@ -349,11 +348,8 @@ li {
   @media (min-width: $screen-sm-min) {
     font-family: "Montserrat";
     font-size: 38px;
-    font-weight: 500;
-    text-align: left;
-    color: #737b7d;
+    font-weight: bold;
     width: 90%;
-    float: left;
   }
 }
 
