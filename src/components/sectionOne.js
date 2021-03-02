@@ -30,7 +30,7 @@ export function SectionOne() {
       </div>
       <div className="rightSection1Box">
         <img
-          style={{ maxWidth: "100%" }}
+          className="logo-large"
           src="/logos/logo-large-blue.png"
           alt="logo-large"
         />

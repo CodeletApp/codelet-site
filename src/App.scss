@@ -29,6 +29,10 @@ $screen-md-min: 1200px; // < 1200 px (large desktops
   color: var(--light-color);
 }
 
+.logo-large {
+  max-width: 100%;
+}
+
 h1 {
   font-family: "Muli", sans-serif;
 }
@@ -373,12 +377,6 @@ li {
 .footer-link {
   color: black;
   margin-right: 3%;
-}
-
-.logo-large {
-  width: 300px;
-  @media (min-width: $screen-sm-min) {
-  }
 }
 
 .primary-btn-section1 {
