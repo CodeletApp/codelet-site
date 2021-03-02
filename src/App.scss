@@ -35,6 +35,12 @@ $screen-md-min: 1200px; // < 1200 px (large desktops
 
 .screens {
   max-height: 500px;
+
+  @media (max-width: $screen-sm-min) {
+    padding-top: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+  }
 }
 
 h1 {
