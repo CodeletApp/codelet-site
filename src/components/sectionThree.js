@@ -26,9 +26,9 @@ export function SectionThree() {
 
   return (
     <div className="section3">
-      <div className="phoneframe2">
-        <div>
-          <img className="screens" src={getScreenURL()} alt="algo-screens" />
+      <div className="leftSection3">
+        <div className="phoneframe2">
+          <img src={getScreenURL()} alt="algo-screens" />
         </div>
       </div>
       <div className="rightSection3">
