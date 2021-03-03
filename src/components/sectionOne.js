@@ -1,5 +1,6 @@
 import React from "react";
 import { IPhoneX, Pixel3XL } from "react-device-frames";
+
 export function SectionOne() {
   function scrollToMiddle() {
     window.scrollTo({
@@ -8,25 +9,19 @@ export function SectionOne() {
       top: document.querySelector(".section2").offsetTop,
     });
   }
+
   return (
     <div className="section1">
-      <svg
-        role="presentation"
-        className="splash-screen-poly"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="none"
-      >
-        <polygon fill="#1D589A" points="0,77 0,85 100,8 100,1"></polygon>
-        <polygon fill="#397AC2" points="0,84 0,100 100,100 100,7"></polygon>
-      </svg>
-
       <div className="leftSection1">
         <div className="phone-frames">
           <Pixel3XL
             className="android-phone"
-            screenshot="/screenshots/questions.png"
+            screenshot="/screenshots/questionsPixel3XL.png"
           />
-          <IPhoneX className="iphone" screenshot="/screenshots/questions.png" />
+          <IPhoneX
+            className="iphone"
+            screenshot="/screenshots/questionsIPhoneX.png"
+          />
         </div>
         <div className="stores">
           <img src="/logos/google_play.png" alt="google-play" />
@@ -36,11 +31,10 @@ export function SectionOne() {
       <div className="rightSection1Box">
         <img
           className="logo-large"
-          width={450}
           src="/logos/logo-large-blue.png"
           alt="logo-large"
         />
-        <h2 className="headline-h2">Beat Technical Interviews</h2>
+        <br />
         <p className="headline-p">
           An interactive mobile platform designed to quickly prepare software
           engineers for technical interviews on the go.

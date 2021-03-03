@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export function Footer() {
   return (
-    <div className="fixed-footer">
+    <div className="footer">
       <Link className="footer-link" to="/">
         Home
       </Link>
