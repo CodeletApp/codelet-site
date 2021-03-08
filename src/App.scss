@@ -48,9 +48,9 @@ h1 {
 
 .section1 {
   // Mobile first
+  font-family: "Muli", sans-serif;
   display: flex;
   flex-direction: column-reverse;
-  // min-height: 100vh;
   margin-top: 5%;
   margin-bottom: 5%;
   background-color: var(--light-color);
@@ -71,13 +71,14 @@ h1 {
   align-items: center;
   margin: 3%;
   width: auto;
+  flex-direction: column-reverse;
   > .phone-frames > .android-phone {
     display: none;
   }
   //Desktop
   @media (min-width: $screen-sm-min) {
     width: 40%;
-    display: flex;
+
     > .phone-frames > .android-phone {
       display: initial;
     }
@@ -287,7 +288,7 @@ li {
 
 .stores {
   width: 80%;
-  > img {
+  > a img {
     height: 40px;
     margin: 3%;
   }
@@ -296,7 +297,7 @@ li {
     width: 70%;
     justify-content: space-around;
 
-    > img {
+    > a img {
       height: 50px;
       margin-top: 1%;
     }
