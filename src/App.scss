@@ -51,6 +51,7 @@ h1 {
   font-family: "Muli", sans-serif;
   display: flex;
   flex-direction: column-reverse;
+
   margin-top: 5%;
   margin-bottom: 5%;
   background-color: var(--light-color);
@@ -78,6 +79,7 @@ h1 {
   //Desktop
   @media (min-width: $screen-sm-min) {
     width: 40%;
+    flex-direction: column;
 
     > .phone-frames > .android-phone {
       display: initial;
@@ -324,7 +326,7 @@ li {
   color: #3a3a3a;
   @media (min-width: $screen-sm-min) {
     font-family: "Montserrat";
-    font-size: 38px;
+    font-size: 1.8em;
     width: 90%;
   }
 }

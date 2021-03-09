@@ -31,6 +31,9 @@ export function SectionOne() {
             <img src="/logos/app_store.png" alt="apple-store" />
           </a>
         </div>
+        <p className="headline-p">
+          <strong>Open beta now available!</strong>
+        </p>
       </div>
       <div className="rightSection1Box">
         <img
@@ -42,9 +45,6 @@ export function SectionOne() {
         <p className="headline-p">
           An interactive mobile platform designed to quickly prepare software
           engineers for technical interviews on the go.
-        </p>
-        <p className="headline-p">
-          <strong>Limited capacity open beta now available!</strong>
         </p>
 
         <button className="secondary-btn" onClick={() => scrollToMiddle()}>
