@@ -24,9 +24,16 @@ export function SectionOne() {
           />
         </div>
         <div className="stores">
-          <img src="/logos/google_play.png" alt="google-play" />
-          <img src="/logos/app_store.png" alt="apple-store" />
+          <a href="https://play.google.com/store/apps/details?id=com.codeletapp">
+            <img src="/logos/google_play.png" alt="google-play" />
+          </a>
+          <a href="https://testflight.apple.com/join/GwdqhBe8">
+            <img src="/logos/app_store.png" alt="apple-store" />
+          </a>
         </div>
+        <p className="headline-p">
+          <strong>Open beta now available!</strong>
+        </p>
       </div>
       <div className="rightSection1Box">
         <img
@@ -39,9 +46,7 @@ export function SectionOne() {
           An interactive mobile platform designed to quickly prepare software
           engineers for technical interviews on the go.
         </p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScdPx0TSDPYBsEKT2buMK0SkpjcPrze5Ms0IhTw5Yl4vTpxLg/viewform?usp=sf_link">
-          <button className="primary-btn-section1">Join the Beta</button>
-        </a>
+
         <button className="secondary-btn" onClick={() => scrollToMiddle()}>
           Learn More
         </button>
