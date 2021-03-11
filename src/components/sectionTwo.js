@@ -4,38 +4,28 @@ export function SectionTwo() {
   return (
     <div className="section2">
       <div className="innerSectionBox">
-        <p className="ul-title">Mobile</p>
-        <img src="/icons/mobile.png" alt="mobile" />
-        <ul className="section2-list">
-          <li> Codelet is cross platform from the start</li>
-          <li> Mobile means more practice on the go</li>
-          <li>
-            With Codelet, you can practice anywhere and reinforce your interview
-            skills
-          </li>
-        </ul>
-      </div>
-      <div className="innerSectionBox">
-        <p className="ul-title">Faster</p>
         <img src="/icons/bird.png" alt="bird" />
+        <p className="ul-title">Learn Anywhere</p>
+
         <ul className="section2-list">
-          <li> Our questions are simple & let you get straight to the core.</li>
-          <li> More questions in less time means larger breadth of topics. </li>
-          <li> Solve questions without the hassle of coding.</li>
+          <li> Practice coding questions anywhere and anytime</li>
         </ul>
       </div>
       <div className="innerSectionBox">
-        <p className="ul-title">Analytics</p>
-        <img src="/icons/analytics.png" alt="analytics" />
+        <img src="/icons/mobile.png" alt="mobile" />
+        <p className="ul-title">Master The Process</p>
         <ul className="section2-list">
           <li>
-            Question's are scored by sections, giving you insight on what you're
-            excelling at and what your not
+            Become an expert at identifying and analyzing core patterns and
+            approaches
           </li>
-          <li>
-            View your history and customized statistics on your Profile,
-            allowing you to learn from your past
-          </li>
+        </ul>
+      </div>
+      <div className="innerSectionBox">
+        <img src="/icons/analytics.png" alt="analytics" />
+        <p className="ul-title">View Your Progress</p>
+        <ul className="section2-list">
+          <li>View how well you’re doing and where you can improve</li>
         </ul>
       </div>
     </div>
