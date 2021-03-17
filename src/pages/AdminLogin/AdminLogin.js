@@ -15,7 +15,7 @@ export const AdminLogin = () => {
     <Container className={classes.root}>
       <img 
         src="/logos/logo-large-blue.png" 
-        alt="Coldelet"
+        alt="Coldelet-logo"
         className={classes.img}
       />
       <Typography variant="h6" className={classes.typography}>
