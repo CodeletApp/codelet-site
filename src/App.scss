@@ -314,6 +314,7 @@ li {
 }
 
 .headline-p {
+  font-weight: 400;
   width: 60%;
   text-align: center;
   margin: 0 auto;
@@ -321,10 +322,14 @@ li {
   color: #3a3a3a;
   @media (min-width: $screen-sm-min) {
     font-family: "Montserrat";
-    font-size: 1.8em;
+    font-size: 1.3em;
     width: 90%;
   }
 }
+
+.headline-h {
+  font-size: 1.8em;
+} 
 
 .footer {
   bottom: 0;
