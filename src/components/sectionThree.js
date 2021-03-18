@@ -28,7 +28,7 @@ export function SectionThree() {
     <div className="section3">
       <div className="leftSection3">
         <div className="phoneframe2">
-          <img src={getScreenURL()} alt="codelet-questions-flow-screenshots" />
+          <img src={getScreenURL()} alt="Codelet Questions' flow Screenshots" />
         </div>
       </div>
       <div className="rightSection3">

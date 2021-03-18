@@ -39,7 +39,7 @@ export function SectionOne() {
         <img
           className="logo-large"
           src="/logos/logo-large-blue.png"
-          alt="codelet-logo-large"
+          alt="Large Codelet Logo"
         />
         <br />
         <h6 className="headline-p">

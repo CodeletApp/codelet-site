@@ -9,7 +9,7 @@ export const UserLogin = () => {
     <Container className={classes.root}>
       <img 
         src="/logos/logo-large-blue.png" 
-        alt="Coldelet-logo"
+        alt="Large Codelet Logo"
         className={classes.img}
       />
       <LoginForm submitTo="/users/signin" />
