@@ -7,28 +7,44 @@ export function SectionThree() {
     setScreen(num);
   };
 
-  const getScreenURL = () => {
+  const getScreenData = () => {
     switch (screen) {
       case 1:
-        return "/screenshots/step1.png";
+        return {
+          uri: "/screenshots/step1.png",
+          description: 'Codelet: Approach Selection'
+        };
       case 2:
-        return "/screenshots/step2.png";
+        return {
+          uri: "/screenshots/step2.png",
+          description: 'Codelet: Algorithm Selection'
+        };
       case 3:
-        return "/screenshots/step3.png";
+        return {
+          uri: "/screenshots/step3.png",
+          description: 'Codelet: Algorithm Time and Space Complexity Selection'
+        };
       case 4:
-        return "/screenshots/results.png";
+        return {
+          uri: "/screenshots/results.png",
+          description: 'Codelet: Results Screen'
+        };
       case 5:
-        return "/screenshots/profile.png";
+        return  {
+          uri: "/screenshots/profile.png",
+          description: 'Codelet: Profile Screen'
+        };
       default:
-        return "#";
+        return { uri: "#", description: 'No selection' };
     }
   };
+  const { uri, description } = getScreenData();
 
   return (
     <div className="section3">
       <div className="leftSection3">
         <div className="phoneframe2">
-          <img src={getScreenURL()} alt="Codelet Questions' flow Screenshots" />
+          <img src={uri} alt={description} />
         </div>
       </div>
       <div className="rightSection3">
