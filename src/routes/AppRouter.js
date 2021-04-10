@@ -11,8 +11,8 @@ import { Terms } from "../pages/Terms";
 import { QuestionSubmissionThankYou } from "../pages/QuestionSubmissionThankYou";
 import { AdminLogin } from "../pages/AdminLogin";
 import { UserLogin } from "../pages/UserLogin";
-import { AdminDashboard } from "../pages/AdminDashboard";
 import { EditQuestion } from "../pages/EditQuestion";
+import { QuestionTable } from "../pages/QuestionTable";
 
 export const AppRouter = () => (
   <Router>
@@ -36,13 +36,14 @@ export const AppRouter = () => (
       <PrivateAdminRoute
         exact
         path="/cla/questions/portal"
-        component={AdminDashboard}
+        component={QuestionTable}
       />
       <PrivateAdminRoute
         exact
         path="/cla/questions/portal/edit-question/:number"
         component={EditQuestion}
       />
+      <PrivateAdminRoute exact path="/questions" component={QuestionTable} />
     </Switch>
   </Router>
 );
