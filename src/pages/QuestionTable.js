@@ -17,8 +17,6 @@ const useStyles = makeStyles({
   },
 });
 
-const ALL_QUESTIONS_ENDPOINT = "questions/all-questions";
-
 export const QuestionTable = () => {
   const [questions, setQuestions] = useState([]);
   const classes = useStyles();
@@ -26,8 +24,12 @@ export const QuestionTable = () => {
 
   useEffect(() => {
     async function getQuestions() {
+      const ALL_QUESTIONS_ENDPOINT = "questions/all-questions";
       const res = await apiRequest({
         url: `${getEnvUrl()}/${ALL_QUESTIONS_ENDPOINT}`,
+        params: {
+          includeUnpublished: true,
+        },
       });
       setQuestions(res.data);
     }
