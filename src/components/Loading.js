@@ -18,7 +18,7 @@ export default () => (
         margin: "auto",
         display: "block",
       }}
-      alt="Loading..."
+      alt="Loading content"
     />
   </div>
 );

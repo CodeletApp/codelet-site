@@ -13,12 +13,9 @@ export function Footer() {
       <Link className="footer-link" to="/privacy">
         Privacy Policy
       </Link>
-      <a
-        className="footer-link"
-        href="https://docs.google.com/forms/d/e/1FAIpQLScdPx0TSDPYBsEKT2buMK0SkpjcPrze5Ms0IhTw5Yl4vTpxLg/viewform?usp=sf_link"
-      >
-        Join the Beta
-      </a>
+      <Link className="footer-link" to="/feedback">
+        Leave Feedback
+      </Link>
     </div>
   );
 }
