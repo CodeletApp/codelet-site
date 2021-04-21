@@ -57,17 +57,17 @@ export const QuestionTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {questions.map((row) => (
+          {questions.map((question) => (
             <TableRow
               className={classes.tableRow}
-              key={row._id}
-              onClick={() => navigateToQuestion(row.questionNumber)}
+              key={question._id}
+              onClick={() => navigateToQuestion(question.questionNumber)}
             >
               <TableCell component="th" scope="row">
-                {row.title}
+                {question.title}
               </TableCell>
               <TableCell align="right">
-                {row.published ? "True" : "False"}
+                {question.published ? "True" : "False"}
               </TableCell>
             </TableRow>
           ))}
