@@ -15,12 +15,13 @@ const useStyles = makeStyles({
   table: {
     minWidth: 650,
   },
+  tableHead: { fontWeight: 700 },
 });
 
 export const QuestionTable = () => {
-  const [questions, setQuestions] = useState([]);
-  const classes = useStyles();
   const history = useHistory();
+  const classes = useStyles();
+  const [questions, setQuestions] = useState([]);
 
   useEffect(() => {
     async function getQuestions() {
@@ -37,7 +38,7 @@ export const QuestionTable = () => {
   }, []);
 
   function navigateToQuestion(questionNumber) {
-    history.push(`/cla/questions/portal/edit-question/${questionNumber}`);
+    history.push(`/edit-question/${questionNumber}`);
   }
 
   return questions.length ? (
@@ -45,14 +46,16 @@ export const QuestionTable = () => {
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Title</TableCell>
-            <TableCell align="right">Published</TableCell>
+            <TableCell className={classes.tableHead}>Title</TableCell>
+            <TableCell className={classes.tableHead} align="right">
+              Published
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {questions.map((row) => (
             <TableRow
-              key={row.questionNumber}
+              key={row._id}
               onClick={() => navigateToQuestion(row.questionNumber)}
             >
               <TableCell component="th" scope="row">
