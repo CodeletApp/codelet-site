@@ -32,7 +32,7 @@ export const EditQuestion = ({ match }) => {
       </Typography>
     </QuestionForm>
   ) : (
-    <Redirect to="/cla/questions/portal" />
+    <Redirect to="/questions" />
   );
 };
 
