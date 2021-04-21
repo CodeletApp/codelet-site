@@ -1,20 +1,23 @@
-import React from 'react';
-import cookie from 'react-cookies';
-import { Container, Typography,  } from '@material-ui/core';
-import { LoginForm } from '../../components/LoginForm';
-import { useStyles  } from './styles';
+import React from "react";
+import cookie from "react-cookies";
+import { Container, Typography } from "@material-ui/core";
+import { LoginForm } from "../../components/LoginForm";
+import { useStyles } from "./styles";
+import { ONE_WEEK } from "../../constants";
 
 export const AdminLogin = () => {
   const classes = useStyles();
 
   const handleSuccessfulLogin = (data) => {
-    const tokenExpirationTime = 60 * 60;
-    cookie.save('codeletadmincookie', data.token, { path: '/', maxAge: tokenExpirationTime });
-  }
+    cookie.save("codeletadmincookie", data.token, {
+      path: "/",
+      maxAge: ONE_WEEK,
+    });
+  };
   return (
     <Container className={classes.root}>
-      <img 
-        src="/logos/logo-large-blue.png" 
+      <img
+        src="/logos/logo-large-blue.png"
         alt="Large Codelet Logo"
         className={classes.img}
       />
@@ -23,9 +26,9 @@ export const AdminLogin = () => {
       </Typography>
       <LoginForm
         submitTo="/users/cla/signin"
-        redirectTo="/cla/questions/portal"
+        redirectTo="/questions"
         onSuccess={handleSuccessfulLogin}
       />
     </Container>
   );
- }
+};

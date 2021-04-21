@@ -28,19 +28,10 @@ export const AppRouter = () => (
       <PublicRoute exact path="/privacy" component={PrivacyPolicy} />
       <PublicRoute exact path="/terms" component={Terms} />
       <PublicRoute exact path="/login" component={UserLogin} />
-      <PublicRoute
-        exact
-        path="/cla/questions/portal/login"
-        component={AdminLogin}
-      />
+      <PublicRoute exact path="/admin/login" component={AdminLogin} />
       <PrivateAdminRoute
         exact
-        path="/cla/questions/portal"
-        component={QuestionTable}
-      />
-      <PrivateAdminRoute
-        exact
-        path="/cla/questions/portal/edit-question/:number"
+        path="/edit-question/:number"
         component={EditQuestion}
       />
       <PrivateAdminRoute exact path="/questions" component={QuestionTable} />
