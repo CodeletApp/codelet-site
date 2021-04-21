@@ -15,7 +15,11 @@ const useStyles = makeStyles({
   table: {
     minWidth: 650,
   },
+
   tableHead: { fontWeight: 700 },
+  tableRow: {
+    cursor: "pointer",
+  },
 });
 
 export const QuestionTable = () => {
@@ -53,16 +57,17 @@ export const QuestionTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {questions.map((row) => (
+          {questions.map((question) => (
             <TableRow
-              key={row._id}
-              onClick={() => navigateToQuestion(row.questionNumber)}
+              className={classes.tableRow}
+              key={question._id}
+              onClick={() => navigateToQuestion(question.questionNumber)}
             >
               <TableCell component="th" scope="row">
-                {row.title}
+                {question.title}
               </TableCell>
               <TableCell align="right">
-                {row.published ? "True" : "False"}
+                {question.published ? "True" : "False"}
               </TableCell>
             </TableRow>
           ))}
