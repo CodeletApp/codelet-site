@@ -7,7 +7,7 @@ export const AuthRedirect = ({ activate, to }) => {
   const referer = location.state && location.state.referer
   return (
     <>
-      {activate && <Redirect to={to || referer} />}
+      {activate && <Redirect to={referer || to} />}
     </>
   );
 };
