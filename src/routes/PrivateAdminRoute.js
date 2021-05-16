@@ -1,7 +1,6 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
 import cookie from "react-cookies";
-import { Footer } from "../components/Footer";
 import { DashboardNavbar } from "../pages/DasboardNavbar";
 
 export const PrivateAdminRoute = ({ component: Component, ...rest }) => {
@@ -16,7 +15,6 @@ export const PrivateAdminRoute = ({ component: Component, ...rest }) => {
           {token && isAdmin ? (
             <>
               <Component {...props} />
-              <Footer />
             </>
           ) : (
             <Redirect

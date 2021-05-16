@@ -13,28 +13,32 @@ import { AdminLogin } from "../pages/AdminLogin";
 import { UserLogin } from "../pages/UserLogin";
 import { EditQuestion } from "../pages/EditQuestion";
 import { QuestionTable } from "../pages/QuestionTable";
+import { Footer } from "../components/Footer";
 
 export const AppRouter = () => (
   <Router>
     <Switch>
-      <PublicRoute exact path="/" component={Landing} />
-      <PublicRoute exact path="/feedback" component={Feedback} />
-      <PublicRoute exact path="/submit-question" component={SubmitQuestion} />
-      <PublicRoute
-        exact
-        path="/submit-question/thanks"
-        component={QuestionSubmissionThankYou}
-      />
-      <PublicRoute exact path="/privacy" component={PrivacyPolicy} />
-      <PublicRoute exact path="/terms" component={Terms} />
-      <PublicRoute exact path="/login" component={UserLogin} />
-      <PublicRoute exact path="/admin/login" component={AdminLogin} />
-      <PrivateAdminRoute
-        exact
-        path="/edit-question/:number"
-        component={EditQuestion}
-      />
-      <PrivateAdminRoute exact path="/questions" component={QuestionTable} />
+      <div className="container">
+        <PublicRoute exact path="/" component={Landing} />
+        <PublicRoute exact path="/feedback" component={Feedback} />
+        <PublicRoute exact path="/submit-question" component={SubmitQuestion} />
+        <PublicRoute
+          exact
+          path="/submit-question/thanks"
+          component={QuestionSubmissionThankYou}
+        />
+        <PublicRoute exact path="/privacy" component={PrivacyPolicy} />
+        <PublicRoute exact path="/terms" component={Terms} />
+        <PublicRoute exact path="/login" component={UserLogin} />
+        <PublicRoute exact path="/admin/login" component={AdminLogin} />
+        <PrivateAdminRoute
+          exact
+          path="/edit-question/:number"
+          component={EditQuestion}
+        />
+        <PrivateAdminRoute exact path="/questions" component={QuestionTable} />
+        <Footer />
+      </div>
     </Switch>
   </Router>
 );
