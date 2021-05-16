@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Muli:wght@600&display=swap");
 // Max screen sizes variables
 $screen-xs-max: 768px; // < 768 (xsmall phones)
 $screen-sm-max: 992px; // < 992px (small tablet)
@@ -16,7 +17,10 @@ $screen-md-min: 1200px; // < 1200 px (large desktops
   --dark-color: rgb(41, 41, 41);
   --light-color: #ffffff;
 }
-
+#app {
+  height: 100%;
+  min-height: 100vh;
+}
 .color-primary {
   color: var(--primary-color);
 }
@@ -329,27 +333,50 @@ li {
 
 .headline-h {
   font-size: 1.8em;
-} 
+}
 
+.container {
+  position: relative;
+  padding-bottom: 2.5rem;
+}
 .footer {
+  display: flex;
+  position: absolute;
   bottom: 0;
-  text-align: right;
+  width: 100%;
   background-color: var(--dark-color);
   font-family: "Muli", sans-serif;
   letter-spacing: 0.1em;
-  width: 100%;
-  padding-top: 0.7%;
-  padding-bottom: 0.7%;
-  z-index: 1;
-
+  padding: 0.7%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  height: 2.5rem;
   @media (max-width: $screen-sm-min) {
     font-size: 10px;
+    img {
+      display: none;
+    }
   }
-}
+  &__codelet {
+    display: flex;
+    align-items: center;
+    img {
+      height: 1rem;
 
-.footer-link {
-  color: var(--light-color);
-  margin-right: 3%;
+      margin: 1rem;
+    }
+    p {
+      color: white;
+    }
+  }
+
+  &__link {
+    color: var(--light-color);
+    margin: 1rem;
+    text-decoration: none;
+  }
 }
 
 .primary-btn-section1 {
@@ -446,4 +473,11 @@ li {
 form {
   text-align: left;
 }
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Muli:wght@600&display=swap");
+
+.thankyou-container {
+  height: 100vh;
+}
+
+.question-table {
+  height: 100vh;
+}
