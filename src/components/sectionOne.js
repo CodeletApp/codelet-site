@@ -32,7 +32,7 @@ export function SectionOne() {
           </a>
         </div>
         <h6 className="headline-p headline-h">
-          <strong>Open beta now available!</strong>
+          <strong>Now available!</strong>
         </h6>
       </div>
       <div className="rightSection1Box">
@@ -43,7 +43,8 @@ export function SectionOne() {
         />
         <br />
         <h6 className="headline-p">
-          Codelet is a mobile app that quickly prepares software developers for technical interviews.
+          Codelet is a mobile app that quickly prepares software developers for
+          technical interviews.
         </h6>
 
         <button className="secondary-btn" onClick={() => scrollToMiddle()}>
