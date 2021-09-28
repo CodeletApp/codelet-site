@@ -54,7 +54,7 @@ export const ResetPassword = ({ match }) => {
     if (password !== password2) {
       alert("Passwords do not match");
     } else {
-      resetPassword();
+      await resetPassword();
       alert("Password successfully reset");
     }
   };
