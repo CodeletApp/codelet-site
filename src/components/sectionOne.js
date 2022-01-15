@@ -1,5 +1,4 @@
 import React from "react";
-import { IPhoneX, Pixel3XL } from "react-device-frames";
 
 export function SectionOne() {
   function scrollToMiddle() {
@@ -14,14 +13,16 @@ export function SectionOne() {
     <div className="section1">
       <div className="leftSection1">
         <div className="phone-frames">
-          <Pixel3XL
-            className="android-phone"
-            screenshot="/screenshots/questionsPixel3XL.png"
-          />
-          <IPhoneX
-            className="iphone"
-            screenshot="/screenshots/questionsIPhoneX.png"
-          />
+          <img
+            src="/screenshots/QuestionListGooglePixel6.png"
+            className="android-phone phone"
+            alt="android question list"
+          ></img>
+          <img
+            src="/screenshots/iPhoneQuestionList.png"
+            className="phone iphone"
+            alt="ios question list"
+          ></img>
         </div>
         <div className="stores">
           <a href="https://play.google.com/store/apps/details?id=com.codeletapp">
@@ -31,9 +32,6 @@ export function SectionOne() {
             <img src="/logos/app_store.png" alt="Codelet App Store Link" />
           </a>
         </div>
-        <h6 className="headline-p headline-h">
-          <strong>Now available!</strong>
-        </h6>
       </div>
       <div className="rightSection1Box">
         <img

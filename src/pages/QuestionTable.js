@@ -11,6 +11,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import { useHistory } from "react-router-dom";
 
 import { apiRequest, getEnvUrl } from "../services";
+import { Footer } from "../components/Footer";
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
@@ -46,34 +47,37 @@ export const QuestionTable = () => {
   }
 
   return questions.length ? (
-    <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell className={classes.tableHead}>Title</TableCell>
-            <TableCell className={classes.tableHead} align="right">
-              Published
-            </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {questions.map((question) => (
-            <TableRow
-              className={classes.tableRow}
-              key={question._id}
-              onClick={() => navigateToQuestion(question.questionNumber)}
-            >
-              <TableCell component="th" scope="row">
-                {question.title}
-              </TableCell>
-              <TableCell align="right">
-                {question.published ? "True" : "False"}
+    <div className="question-table">
+      <TableContainer component={Paper}>
+        <Table className={classes.table} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell className={classes.tableHead}>Title</TableCell>
+              <TableCell className={classes.tableHead} align="right">
+                Published
               </TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {questions.map((question) => (
+              <TableRow
+                className={classes.tableRow}
+                key={question._id}
+                onClick={() => navigateToQuestion(question.questionNumber)}
+              >
+                <TableCell component="th" scope="row">
+                  {question.title}
+                </TableCell>
+                <TableCell align="right">
+                  {question.published ? "True" : "False"}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      <Footer />
+    </div>
   ) : (
     <CircularProgress />
   );

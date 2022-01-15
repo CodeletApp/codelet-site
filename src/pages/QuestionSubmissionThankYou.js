@@ -32,15 +32,17 @@ const backgroundTheme = createMuiTheme({
 export const QuestionSubmissionThankYou = () => {
   const classes = useStyles();
   return (
-    <MuiThemeProvider theme={backgroundTheme}>
-      <CssBaseline />
-      <Typography className={classes.text} variant="h1">
-        <span className={classes.subText}>
-          Question has been successfully submitted.
-        </span>
-        <br />
-        Thank You!
-      </Typography>
-    </MuiThemeProvider>
+    <div className="thankyou-container">
+      <MuiThemeProvider theme={backgroundTheme}>
+        <CssBaseline />
+        <Typography className={classes.text} variant="h1">
+          <span className={classes.subText}>
+            Question has been successfully submitted.
+          </span>
+          <br />
+          Thank You!
+        </Typography>
+      </MuiThemeProvider>
+    </div>
   );
 };

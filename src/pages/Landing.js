@@ -8,7 +8,7 @@ export const Landing = () => {
     <div className="App">
       <SectionOne />
       <SectionTwo />
-      <SectionThree />
+      {/* <SectionThree /> */}
     </div>
   );
 };
