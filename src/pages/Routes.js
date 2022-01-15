@@ -6,6 +6,7 @@ import { Feedback } from "./Feedback";
 import { PrivacyPolicy } from "./PrivacyPolicy";
 import { Terms } from "./Terms";
 import { QuestionSubmissionThankYou } from "./QuestionSubmissionThankYou";
+import { ResetPassword } from "./ResetPassword";
 
 export const Routes = () => {
   return (
@@ -20,6 +21,7 @@ export const Routes = () => {
       />
       <Route exact path="/privacy" component={PrivacyPolicy} />
       <Route exact path="/terms" component={Terms} />
+      <Route exact path="/reset/:token" component={ResetPassword} />
     </Switch>
   );
 };

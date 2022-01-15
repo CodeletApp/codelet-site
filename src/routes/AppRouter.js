@@ -7,6 +7,7 @@ import { Landing } from "../pages/Landing";
 import { SubmitQuestion } from "../pages/SubmitQuestion";
 import { Feedback } from "../pages/Feedback";
 import { PrivacyPolicy } from "../pages/PrivacyPolicy";
+import { ResetPassword } from "../pages/ResetPassword";
 import { Terms } from "../pages/Terms";
 import { QuestionSubmissionThankYou } from "../pages/QuestionSubmissionThankYou";
 import { AdminLogin } from "../pages/AdminLogin";
@@ -27,6 +28,7 @@ export const AppRouter = () => (
           path="/submit-question/thanks"
           component={QuestionSubmissionThankYou}
         />
+        <PublicRoute exact path="/reset/:token" component={ResetPassword} />
         <PublicRoute exact path="/privacy" component={PrivacyPolicy} />
         <PublicRoute exact path="/terms" component={Terms} />
         <PublicRoute exact path="/login" component={UserLogin} />
