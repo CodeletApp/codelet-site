@@ -10,14 +10,6 @@ export function Footer() {
       <Link className="footer__link" to="/terms">
         Terms & Conditions
       </Link>
-      <div className="footer__codelet">
-        <img
-          className="logo"
-          src="/logos/codelet-c.png"
-          alt="Large Codelet Logo"
-        />
-        <p>Codelet 2021 </p>
-      </div>
       <Link className="footer__link" to="/privacy">
         Privacy Policy
       </Link>

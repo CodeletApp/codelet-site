@@ -20,6 +20,7 @@ $screen-md-min: 1200px; // < 1200 px (large desktops
 #app {
   height: 100%;
   min-height: 100vh;
+  min-width: 100vw;
 }
 .color-primary {
   color: var(--primary-color);
@@ -34,7 +35,7 @@ $screen-md-min: 1200px; // < 1200 px (large desktops
 }
 
 .logo-large {
-  max-width: 100%;
+  max-width: 90%;
 }
 
 h1 {
@@ -69,10 +70,10 @@ h1 {
 
 .leftSection1 {
   //mobile
-  height: 50%;
+  height: 30%;
   text-align: center;
   display: flex;
-  flex-direction: column;
+
   align-items: center;
   margin: 3%;
   width: auto;
@@ -80,13 +81,24 @@ h1 {
   > .phone-frames > .android-phone {
     display: none;
   }
+  > .phone-frames > .iphone {
+    object-fit: contain;
+    width: 70%;
+    display: initial;
+  }
   //Desktop
   @media (min-width: $screen-sm-min) {
-    width: 40%;
+    width: 50%;
     flex-direction: column;
+    min-height: 700px;
 
-    > .phone-frames > .android-phone {
+    > .phone-frames > .phone {
+      width: 50%;
+      object-fit: contain;
       display: initial;
+    }
+    > .phone-frames > .iphone {
+      object-fit: contain;
     }
   }
 }
@@ -125,11 +137,12 @@ h1 {
   display: flex;
   flex-direction: column;
   height: auto;
-  background-color: var(--primary-color);
+  background-color: var(--inactive-color);
   padding-top: 5%;
+  width: 100%;
   @media (min-width: $screen-sm-min) {
     flex-direction: row;
-    height: 300px;
+    height: 350px;
     padding-top: 2%;
     padding-bottom: 0%;
   }
@@ -139,16 +152,16 @@ h1 {
   height: 50%;
   width: 100%;
   margin: 1% auto;
-
+  padding-bottom: 10%;
   > img {
     width: auto;
     margin: 0 auto;
-    height: 24%;
+    height: 100px;
   }
   @media (min-width: $screen-sm-min) {
     > img {
       margin: 0 auto;
-      height: 60%;
+      height: 60px;
     }
   }
 }
@@ -232,12 +245,13 @@ h1 {
 // Not main section scss
 li {
   padding-bottom: 2.5%;
+  color: #3a3a3a;
 }
 
 .phone-frames {
   height: 70%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   @media (min-width: $screen-sm-min) {
     width: 70%;
   }
@@ -264,7 +278,7 @@ li {
 .ul-title {
   font-size: 2rem;
   font-family: "Muli", sans-serif;
-  color: var(--light-color);
+  color: var(--dark-color);
 }
 
 .formTop {
@@ -319,7 +333,8 @@ li {
 
 .headline-p {
   font-weight: 400;
-  width: 60%;
+  font-size: 1.3em;
+  width: 90%;
   text-align: center;
   margin: 0 auto;
   margin-bottom: 5%;
@@ -340,14 +355,14 @@ li {
   padding-bottom: 2.5rem;
 }
 .footer {
+  border-top: 0.5px solid #3a3a3a;
   display: flex;
   position: absolute;
   bottom: 0;
-  width: 100%;
-  background-color: var(--dark-color);
+  width: 100vw;
+  background-color: var(--light-color);
   font-family: "Muli", sans-serif;
   letter-spacing: 0.1em;
-  padding: 0.7%;
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -359,22 +374,11 @@ li {
       display: none;
     }
   }
-  &__codelet {
-    display: flex;
-    align-items: center;
-    img {
-      height: 1rem;
-
-      margin: 1rem;
-    }
-    p {
-      color: white;
-    }
-  }
 
   &__link {
-    color: var(--light-color);
+    color: var(--dark-color);
     margin: 1rem;
+    font-size: 1.3em;
     text-decoration: none;
   }
 }
