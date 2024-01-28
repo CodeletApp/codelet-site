@@ -15,6 +15,7 @@ import { UserLogin } from "../pages/UserLogin";
 import { EditQuestion } from "../pages/EditQuestion";
 import { QuestionTable } from "../pages/QuestionTable";
 import { Footer } from "../components/Footer";
+import { DeleteAccount } from "../pages/DeleteAccount";
 
 export const AppRouter = () => (
   <Router>
@@ -22,6 +23,7 @@ export const AppRouter = () => (
       <div className="container">
         <PublicRoute exact path="/" component={Landing} />
         <PublicRoute exact path="/feedback" component={Feedback} />
+        <PublicRoute exact path="/delete-account" component={DeleteAccount} />
         <PublicRoute exact path="/submit-question" component={SubmitQuestion} />
         <PublicRoute
           exact

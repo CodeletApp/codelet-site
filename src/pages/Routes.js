@@ -7,12 +7,14 @@ import { PrivacyPolicy } from "./PrivacyPolicy";
 import { Terms } from "./Terms";
 import { QuestionSubmissionThankYou } from "./QuestionSubmissionThankYou";
 import { ResetPassword } from "./ResetPassword";
+import { DeleteAccount } from "./DeleteAccount";
 
 export const Routes = () => {
   return (
     <Switch>
       <Route exact path="/" component={Landing} />
       <Route exact path="/feedback" component={Feedback} />
+      <Route exact path="/delete-account" component={DeleteAccount} />
       <Route exact path="/submit-question" component={SubmitQuestion} />
       <Route
         exact
