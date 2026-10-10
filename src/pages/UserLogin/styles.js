@@ -7,10 +7,11 @@ export const useStyles = makeStyles({
     alignItems: "center",
     justifyContent: "center",
     padding: "5%",
-    height: "100vh",
+    minHeight: "70vh",
   },
   img: {
-    width: "40%",
+    width: "80%",
+    maxWidth: 360,
   },
   typography: {
     color: "#a5a5a5",

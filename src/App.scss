@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Muli:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Mulish:wght@400;600;800&display=swap");
 // Max screen sizes variables
 $screen-xs-max: 768px; // < 768 (xsmall phones)
 $screen-sm-max: 992px; // < 992px (small tablet)
@@ -9,19 +9,57 @@ $screen-xs-min: 768px; // < 768 (xsmall phones)
 $screen-sm-min: 992px; // < 992px (small tablet)
 $screen-md-min: 1200px; // < 1200 px (large desktops
 
+$heading-font: "Mulish", "Muli", sans-serif;
+$body-font: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  Roboto, sans-serif;
+$content-width: 1120px;
+
 /* Global Styles */
 :root {
   --primary-color: #1471eb;
+  --primary-dark: #1d589a;
   --active-color: #abd1fc;
-  --inactive-color: #f5f5f5;
+  --inactive-color: #f5f7fa;
   --dark-color: rgb(41, 41, 41);
+  --text-color: #3a3a3a;
+  --muted-color: #6b7280;
+  --border-color: #e5e7eb;
   --light-color: #ffffff;
 }
-#app {
-  height: 100%;
-  min-height: 100vh;
-  min-width: 100vw;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
+
+html {
+  // Leave room for the sticky header when jumping to anchors
+  scroll-padding-top: 72px;
+}
+
+body {
+  color: var(--text-color);
+  background-color: var(--light-color);
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--active-color);
+  outline-offset: 2px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: $heading-font;
+}
+
 .color-primary {
   color: var(--primary-color);
 }
@@ -34,160 +72,439 @@ $screen-md-min: 1200px; // < 1200 px (large desktops
   color: var(--light-color);
 }
 
-.logo-large {
-  max-width: 90%;
-}
-
-h1 {
-  font-family: "Muli", sans-serif;
-}
-
 .App {
-  text-align: center;
-  align-content: center;
   display: flex;
   flex-direction: column;
-  background-color: var(--light-color);
   width: 100%;
 }
 
-.section1 {
-  // Mobile first
-  font-family: "Muli", sans-serif;
+// Layout: header / main / footer, footer pushed to the bottom
+.container {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-  margin-top: 5%;
-  margin-bottom: 5%;
-  background-color: var(--light-color);
-  // For the smallest non mobile device (non-mobile after)
-  @media (min-width: $screen-sm-min) {
+.main {
+  flex: 1 0 auto;
+  width: 100%;
+}
+
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid var(--border-color);
+  backdrop-filter: saturate(180%) blur(8px);
+
+  &__inner {
+    display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: row;
-  }
-}
-
-.leftSection1 {
-  //mobile
-  height: 30%;
-  text-align: center;
-  display: flex;
-
-  align-items: center;
-  margin: 3%;
-  width: auto;
-  flex-direction: column-reverse;
-  > .phone-frames > .android-phone {
-    display: none;
-  }
-  > .phone-frames > .iphone {
-    object-fit: contain;
-    width: 70%;
-    display: initial;
-  }
-  //Desktop
-  @media (min-width: $screen-sm-min) {
-    width: 50%;
-    flex-direction: column;
-    min-height: 700px;
-
-    > .phone-frames > .phone {
-      width: 50%;
-      object-fit: contain;
-      display: initial;
-    }
-    > .phone-frames > .iphone {
-      object-fit: contain;
-    }
-  }
-}
-
-.rightSection1Box > button:hover {
-  background-color: var(--active-color);
-  cursor: pointer;
-  color: black;
-}
-.rightSection1Box {
-  text-align: center;
-  width: 100%;
-  margin-top: 3%;
-  @media (min-width: $screen-sm-min) {
-    width: 35%;
-    height: 100%;
-    margin-top: 0%;
-    > {
-      h1 {
-        font-size: 100px;
-        line-height: 0;
-      }
-
-      h2 {
-        font-size: 40px;
-      }
-
-      p {
-        font-size: 20px;
-      }
-    }
-  }
-}
-
-.section2 {
-  display: flex;
-  flex-direction: column;
-  height: auto;
-  background-color: var(--inactive-color);
-  padding-top: 5%;
-  width: 100%;
-  @media (min-width: $screen-sm-min) {
-    flex-direction: row;
-    height: 350px;
-    padding-top: 2%;
-    padding-bottom: 0%;
-  }
-}
-
-.innerSectionBox {
-  height: 50%;
-  width: 100%;
-  margin: 1% auto;
-  padding-bottom: 10%;
-  > img {
-    width: auto;
+    justify-content: space-between;
+    gap: 16px;
+    max-width: $content-width;
+    height: 64px;
     margin: 0 auto;
-    height: 100px;
+    padding: 0 16px;
   }
-  @media (min-width: $screen-sm-min) {
-    > img {
-      margin: 0 auto;
-      height: 60px;
+
+  &__brand {
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 32px;
+      width: auto;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__link,
+  &__cta {
+    font-family: $heading-font;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    white-space: nowrap;
+    border-radius: 999px;
+    padding: 8px 14px;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  &__link {
+    color: var(--dark-color);
+
+    &:hover {
+      background-color: var(--inactive-color);
+    }
+  }
+
+  &__cta {
+    color: var(--light-color);
+    background-color: var(--primary-color);
+
+    &:hover {
+      background-color: var(--primary-dark);
+    }
+  }
+
+  @media (max-width: 400px) {
+    &__brand img {
+      height: 26px;
+    }
+
+    &__link {
+      display: none;
     }
   }
 }
 
-.section2-list {
-  font-family: "Muli", sans-serif;
-  color: var(--light-color);
-  list-style: none;
-  margin: 2%;
-  padding: 0;
-  margin: 0 auto;
-  margin-top: 20px;
-  width: 65%;
-  @media (min-width: $screen-sm-min) {
-    font-size: 20px;
-    width: 80%;
-    text-align: left;
+/* Hero (landing section 1) */
+.hero {
+  background: linear-gradient(180deg, #f0f6ff 0%, var(--light-color) 100%);
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    max-width: $content-width;
+    margin: 0 auto;
+    padding: 48px 16px 56px;
+
+    @media (min-width: $screen-sm-min) {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 72px 24px;
+    }
+  }
+
+  &__copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 520px;
+
+    @media (min-width: $screen-sm-min) {
+      align-items: flex-start;
+      text-align: left;
+      flex: 1 1 50%;
+    }
+  }
+
+  &__title {
+    margin: 0 0 16px;
+    font-size: clamp(2.25rem, 6vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--primary-dark);
+  }
+
+  &__lead {
+    margin: 0 0 32px;
+    font-family: $body-font;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--text-color);
+
+    @media (min-width: $screen-sm-min) {
+      font-size: 1.3rem;
+    }
+  }
+
+  &__more {
+    margin-top: 24px;
+    font-family: $heading-font;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__phones {
+    --device-width: min(62vw, 250px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 28px;
+    // Room for the frames' side buttons
+    padding: 0 8px;
+
+    @media (min-width: $screen-xs-min) {
+      --device-width: 220px;
+    }
+
+    @media (min-width: $screen-sm-min) {
+      --device-width: 240px;
+      flex: 1 1 50%;
+    }
+  }
+
+  &__phone {
+    // Only show one phone on small screens to keep the page short
+    &--android {
+      display: none;
+
+      @media (min-width: $screen-xs-min) {
+        display: block;
+      }
+    }
+
+    // Stagger the phones slightly when both are visible
+    &--ios {
+      @media (min-width: $screen-xs-min) {
+        margin-top: 48px;
+      }
+    }
   }
 }
 
-.section2-list > li {
-  text-align: center;
-  margin-top: 2%;
-  margin-bottom: 2%;
+/* Phone frames drawn around raw screenshots.
+   Every dimension derives from --w so the frames scale cleanly. */
+.device {
+  --w: var(--device-width, 240px);
+  --frame: #1b1b1d;
+  --edge: #5c5c60;
+  position: relative;
+  flex-shrink: 0;
+  width: var(--w);
+  padding: calc(var(--w) * 0.032);
+  background-color: var(--frame);
+  border-radius: calc(var(--w) * 0.165);
+  box-shadow: 0 0 0 calc(var(--w) * 0.012) var(--edge),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 30px 60px -20px rgba(20, 50, 100, 0.35);
+
+  &__screen {
+    position: relative;
+    overflow: hidden;
+    background-color: #000;
+    border-radius: calc(var(--w) * 0.135);
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    // Camera cutout (Dynamic Island / punch hole)
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #000;
+    }
+  }
+
+  // Side buttons
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: calc(var(--w) * 0.016);
+    background-color: var(--edge);
+  }
+
+  // iPhone 16 style: titanium edge, Dynamic Island,
+  // action + volume buttons on the left, side button on the right
+  &--iphone {
+    --edge: #6e6a66;
+
+    .device__screen::after {
+      top: calc(var(--w) * 0.026);
+      width: calc(var(--w) * 0.3);
+      height: calc(var(--w) * 0.088);
+      border-radius: 999px;
+    }
+
+    &::before {
+      left: calc(var(--w) * -0.026);
+      top: 30%;
+      height: 9%;
+      border-radius: 2px 0 0 2px;
+      box-shadow: 0 calc(var(--w) * -0.2) 0 0 var(--edge),
+        0 calc(var(--w) * 0.23) 0 0 var(--edge);
+    }
+
+    &::after {
+      right: calc(var(--w) * -0.026);
+      top: 28%;
+      height: 14%;
+      border-radius: 0 2px 2px 0;
+    }
+  }
+
+  // Modern Android (Pixel / Galaxy) style: flat aluminium edge,
+  // centred punch-hole camera, power + volume on the right
+  &--android {
+    --edge: #7b8088;
+    border-radius: calc(var(--w) * 0.12);
+
+    .device__screen {
+      border-radius: calc(var(--w) * 0.09);
+    }
+
+    // Covers the screenshot's old 3-button nav bar with the gesture
+    // navigation area used by current Android versions
+    .device__gesture-bar {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 6.3%;
+      background-color: #fff;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 30%;
+        height: calc(var(--w) * 0.014);
+        border-radius: 999px;
+        background-color: #1f1f1f;
+      }
+    }
+
+    .device__screen::after {
+      top: calc(var(--w) * 0.03);
+      width: calc(var(--w) * 0.05);
+      height: calc(var(--w) * 0.05);
+      border-radius: 50%;
+    }
+
+    &::before {
+      right: calc(var(--w) * -0.026);
+      top: 22%;
+      height: 8%;
+      border-radius: 0 2px 2px 0;
+    }
+
+    &::after {
+      right: calc(var(--w) * -0.026);
+      top: 34%;
+      height: 16%;
+      border-radius: 0 2px 2px 0;
+    }
+  }
 }
 
+/* App store badges */
+.stores {
+  --badge-height: 48px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  @media (min-width: $screen-sm-min) {
+    justify-content: flex-start;
+  }
+
+  &__badge {
+    display: inline-flex;
+    line-height: 0;
+    border-radius: 8px;
+    transition: transform 0.15s ease;
+
+    &:hover {
+      transform: translateY(-1px);
+    }
+
+    img {
+      max-width: none;
+      width: auto;
+    }
+
+    &--apple img {
+      height: var(--badge-height);
+    }
+
+    // The official Google Play PNG has built-in clear space
+    // (~1/6 of its height on each side); scale it up and pull the
+    // padding back in so the visible badge matches the Apple one.
+    &--google img {
+      height: calc(var(--badge-height) * 1.5);
+      margin: calc(var(--badge-height) * -0.25)
+        calc(var(--badge-height) * -0.25);
+    }
+  }
+}
+
+/* Features (landing section 2) */
+.features {
+  background-color: var(--inactive-color);
+
+  &__inner {
+    max-width: $content-width;
+    margin: 0 auto;
+    padding: 56px 16px;
+
+    @media (min-width: $screen-sm-min) {
+      padding: 80px 24px;
+    }
+  }
+
+  &__heading {
+    margin: 0 0 32px;
+    text-align: center;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    color: var(--dark-color);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    @media (min-width: $screen-xs-min) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+  }
+}
+
+.feature {
+  text-align: center;
+  background-color: var(--light-color);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 32px 24px;
+
+  &__icon {
+    height: 64px;
+    width: auto;
+  }
+
+  &__title {
+    margin: 16px 0 8px;
+    font-size: 1.35rem;
+    color: var(--dark-color);
+  }
+
+  &__text {
+    margin: 0;
+    font-family: $body-font;
+    line-height: 1.6;
+    color: var(--muted-color);
+  }
+}
+
+/* Section 3 (currently unused) */
 .section3 {
   display: flex;
   flex-direction: column-reverse;
@@ -232,7 +549,7 @@ h1 {
 }
 
 .step-header {
-  font-family: "Muli", sans-serif;
+  font-family: $heading-font;
   font-size: 15px;
   cursor: pointer;
 
@@ -240,25 +557,6 @@ h1 {
     font-weight: 300;
     font-size: 20px;
   }
-}
-
-// Not main section scss
-li {
-  padding-bottom: 2.5%;
-  color: #3a3a3a;
-}
-
-.phone-frames {
-  height: 70%;
-  display: flex;
-  justify-content: center;
-  @media (min-width: $screen-sm-min) {
-    width: 70%;
-  }
-}
-
-.iphone {
-  margin-left: 2%;
 }
 
 .phoneframe2 {
@@ -275,52 +573,8 @@ li {
   }
 }
 
-.ul-title {
-  font-size: 2rem;
-  font-family: "Muli", sans-serif;
-  color: var(--dark-color);
-}
-
-.formTop {
-  display: inline;
-
-  > input {
-    width: 48%;
-    height: 25px;
-    padding: 5px;
-    font-size: 16px;
-  }
-}
-
-.input1 {
-  float: left;
-}
-
-.input2 {
-  float: right;
-}
-
-.stores {
-  width: 80%;
-  margin-top: 1%;
-  > a img {
-    height: 40px;
-    margin: 3%;
-  }
-  @media (min-width: $screen-sm-min) {
-    display: inline-flex;
-    width: 70%;
-    justify-content: space-around;
-
-    > a img {
-      height: 50px;
-      margin-top: 1%;
-    }
-  }
-}
-
 .headline-h2-section3 {
-  font-family: "Muli", sans-serif;
+  font-family: $heading-font;
   color: var(--light-color);
   align-self: center;
   margin: 0;
@@ -331,155 +585,107 @@ li {
   }
 }
 
-.headline-p {
-  font-weight: 400;
-  font-size: 1.3em;
-  width: 90%;
-  text-align: center;
-  margin: 0 auto;
-  margin-bottom: 5%;
-  color: #3a3a3a;
-  @media (min-width: $screen-sm-min) {
-    font-family: "Montserrat";
-    font-size: 1.3em;
-    width: 90%;
-  }
-}
-
-.headline-h {
-  font-size: 1.8em;
-}
-
-.container {
-  position: relative;
-  padding-bottom: 2.5rem;
-}
+/* Footer */
 .footer {
-  border-top: 0.5px solid #3a3a3a;
-  display: flex;
-  position: absolute;
-  bottom: 0;
-  width: 100vw;
+  flex-shrink: 0;
+  border-top: 1px solid var(--border-color);
   background-color: var(--light-color);
-  font-family: "Muli", sans-serif;
-  letter-spacing: 0.1em;
+  font-family: $heading-font;
   text-align: center;
-  justify-content: center;
-  align-items: center;
-  font-size: 14px;
-  height: 2.5rem;
-  @media (max-width: $screen-sm-min) {
-    font-size: 10px;
-    img {
-      display: none;
-    }
+  padding: 24px 16px;
+
+  &__nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px 8px;
   }
 
   &__link {
     color: var(--dark-color);
-    margin: 1rem;
-    font-size: 1.3em;
+    font-size: 14px;
+    font-weight: 600;
     text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 6px;
+
+    &:hover {
+      color: var(--primary-color);
+      background-color: var(--inactive-color);
+    }
+  }
+
+  &__copy {
+    margin: 12px 0 0;
+    font-size: 13px;
+    color: var(--muted-color);
   }
 }
 
-.primary-btn-section1 {
-  width: 55%;
-  margin: 0 auto;
-  max-width: 170px;
-  padding: 10px;
-  border: none;
-  background-color: var(--primary-color);
-  color: var(--light-color);
-  font-size: 18px;
-  font-family: "Muli", sans-serif;
-  letter-spacing: 0.1em;
-  border-radius: 5px;
-  cursor: pointer;
-  justify-self: center;
-
-  @media (min-width: $screen-sm-min) {
-    width: 200px;
-  }
-}
-
-.secondary-btn {
-  margin: 1%;
-  min-width: 150px;
-  padding: 10px;
-  border-width: 1px;
-  border-color: var(--primary-color);
-  background-color: var(--light-color);
-  color: black;
-  font-size: 18px;
-  font-family: "Muli", sans-serif;
-  letter-spacing: 0.1em;
-  border-radius: 5px;
-  justify-self: center;
-  @media (min-width: $screen-sm-min) {
-    width: 25%;
-    margin: 0 auto auto 2%;
-  }
-}
-
+/* Long-form text pages (Terms, Privacy) */
 .custom-text-container {
-  padding: 2%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 16px 56px;
+  font-family: $body-font;
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+
+  > strong:first-child {
+    display: block;
+    margin-bottom: 24px;
+    font-family: $heading-font;
+    font-size: clamp(1.75rem, 5vw, 2.25rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--dark-color);
+  }
+
+  a {
+    color: var(--primary-color);
+  }
+
+  ul {
+    padding-left: 20px;
+  }
 }
 
 .title {
   text-align: center;
-  font-size: 36px;
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
   font-weight: bolder;
 }
 
-.subtitle {
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
+/* Reset password */
+.reset-password {
+  padding: 40px 16px;
+
+  &__form {
+    display: flex;
+    justify-content: center;
+
+    form {
+      width: 100%;
+      max-width: 360px;
+
+      .MuiTextField-root {
+        width: 100%;
+      }
+    }
+  }
 }
 
-.form-group {
-  text-align: center;
-}
-
-.submit-button {
-  width: 10%;
-  padding: 1%;
-  font-size: 24px;
-  border-radius: 8px;
-  background-color: var(--active-color);
-  border: none;
-}
-
-.input-label {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.form-input,
-.form-input-small,
-.form-textarea {
-  width: 20%;
-  border: none;
-  border-radius: 8px;
-  margin: 0.25%;
-  padding: 0.5% 0%;
-}
-
-.form-input-small {
-  font-size: x-small;
-}
-
-.form-input,
-.form-input-small {
-  text-align: center;
-}
 form {
   text-align: left;
 }
 
 .thankyou-container {
-  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding: 16px;
 }
 
 .question-table {
