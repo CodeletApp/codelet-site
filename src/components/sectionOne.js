@@ -23,15 +23,8 @@ export function SectionOne() {
         </div>
         <div className="hero__phones">
           <DeviceFrame
-            device="android"
-            src="/screenshots/android-question-list.jpg"
-            className="hero__phone hero__phone--android"
-            alt="Codelet question list on Android"
-          />
-          <DeviceFrame
             device="iphone"
             src="/screenshots/ios-question-list.png"
-            className="hero__phone hero__phone--ios"
             alt="Codelet question list on iPhone"
           />
         </div>

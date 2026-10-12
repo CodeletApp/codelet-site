@@ -236,36 +236,16 @@ h3 {
     --device-width: min(62vw, 250px);
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    gap: 28px;
-    // Room for the frames' side buttons
+    // Room for the frame's side buttons
     padding: 0 8px;
 
     @media (min-width: $screen-xs-min) {
-      --device-width: 220px;
+      --device-width: 260px;
     }
 
     @media (min-width: $screen-sm-min) {
-      --device-width: 240px;
+      --device-width: 280px;
       flex: 1 1 50%;
-    }
-  }
-
-  &__phone {
-    // Only show one phone on small screens to keep the page short
-    &--android {
-      display: none;
-
-      @media (min-width: $screen-xs-min) {
-        display: block;
-      }
-    }
-
-    // Stagger the phones slightly when both are visible
-    &--ios {
-      @media (min-width: $screen-xs-min) {
-        margin-top: 48px;
-      }
     }
   }
 }
@@ -432,15 +412,6 @@ h3 {
 
     &--apple img {
       height: var(--badge-height);
-    }
-
-    // The official Google Play PNG has built-in clear space
-    // (~1/6 of its height on each side); scale it up and pull the
-    // padding back in so the visible badge matches the Apple one.
-    &--google img {
-      height: calc(var(--badge-height) * 1.5);
-      margin: calc(0px - var(--badge-height) * 0.25)
-        calc(0px - var(--badge-height) * 0.25);
     }
   }
 }
