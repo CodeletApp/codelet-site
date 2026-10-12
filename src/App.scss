@@ -330,16 +330,16 @@ h3 {
     }
 
     &::before {
-      left: calc(var(--w) * -0.026);
+      left: calc(0px - var(--w) * 0.026);
       top: 30%;
       height: 9%;
       border-radius: 2px 0 0 2px;
-      box-shadow: 0 calc(var(--w) * -0.2) 0 0 var(--edge),
+      box-shadow: 0 calc(0px - var(--w) * 0.2) 0 0 var(--edge),
         0 calc(var(--w) * 0.23) 0 0 var(--edge);
     }
 
     &::after {
-      right: calc(var(--w) * -0.026);
+      right: calc(0px - var(--w) * 0.026);
       top: 28%;
       height: 14%;
       border-radius: 0 2px 2px 0;
@@ -387,14 +387,14 @@ h3 {
     }
 
     &::before {
-      right: calc(var(--w) * -0.026);
+      right: calc(0px - var(--w) * 0.026);
       top: 22%;
       height: 8%;
       border-radius: 0 2px 2px 0;
     }
 
     &::after {
-      right: calc(var(--w) * -0.026);
+      right: calc(0px - var(--w) * 0.026);
       top: 34%;
       height: 16%;
       border-radius: 0 2px 2px 0;
@@ -439,8 +439,8 @@ h3 {
     // padding back in so the visible badge matches the Apple one.
     &--google img {
       height: calc(var(--badge-height) * 1.5);
-      margin: calc(var(--badge-height) * -0.25)
-        calc(var(--badge-height) * -0.25);
+      margin: calc(0px - var(--badge-height) * 0.25)
+        calc(0px - var(--badge-height) * 0.25);
     }
   }
 }
