@@ -35,7 +35,7 @@ export const QuestionSubmissionThankYou = () => {
     <div className="thankyou-container">
       <MuiThemeProvider theme={backgroundTheme}>
         <CssBaseline />
-        <Typography className={classes.text} variant="h1">
+        <Typography className={classes.text} variant="h2">
           <span className={classes.subText}>
             Question has been successfully submitted.
           </span>

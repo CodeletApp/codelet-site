@@ -66,9 +66,9 @@ export const ResetPassword = ({ match }) => {
   return loading ? (
     <Loading />
   ) : (
-    <div className="full-page">
+    <div className="reset-password">
       <h1 className="title">Reset Password</h1>
-      <div className="section1">
+      <div className="reset-password__form">
         <form onSubmit={(e) => onSubmit(e)}>
           <Grid container direction="column">
             <Grid item>

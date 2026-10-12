@@ -14,36 +14,50 @@ import { AdminLogin } from "../pages/AdminLogin";
 import { UserLogin } from "../pages/UserLogin";
 import { EditQuestion } from "../pages/EditQuestion";
 import { QuestionTable } from "../pages/QuestionTable";
+import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
+import { ScrollManager } from "../components/ScrollManager";
 import { DeleteAccount } from "../pages/DeleteAccount";
 
 export const AppRouter = () => (
   <Router>
-    <Switch>
-      <div className="container">
-        <PublicRoute exact path="/" component={Landing} />
-        <PublicRoute exact path="/feedback" component={Feedback} />
-        <PublicRoute exact path="/delete-account" component={DeleteAccount} />
-        <PublicRoute exact path="/submit-question" component={SubmitQuestion} />
-        <PublicRoute
-          exact
-          path="/submit-question/thanks"
-          component={QuestionSubmissionThankYou}
-        />
-        <PublicRoute exact path="/reset/:token" component={ResetPassword} />
-        <PublicRoute exact path="/privacy" component={PrivacyPolicy} />
-        <PublicRoute exact path="/terms" component={Terms} />
-        <PublicRoute exact path="/login" component={UserLogin} />
-        <PublicRoute exact path="/admin/login" component={AdminLogin} />
-        <PrivateAdminRoute
-          exact
-          path="/edit-question/:number"
-          component={EditQuestion}
-        />
-        <PrivateAdminRoute exact path="/questions" component={QuestionTable} />
-        <Footer />
-      </div>
-    </Switch>
+    <ScrollManager />
+    <div className="container">
+      <Header />
+      <main className="main">
+        <Switch>
+          <PublicRoute exact path="/" component={Landing} />
+          <PublicRoute exact path="/feedback" component={Feedback} />
+          <PublicRoute exact path="/delete-account" component={DeleteAccount} />
+          <PublicRoute
+            exact
+            path="/submit-question"
+            component={SubmitQuestion}
+          />
+          <PublicRoute
+            exact
+            path="/submit-question/thanks"
+            component={QuestionSubmissionThankYou}
+          />
+          <PublicRoute exact path="/reset/:token" component={ResetPassword} />
+          <PublicRoute exact path="/privacy" component={PrivacyPolicy} />
+          <PublicRoute exact path="/terms" component={Terms} />
+          <PublicRoute exact path="/login" component={UserLogin} />
+          <PublicRoute exact path="/admin/login" component={AdminLogin} />
+          <PrivateAdminRoute
+            exact
+            path="/edit-question/:number"
+            component={EditQuestion}
+          />
+          <PrivateAdminRoute
+            exact
+            path="/questions"
+            component={QuestionTable}
+          />
+        </Switch>
+      </main>
+      <Footer />
+    </div>
   </Router>
 );
 

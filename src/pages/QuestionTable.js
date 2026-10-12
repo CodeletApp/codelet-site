@@ -11,7 +11,6 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import { useHistory } from "react-router-dom";
 
 import { apiRequest, getEnvUrl } from "../services";
-import { Footer } from "../components/Footer";
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
@@ -76,7 +75,6 @@ export const QuestionTable = () => {
           </TableBody>
         </Table>
       </TableContainer>
-      <Footer />
     </div>
   ) : (
     <CircularProgress />
